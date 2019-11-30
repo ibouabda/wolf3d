@@ -6,7 +6,7 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/11/22 12:03:04 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/11/30 13:40:16 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME = wolf3d
 
 ### INCLUDES ###
 
-SRC_NAME = main.c mlx_img.c interface.c key_hook.c fractal.c
+SRC_NAME = main.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl
