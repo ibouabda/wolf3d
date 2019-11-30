@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/11/30 13:50:40 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/11/30 17:37:48 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,13 @@
 typedef struct	s_env
 {
 	int				bool;
-	int				depx;
-	int				depy;
+	int				mapx;
+	int				mapy;
 	int				winx;
 	int				winy;
 	int				midx;
 	int				midy;
+	char			**dbtab;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;

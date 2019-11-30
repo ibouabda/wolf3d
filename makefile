@@ -6,13 +6,13 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/11/30 13:43:44 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/11/30 17:11:37 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
 
-CC = gcc
+CC = gcc -g
 
 CFLAGS = -Wall -Werror -Wextra
 
