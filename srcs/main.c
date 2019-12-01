@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/11/30 18:01:51 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:54:56 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("error");
+	while (1);
 	exit(err);
 }
 
@@ -195,5 +196,6 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
+	while (1);
 	return (0);
 }
