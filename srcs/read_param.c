@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 16:51:45 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/01 19:51:41 by retounsi         ###   ########.fr       */
+/*   Created: 2019/11/30 16:03:26 by retounsi          #+#    #+#             */
+/*   Updated: 2019/12/01 19:58:05 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/libft.h"
+#include "../incl/wolf3d.h"
 
-char	*ft_strnew(size_t size)
+void	read_path(char *line, t_env *e, int i, char **str)
 {
-	char	*str;
-	size_t	i;
+	size_t c;
 
-	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1))))
-	{
-		ft_putendl("ft_strnew malloc error");
-		exit(EXIT_FAILURE);
-	}
-	while (i < size + 1)
-	{
-		str[i] = '\0';
+	c = 0;
+	if (!line[i] || line[i] != ' ')
+		ft_exit_params(e);
+	while (line[i] && line[i] == ' ')
 		i++;
-	}
-	return (str);
+	if (*str)
+		ft_exit_params(e);
+	if (!(*str = ft_strnew(ft_strlen(line + i))))
+		ft_exit_params(e);
+	while (line[i] && line[i] != ' ' && ft_isprint(line[i]))
+		(*str)[c++] = line[i++];
+	if (line[i])
+		ft_exit_params(e);
 }

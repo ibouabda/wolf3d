@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/11/30 13:50:40 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/01 19:44:03 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,40 @@ typedef struct	s_env
 	int				winy;
 	int				midx;
 	int				midy;
+	char			*north_texture;
+	char			*south_texture;
+	char			*west_texture;
+	char			*east_texture;
+	char			*sprite_texture;
+	int				*floor_color;
+	int				*ceiling_color;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
 	void			*img_ptr;
 	char			*img_string;
 }				t_env;
+
+// typedef struct	s_func
+// {
+// 	char	name[2];
+// 	void	(*ft)(char *line, t_env *e, int i);
+// }				t_func;
+
+void	read_res(char *line, t_env *e, int i);
+void	read_path(char *line, t_env *e, int i, char **str);
+void	read_colors(char *line, t_env *e, int i, int **tab);
+int		read_first_param(int fd, t_env *e);
+void	ft_exit_params(t_env *e);
+
+// static const t_func g_func[] = {
+// 	{"R", &read_res},
+// 	{"NO", &read_path},
+// 	{"SO", &read_path},
+// 	{"WE", &read_path},
+// 	{"EA", &read_path},
+// 	{"S", &read_path},
+
+// }
 
 #endif
