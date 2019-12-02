@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 14:28:16 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:43:04 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		read_file(int fd, t_env *e)
 	e->mapx = 0;
 	e->dbtab = NULL;
 	while (get_next_line(fd, &line) && !line[0])
-		;
+		ft_strdel(&line);
 	m = ft_lstnewd(line, 0);
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -130,6 +130,7 @@ void		checkandparse(char *argv, t_env *e)
 		ft_exit(1, NULL, NULL);
 	}
 	read_first_param(fd, e);
+	e->bool = 0;
 	read_file(fd, e);
 	verify_map(e);
 	close(fd);
