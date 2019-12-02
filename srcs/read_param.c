@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 11:16:52 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 11:20:59 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,27 @@ void	read_res(char *line, t_env *e, int i)
 		i++;
 }
 
+void search_id(char *line, t_env *e)
+{
+	if (line[0] == 'R')
+		read_res(line, e, 1);
+	if (line[0] == 'S')
+		read_path(line, e, 1, &e->sprite_texture);
+	if (line[0] == 'F')
+		read_colors(line, e, 1, &e->floor_color);
+	if (line[0] == 'C')
+		read_colors(line, e, 1, &e->ceiling_color);
+	if (line[0] == 'N' && line[1] == 'O')
+		read_path(line, e, 2, &e->north_texture);
+	if (line[0] == 'S' && line[1] == 'O')
+		read_path(line, e, 2, &e->south_texture);
+	if (line[0] == 'W' && line[1] == 'E')
+		read_path(line, e, 2, &e->west_texture);
+	if (line[0] == 'E' && line[1] == 'A')
+		read_path(line, e, 2, &e->east_texture);
+	ft_strdel(&line);
+}
+
 int		read_first_param(int fd, t_env *e)
 {
 	char	*line;
@@ -94,25 +115,7 @@ int		read_first_param(int fd, t_env *e)
 	e->east_texture = NULL;
 	e->sprite_texture = NULL;
 	while (get_next_line(fd, &line))
-	{
-		if (line[0] == 'R')
-			read_res(line, e, 1);
-		if (line[0] == 'S')
-			read_path(line, e, 1, &e->sprite_texture);
-		if (line[0] == 'F')
-			read_colors(line, e, 1, &e->floor_color);
-		if (line[0] == 'C')
-			read_colors(line, e, 1, &e->ceiling_color);
-		if (line[0] == 'N' && line[1] == 'O')
-			read_path(line, e, 2, &e->north_texture);
-		if (line[0] == 'S' && line[1] == 'O')
-			read_path(line, e, 2, &e->south_texture);
-		if (line[0] == 'W' && line[1] == 'E')
-			read_path(line, e, 2, &e->west_texture);
-		if (line[0] == 'E' && line[1] == 'A')
-			read_path(line, e, 2, &e->east_texture);
-		ft_strdel(&line);
-	}
-	ft_strdel(&line);
+		search_id(line, e);
+	search_id(line, e);
 	return (0);
 }
