@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 12:23:06 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 14:31:05 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("error");
-	while (1);
+	// while (1);
 	exit(err);
 }
 
@@ -51,12 +51,12 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		ft_exit(1, NULL, NULL);
 	checkandparse(argv[1], &e);
-	ft_puttabint(e.ceiling_color, 3);
-	ft_puttabint(e.floor_color, 3);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
-	printf("%s\n%s\n%s\n%s\n%s\n", e.west_texture, e.east_texture, e.north_texture, e.sprite_texture,
-	e.south_texture);
+	printf("%s\n%s\n%s\n%s\n%s\n", e.west_texture, e.east_texture, e.north_texture, e.sprite_texture, e.south_texture);
+	ft_puttabint(e.ceiling_color, 3);
+	ft_puttabint(e.floor_color, 3);
+	ft_putendl("");
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
