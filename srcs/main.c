@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 15:03:40 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 10:09:22 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 12:10:49 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_exit_params(t_env *e)
 		ft_memdel((void**)&e->floor_color);
 	if (e->ceiling_color)
 		ft_memdel((void**)&e->ceiling_color);
-	while (1);
+	ft_putendl("Error");
 	exit(1);
 }
 

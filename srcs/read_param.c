@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 11:20:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 12:10:11 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	read_path(char *line, t_env *e, int i, char **str)
 		(*str)[c++] = line[i++];
 	if (line[i])
 		ft_exit_params(e);
+	e->bool = 1;
 }
 
 void	read_colors(char *line, t_env *e, int i, int **tab)
@@ -53,9 +54,9 @@ void	read_colors(char *line, t_env *e, int i, int **tab)
 		if (line[i] == ',')
 			i++;
 	}
-	printf("%i\n", *tab[0]);
-	if (line[i] || (*tab)[c] == -1 || !ft_isdigit(line[i - 1]))
+	if (line[i] || !ft_isdigit(line[i - 1]) || (c < 3 && (*tab)[c] == -1))
 		ft_exit_params(e);
+	e->bool = 1;
 }
 
 void	read_res(char *line, t_env *e, int i)
@@ -78,13 +79,14 @@ void	read_res(char *line, t_env *e, int i)
 	e->winy = ft_atoi(line + i);
 	while (line[i] && ft_isdigit(line[i]))
 		i++;
+	e->bool = 1;
 }
 
 void search_id(char *line, t_env *e)
 {
 	if (line[0] == 'R')
 		read_res(line, e, 1);
-	if (line[0] == 'S')
+	if (line[0] == 'S' && line[1] != 'O')
 		read_path(line, e, 1, &e->sprite_texture);
 	if (line[0] == 'F')
 		read_colors(line, e, 1, &e->floor_color);
@@ -105,6 +107,7 @@ int		read_first_param(int fd, t_env *e)
 {
 	char	*line;
 
+	e->bool = 0;
 	e->winx = 0;
 	e->winy = 0;
 	e->floor_color = NULL;
@@ -117,5 +120,7 @@ int		read_first_param(int fd, t_env *e)
 	while (get_next_line(fd, &line))
 		search_id(line, e);
 	search_id(line, e);
+	if (e->bool == 0)
+		ft_exit_params(e);
 	return (0);
 }
