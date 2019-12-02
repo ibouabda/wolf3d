@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 14:31:05 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:05:26 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("error");
-	// while (1);
+	while (1);
 	exit(err);
 }
 
@@ -41,6 +41,7 @@ void	ft_exit_params(t_env *e)
 	if (e->ceiling_color)
 		ft_memdel((void**)&e->ceiling_color);
 	ft_putendl("Error");
+	while (1);
 	exit(1);
 }
 

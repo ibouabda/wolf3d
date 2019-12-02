@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:43:13 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 11:43:51 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 14:53:18 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ int		ft_analyze_line(char *line, int i, int nbvar)
 		i++;
 	while (line[i])
 	{
-		if (ft_iscorrect(line[i]) == 0)
+		if (!ft_iscorrect(line[i]))
 			return (0);
 		i++;
+		if (line[i] && line[i] != ' ')
+			return(0);
 		while (line[i] == ' ')
 			i++;
 		nbvar++;
