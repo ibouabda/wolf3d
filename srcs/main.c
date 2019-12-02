@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 15:03:40 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 10:09:22 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 11:55:28 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_exit_params(t_env *e)
 		ft_memdel((void**)&e->floor_color);
 	if (e->ceiling_color)
 		ft_memdel((void**)&e->ceiling_color);
+	ft_putendl("Error");
 	while (1);
 	exit(1);
 }
