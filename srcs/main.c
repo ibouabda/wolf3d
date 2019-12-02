@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 15:03:40 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/01 20:01:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 10:09:22 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	ft_exit_params(t_env *e)
 {
-	printf("a\n");
 	if (e->east_texture)
 		ft_strdel(&e->east_texture);
 	if (e->north_texture)
@@ -30,6 +29,7 @@ void	ft_exit_params(t_env *e)
 		ft_memdel((void**)&e->floor_color);
 	if (e->ceiling_color)
 		ft_memdel((void**)&e->ceiling_color);
+	while (1);
 	exit(1);
 }
 

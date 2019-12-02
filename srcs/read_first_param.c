@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/01 20:00:51 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 11:05:07 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ void	read_colors(char *line, t_env *e, int i, int **tab)
 	c = 0;
 	if (*tab)
 		ft_exit_params(e);
-	if (!(*tab = (int*)malloc(sizeof(int) * 3)))
-		ft_exit_params(e);
+	*tab = ft_intnew_clean(3);
 	if (!line[i] || line[i] != ' ')
 		ft_exit_params(e);
 	while (line[i] && line[i] == ' ')
 		i++;
-	while (line[i])
+	while (line[i] && c < 3)
 	{
 		if (((*tab)[c] = ft_atoi(line + i)) > 255
 		|| (*tab)[c++] < 0 || !ft_isdigit(line[i]))
@@ -35,7 +34,8 @@ void	read_colors(char *line, t_env *e, int i, int **tab)
 		if (line[i] == ',')
 			i++;
 	}
-	if (line[i])
+	printf("%i\n", *tab[0]);
+	if (line[i] || (*tab)[c] == -1 || !ft_isdigit(line[i - 1]))
 		ft_exit_params(e);
 }
 
@@ -69,6 +69,11 @@ int		read_first_param(int fd, t_env *e)
 	e->winy = 0;
 	e->floor_color = NULL;
 	e->ceiling_color = NULL;
+	e->north_texture = NULL;
+	e->south_texture = NULL;
+	e->west_texture = NULL;
+	e->east_texture = NULL;
+	e->sprite_texture = NULL;
 	while (get_next_line(fd, &line))
 	{
 		if (line[0] == 'R' && line[1] && line[1] == ' ')
