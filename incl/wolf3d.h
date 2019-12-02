@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/11/30 17:37:48 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 11:46:09 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,9 @@ typedef struct	s_env
 	void			*img_ptr;
 	char			*img_string;
 }				t_env;
+
+void		checkandparse(char *argv, t_env *e);
+void		ft_exit(int err, char **dbtable, t_list *m);
+int			ft_check_line(t_list *m);
 
 #endif

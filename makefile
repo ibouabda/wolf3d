@@ -6,7 +6,7 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/01 17:12:54 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/12/02 11:48:03 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ NAME = wolf3d
 
 ### INCLUDES ###
 
-SRC_NAME = main.c
+SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl
