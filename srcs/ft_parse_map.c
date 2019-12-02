@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 15:43:04 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:37:22 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,34 +84,22 @@ void verify_map(t_env *e)
 {
 	int i;
 
-	i = 0;
-	while (e->dbtab[0][i])
-	{
+	i = -1;
+	while (e->dbtab[0][++i])
 		if (e->dbtab[0][i] != '1')
 			ft_exit(1, e->dbtab, NULL);
-		i++;
-	}
-	i = 0;
-	while (e->dbtab[e->mapy - 1][i])
-	{
+	i = -1;
+	while (e->dbtab[e->mapy - 1][++i])
 		if (e->dbtab[e->mapy - 1][i] != '1')
 			ft_exit(1, e->dbtab, NULL);
-		i++;
-	}
-	i = 0;
-	while (e->dbtab[i])
-	{
+	i = -1;
+	while (e->dbtab[++i])
 		if (e->dbtab[i][0] && e->dbtab[i][0] != '1')
 			ft_exit(1, e->dbtab, NULL);
-		i++;
-	}
-	i = 0;
-	while (e->dbtab[i])
-	{
+	i = -1;
+	while (e->dbtab[++i])
 		if (e->dbtab[i][e->mapx - 1] && e->dbtab[i][e->mapx - 1] != '1')
 			ft_exit(1, e->dbtab, NULL);
-		i++;
-	}
 }
 
 void		checkandparse(char *argv, t_env *e)
