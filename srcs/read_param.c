@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 15:21:46 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:25:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,17 +103,7 @@ void search_id(char *line, t_env *e)
 int		read_first_param(int fd, t_env *e)
 {
 	char	*line;
-
-	e->bool = 0;
-	e->winx = 0;
-	e->winy = 0;
-	e->floor_color = NULL;
-	e->ceiling_color = NULL;
-	e->north_texture = NULL;
-	e->south_texture = NULL;
-	e->west_texture = NULL;
-	e->east_texture = NULL;
-	e->sprite_texture = NULL;
+	
 	while (get_next_line(fd, &line))
 	{
 		search_id(line, e);

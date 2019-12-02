@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 15:09:06 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:30:13 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,27 @@ void	ft_exit_params(t_env *e)
 	exit(1);
 }
 
+void	ft_initialize(t_env *e)
+{
+	e->bool = 0;
+	e->winx = 0;
+	e->winy = 0;
+	e->floor_color = NULL;
+	e->ceiling_color = NULL;
+	e->north_texture = NULL;
+	e->south_texture = NULL;
+	e->west_texture = NULL;
+	e->east_texture = NULL;
+	e->sprite_texture = NULL;
+}
+
 int		main(int argc, char **argv)
 {
 	t_env e;
 
 	if (argc != 2)
 		ft_exit(1, NULL, NULL);
+	ft_initialize(&e);
 	checkandparse(argv[1], &e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
