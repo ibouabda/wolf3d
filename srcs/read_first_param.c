@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 11:05:07 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/02 11:13:37 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,21 @@ int		read_first_param(int fd, t_env *e)
 	e->sprite_texture = NULL;
 	while (get_next_line(fd, &line))
 	{
-		if (line[0] == 'R' && line[1] && line[1] == ' ')
+		if (line[0] == 'R')
 			read_res(line, e, 1);
-		if (line[0] == 'S' && line[1] && line[1] == ' ')
+		if (line[0] == 'S')
 			read_path(line, e, 1, &e->sprite_texture);
-		if (line[0] == 'F' && line[1] && line[1] == ' ')
+		if (line[0] == 'F')
 			read_colors(line, e, 1, &e->floor_color);
-		if (line[0] == 'C' && line[1] && line[1] == ' ')
+		if (line[0] == 'C')
 			read_colors(line, e, 1, &e->ceiling_color);
-		if (line[0] == 'N' && line[1] && line[1] == 'O')
+		if (line[0] == 'N' && line[1] == 'O')
 			read_path(line, e, 2, &e->north_texture);
-		if (line[0] == 'S' && line[1] && line[1] == 'O')
+		if (line[0] == 'S' && line[1] == 'O')
 			read_path(line, e, 2, &e->south_texture);
-		if (line[0] == 'W' && line[1] && line[1] == 'E')
+		if (line[0] == 'W' && line[1] == 'E')
 			read_path(line, e, 2, &e->west_texture);
-		if (line[0] == 'E' && line[1] && line[1] == 'A')
+		if (line[0] == 'E' && line[1] == 'A')
 			read_path(line, e, 2, &e->east_texture);
 		ft_strdel(&line);
 	}
