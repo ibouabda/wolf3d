@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
+#    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 21:31:16 by ibouabda          #+#    #+#              #
-#    Updated: 2019/10/19 18:28:50 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/12/02 12:01:24 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
 ### EXECUTABLE ###
 
@@ -43,7 +43,7 @@ SRC_NAME = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isprint.c ft_isdigit.c \
 		ft_lstdelm.c ft_lstnewc.c ft_putdouble.c ft_strchar.c ft_strrev.c ft_itoa_base_maj.c\
 		ft_putnbr_count.c ft_strnstrdup.c ft_str2chr.c ft_lstnewd.c ft_lstdelstr.c\
 		ft_2dintnew.c ft_intnew.c ft_puttabint.c ft_2dputtabint.c ft_2dmemdel.c t_3dpointval.c\
-		ft_putnbrl.c ft_memswitch.c get_next_line.c
+		ft_putnbrl.c ft_memswitch.c get_next_line.c ft_intnew_clean.c
 
 ### OBJECTS ###
 

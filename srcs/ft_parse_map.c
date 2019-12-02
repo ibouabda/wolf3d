@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 11:43:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 13:06:46 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void		read_file(int fd, t_env *e)
 	e->mapy = 0;
 	e->mapx = 0;
 	e->dbtab = NULL;
+	while (get_next_line(fd, &line) && !line[0])
+		printf("line : %s\n", line);
+	// ft_lstaddend(&m, ft_lstnewd(line, 0));
 	while (get_next_line(fd, &line) > 0)
 	{
 		ft_lstaddend(&m, ft_lstnewd(line, 0));
@@ -126,7 +129,8 @@ void		checkandparse(char *argv, t_env *e)
 			close(fd_dir);
 		ft_exit(1, NULL, NULL);
 	}
+	read_first_param(fd, e);
 	read_file(fd, e);
-	verify_map(e);
+	// verify_map(e);
 	close(fd);
 }

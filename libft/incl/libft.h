@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:22:12 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/10/19 17:47:37 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/02 10:50:26 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,5 +155,6 @@ void				t_3dpointval(t_3dpoint *point, int x, int y, int z);
 void				ft_putnbrl(int n);
 void				ft_memswitch(void **a, void **b);
 int					get_next_line(const int fd, char **line);
+int					*ft_intnew_clean(int size);
 
 #endif

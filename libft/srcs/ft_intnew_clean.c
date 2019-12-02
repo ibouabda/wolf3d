@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_intnew_clean.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 16:51:45 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/01 19:51:41 by retounsi         ###   ########.fr       */
+/*   Created: 2019/12/02 10:47:47 by retounsi          #+#    #+#             */
+/*   Updated: 2019/12/02 10:55:14 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/libft.h"
 
-char	*ft_strnew(size_t size)
+int	*ft_intnew_clean(int size)
 {
-	char	*str;
-	size_t	i;
+	int	*tab;
 
-	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1))))
+	if (!(tab = (int*)malloc(sizeof(int) * (size))))
 	{
-		ft_putendl("ft_strnew malloc error");
+		ft_putendl("ft_intnew malloc error");
 		exit(EXIT_FAILURE);
 	}
-	while (i < size + 1)
+	while (size > 0)
 	{
-		str[i] = '\0';
-		i++;
+		size--;
+		tab[size] = -1;
 	}
-	return (str);
+	return (tab);
 }
