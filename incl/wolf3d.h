@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:15:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 11:28:51 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,22 @@ typedef struct	s_env
 	void			*img_ptr;
 	char			*img_string;
 }				t_env;
+
+typedef struct	s_image
+{
+	void			*north_img;
+	void			*south_img;
+	void			*west_img;
+	void			*east_img;
+	void			*sprite_img;
+	char			*north_texture;
+	char			*south_texture;
+	char			*west_texture;
+	char			*east_texture;
+	char			*sprite_texture;
+	int				*floor_color;
+	int				*ceiling_color;
+}				t_image;
 
 void		checkandparse(char *argv, t_env *e);
 void		ft_exit(int err, char **dbtable, t_list *m);
