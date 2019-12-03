@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
+#    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 21:31:16 by ibouabda          #+#    #+#              #
-#    Updated: 2019/12/02 15:12:31 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/12/03 10:13:29 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ $(NAME): $(OBJS)
 	@echo "$(YELLOW)Checking libft files ...$(NOC)"
 	@ar rc $(NAME).a $(OBJS)
 	@ranlib $(NAME).a
-	@echo "$(GREEN)Project successfully compiled !"
+	@echo "$(YELLOW)Libft successfully compiled !$(NOC)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(CFLAGS) -I $(HEADER) -c -o $@ $<

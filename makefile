@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
+#    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/02 15:20:13 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/12/03 10:18:43 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,9 @@ WHITE       = \033[1;37m
 all: tmp $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(GREEN)Checking lib files ...$(NOC)"
 	@make -C $(LIBFT)
 	@make -C $(LIBMLX)
+	@echo "$(GREEN)Project compiling ...$(NOC)"
 	@$(CC) $(CFLAGS) -L $(LIBFT) -o $@ $^ $(MLXFLAGS) -L $(LIBMLX) minilibx_macos/libmlx.a libft/libft.a
 	@echo "$(GREEN)Project successfully compiled !$(NOC)"
 
