@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 12:07:00 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:28:50 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,11 @@ typedef struct	s_image
 	void			*west_img;
 	void			*east_img;
 	void			*sprite_img;
-	char			*north_texture;
-	char			*south_texture;
-	char			*west_texture;
-	char			*east_texture;
-	char			*sprite_texture;
+	char			*north_tex;
+	char			*south_tex;
+	char			*west_tex;
+	char			*east_tex;
+	char			*sprite_tex;
 	int				*floor_color;
 	int				*ceiling_color;
 }				t_image;
@@ -138,6 +138,7 @@ void		read_path(char *line, t_env *e, int i, char **str);
 void		read_colors(char *line, t_env *e, int i, int **tab);
 int			read_first_param(int fd, t_env *e);
 void		ft_exit_params(t_env *e);
+void		open_texture(t_env *e);
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},

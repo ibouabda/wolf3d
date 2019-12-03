@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/03 12:06:56 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:25:37 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	read_res(char *line, t_env *e, int i)
 {
 	if (!line[i] || line[i] != ' ')
 		ft_exit_params(e);
-	while (line [i] && line[i] == ' ')
+	while (line[i] && line[i] == ' ')
 		i++;
 	if (e->winx != 0)
 		ft_exit_params(e);
@@ -79,41 +79,41 @@ void	read_res(char *line, t_env *e, int i)
 		i++;
 }
 
-void search_id(char *line, t_env *e)
+void	search_id(char *line, t_env *e)
 {
 	if (line[0] == 'R')
 		read_res(line, e, 1);
 	if (line[0] == 'S' && line[1] != 'O')
-		read_path(line, e, 1, &e->tex.sprite_texture);
+		read_path(line, e, 1, &e->tex.sprite_tex);
 	if (line[0] == 'F')
 		read_colors(line, e, 1, &e->tex.floor_color);
 	if (line[0] == 'C')
 		read_colors(line, e, 1, &e->tex.ceiling_color);
 	if (line[0] == 'N' && line[1] == 'O')
-		read_path(line, e, 2, &e->tex.north_texture);
+		read_path(line, e, 2, &e->tex.north_tex);
 	if (line[0] == 'S' && line[1] == 'O')
-		read_path(line, e, 2, &e->tex.south_texture);
+		read_path(line, e, 2, &e->tex.south_tex);
 	if (line[0] == 'W' && line[1] == 'E')
-		read_path(line, e, 2, &e->tex.west_texture);
+		read_path(line, e, 2, &e->tex.west_tex);
 	if (line[0] == 'E' && line[1] == 'A')
-		read_path(line, e, 2, &e->tex.east_texture);
+		read_path(line, e, 2, &e->tex.east_tex);
 	ft_strdel(&line);
 }
 
 int		read_first_param(int fd, t_env *e)
 {
 	char	*line;
-	
+
 	while (get_next_line(fd, &line))
 	{
 		search_id(line, e);
 		if (!(e->winx == 0 || e->winy == 0 || e->tex.floor_color == 0
-		|| e->tex.ceiling_color == 0 || e->tex.north_texture == 0
-		|| e->tex.south_texture == 0 || e->tex.west_texture == 0
-		|| e->tex.east_texture == 0 || e->tex.sprite_texture == 0))
+		|| e->tex.ceiling_color == 0 || e->tex.north_tex == 0
+		|| e->tex.south_tex == 0 || e->tex.west_tex == 0
+		|| e->tex.east_tex == 0 || e->tex.sprite_tex == 0))
 		{
 			e->bool = 1;
-			break;
+			break ;
 		}
 	}
 	if (e->bool == 0)

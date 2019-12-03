@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:30:27 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:25:38 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-char		*ft_insert_char(char *str, int nbvar)
+char	*ft_insert_char(char *str, int nbvar)
 {
 	char	*tab;
 	int		i;
@@ -35,10 +35,10 @@ char		*ft_insert_char(char *str, int nbvar)
 	return (tab);
 }
 
-char		**create_dbtable(t_list *m, int size, int nbvar)
+char	**create_dbtable(t_list *m, int size, int nbvar)
 {
 	char	**dbchar;
-	int	y;
+	int		y;
 
 	dbchar = ft_2dstrnew(size);
 	y = 0;
@@ -51,7 +51,7 @@ char		**create_dbtable(t_list *m, int size, int nbvar)
 	return (dbchar);
 }
 
-void		read_file(int fd, t_env *e)
+void	read_file(int fd, t_env *e)
 {
 	char	*line;
 	t_list	*m;
@@ -80,7 +80,7 @@ void		read_file(int fd, t_env *e)
 	ft_lstdelstr(m);
 }
 
-void verify_map(t_env *e)
+void	verify_map(t_env *e)
 {
 	int i;
 
@@ -102,7 +102,7 @@ void verify_map(t_env *e)
 			ft_exit(1, e->dbtab, NULL);
 }
 
-void		checkandparse(char *argv, t_env *e)
+void	checkandparse(char *argv, t_env *e)
 {
 	int fd;
 	int fd_dir;
