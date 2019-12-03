@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 16:30:13 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:43:32 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("error");
-	while (1);
+	// while (1);
 	exit(err);
 }
 
@@ -41,7 +41,7 @@ void	ft_exit_params(t_env *e)
 	if (e->ceiling_color)
 		ft_memdel((void**)&e->ceiling_color);
 	ft_putendl("Error");
-	while (1);
+	// while (1);
 	exit(1);
 }
 
@@ -67,6 +67,7 @@ int		main(int argc, char **argv)
 		ft_exit(1, NULL, NULL);
 	ft_initialize(&e);
 	checkandparse(argv[1], &e);
+	new_window(&e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
 	printf("%s\n%s\n%s\n%s\n%s\n", e.west_texture, e.east_texture, e.north_texture, e.sprite_texture, e.south_texture);
@@ -76,6 +77,9 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
-	while(1);
+	open_texture(&e);
+	// mlx_hook(e.win_ptr, 2, (1 << 0), ft_key_hook, &e);
+	mlx_loop(e.mlx_ptr);
+	// while(1);
 	return (0);
 }

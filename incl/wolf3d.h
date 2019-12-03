@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:39:19 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:43:17 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,32 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-typedef struct	s_image
+// typedef struct	s_image
+// {
+// 	void			*north_img;
+// 	void			*south_img;
+// 	void			*west_img;
+// 	void			*east_img;
+// 	void			*sprite_img;
+// 	char			*north_texture;
+// 	char			*south_texture;
+// 	char			*west_texture;
+// 	char			*east_texture;
+// 	char			*sprite_texture;
+// 	int				*floor_color;
+// 	int				*ceiling_color;
+// }				t_image;
+
+typedef struct	s_env
 {
+	int				bool;
+	int				mapx;
+	int				mapy;
+	int				winx;
+	int				winy;
+	int				midx;
+	int				midy;
+	char			**dbtab;
 	void			*north_img;
 	void			*south_img;
 	void			*west_img;
@@ -108,19 +132,6 @@ typedef struct	s_image
 	char			*sprite_texture;
 	int				*floor_color;
 	int				*ceiling_color;
-}				t_image;
-
-typedef struct	s_env
-{
-	int				bool;
-	int				mapx;
-	int				mapy;
-	int				winx;
-	int				winy;
-	int				midx;
-	int				midy;
-	char			**dbtab;
-	t_image			*tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
@@ -138,6 +149,10 @@ void		read_path(char *line, t_env *e, int i, char **str);
 void		read_colors(char *line, t_env *e, int i, int **tab);
 int			read_first_param(int fd, t_env *e);
 void		ft_exit_params(t_env *e);
+void		new_window(t_env *e);
+void		img(t_env *e);
+void		new_img(t_env *e);
+void		open_texture(t_env *e);
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},
