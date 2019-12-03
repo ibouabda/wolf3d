@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:28:51 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/03 11:39:19 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,30 +94,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-typedef struct	s_env
-{
-	int				bool;
-	int				mapx;
-	int				mapy;
-	int				winx;
-	int				winy;
-	int				midx;
-	int				midy;
-	char			**dbtab;
-	char			*north_texture;
-	char			*south_texture;
-	char			*west_texture;
-	char			*east_texture;
-	char			*sprite_texture;
-	int				*floor_color;
-	int				*ceiling_color;
-	void			*mlx_ptr;
-	void			*win_ptr;
-	void			*esc_img_ptr;
-	void			*img_ptr;
-	char			*img_string;
-}				t_env;
-
 typedef struct	s_image
 {
 	void			*north_img;
@@ -133,6 +109,26 @@ typedef struct	s_image
 	int				*floor_color;
 	int				*ceiling_color;
 }				t_image;
+
+typedef struct	s_env
+{
+	int				bool;
+	int				mapx;
+	int				mapy;
+	int				winx;
+	int				winy;
+	int				midx;
+	int				midy;
+	char			**dbtab;
+	t_image			*tex;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*esc_img_ptr;
+	void			*img_ptr;
+	char			*img_string;
+}				t_env;
+
+
 
 void		checkandparse(char *argv, t_env *e);
 void		ft_exit(int err, char **dbtable, t_list *m);
