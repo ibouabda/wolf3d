@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 16:30:13 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:07:22 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 
 void	ft_exit_params(t_env *e)
 {
-	if (e->east_texture)
-		ft_strdel(&e->east_texture);
-	if (e->north_texture)
-		ft_strdel(&e->north_texture);
-	if (e->south_texture)
-		ft_strdel(&e->south_texture);
-	if (e->west_texture)
-		ft_strdel(&e->west_texture);
-	if (e->sprite_texture)
-		ft_strdel(&e->sprite_texture);
-	if (e->floor_color)
-		ft_memdel((void**)&e->floor_color);
-	if (e->ceiling_color)
-		ft_memdel((void**)&e->ceiling_color);
+	if (e->tex.east_texture)
+		ft_strdel(&e->tex.east_texture);
+	if (e->tex.north_texture)
+		ft_strdel(&e->tex.north_texture);
+	if (e->tex.south_texture)
+		ft_strdel(&e->tex.south_texture);
+	if (e->tex.west_texture)
+		ft_strdel(&e->tex.west_texture);
+	if (e->tex.sprite_texture)
+		ft_strdel(&e->tex.sprite_texture);
+	if (e->tex.floor_color)
+		ft_memdel((void**)&e->tex.floor_color);
+	if (e->tex.ceiling_color)
+		ft_memdel((void**)&e->tex.ceiling_color);
 	ft_putendl("Error");
 	while (1);
 	exit(1);
@@ -50,13 +50,13 @@ void	ft_initialize(t_env *e)
 	e->bool = 0;
 	e->winx = 0;
 	e->winy = 0;
-	e->floor_color = NULL;
-	e->ceiling_color = NULL;
-	e->north_texture = NULL;
-	e->south_texture = NULL;
-	e->west_texture = NULL;
-	e->east_texture = NULL;
-	e->sprite_texture = NULL;
+	e->tex.floor_color = NULL;
+	e->tex.ceiling_color = NULL;
+	e->tex.north_texture = NULL;
+	e->tex.south_texture = NULL;
+	e->tex.west_texture = NULL;
+	e->tex.east_texture = NULL;
+	e->tex.sprite_texture = NULL;
 }
 
 int		main(int argc, char **argv)
@@ -69,9 +69,9 @@ int		main(int argc, char **argv)
 	checkandparse(argv[1], &e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
-	printf("%s\n%s\n%s\n%s\n%s\n", e.west_texture, e.east_texture, e.north_texture, e.sprite_texture, e.south_texture);
-	ft_puttabint(e.ceiling_color, 3);
-	ft_puttabint(e.floor_color, 3);
+	printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_texture, e.tex.east_texture, e.tex.north_texture, e.tex.sprite_texture, e.tex.south_texture);
+	ft_puttabint(e.tex.ceiling_color, 3);
+	ft_puttabint(e.tex.floor_color, 3);
 	ft_putendl("");
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);

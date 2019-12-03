@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/03 09:50:46 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:06:56 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,19 @@ void search_id(char *line, t_env *e)
 	if (line[0] == 'R')
 		read_res(line, e, 1);
 	if (line[0] == 'S' && line[1] != 'O')
-		read_path(line, e, 1, &e->sprite_texture);
+		read_path(line, e, 1, &e->tex.sprite_texture);
 	if (line[0] == 'F')
-		read_colors(line, e, 1, &e->floor_color);
+		read_colors(line, e, 1, &e->tex.floor_color);
 	if (line[0] == 'C')
-		read_colors(line, e, 1, &e->ceiling_color);
+		read_colors(line, e, 1, &e->tex.ceiling_color);
 	if (line[0] == 'N' && line[1] == 'O')
-		read_path(line, e, 2, &e->north_texture);
+		read_path(line, e, 2, &e->tex.north_texture);
 	if (line[0] == 'S' && line[1] == 'O')
-		read_path(line, e, 2, &e->south_texture);
+		read_path(line, e, 2, &e->tex.south_texture);
 	if (line[0] == 'W' && line[1] == 'E')
-		read_path(line, e, 2, &e->west_texture);
+		read_path(line, e, 2, &e->tex.west_texture);
 	if (line[0] == 'E' && line[1] == 'A')
-		read_path(line, e, 2, &e->east_texture);
+		read_path(line, e, 2, &e->tex.east_texture);
 	ft_strdel(&line);
 }
 
@@ -107,10 +107,10 @@ int		read_first_param(int fd, t_env *e)
 	while (get_next_line(fd, &line))
 	{
 		search_id(line, e);
-		if (!(e->winx == 0 || e->winy == 0 || e->floor_color == 0
-		|| e->ceiling_color == 0 || e->north_texture == 0
-		|| e->south_texture == 0 || e->west_texture == 0
-		|| e->east_texture == 0 || e->sprite_texture == 0))
+		if (!(e->winx == 0 || e->winy == 0 || e->tex.floor_color == 0
+		|| e->tex.ceiling_color == 0 || e->tex.north_texture == 0
+		|| e->tex.south_texture == 0 || e->tex.west_texture == 0
+		|| e->tex.east_texture == 0 || e->tex.sprite_texture == 0))
 		{
 			e->bool = 1;
 			break;

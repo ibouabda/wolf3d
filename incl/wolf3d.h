@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:15:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:07:00 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,22 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+typedef struct	s_image
+{
+	void			*north_img;
+	void			*south_img;
+	void			*west_img;
+	void			*east_img;
+	void			*sprite_img;
+	char			*north_texture;
+	char			*south_texture;
+	char			*west_texture;
+	char			*east_texture;
+	char			*sprite_texture;
+	int				*floor_color;
+	int				*ceiling_color;
+}				t_image;
+
 typedef struct	s_env
 {
 	int				bool;
@@ -104,19 +120,15 @@ typedef struct	s_env
 	int				midx;
 	int				midy;
 	char			**dbtab;
-	char			*north_texture;
-	char			*south_texture;
-	char			*west_texture;
-	char			*east_texture;
-	char			*sprite_texture;
-	int				*floor_color;
-	int				*ceiling_color;
+	t_image			tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
 	void			*img_ptr;
 	char			*img_string;
 }				t_env;
+
+
 
 void		checkandparse(char *argv, t_env *e);
 void		ft_exit(int err, char **dbtable, t_list *m);
