@@ -6,7 +6,7 @@
 #    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 21:31:16 by ibouabda          #+#    #+#              #
-#    Updated: 2019/12/04 14:01:35 by retounsi         ###   ########.fr        #
+#    Updated: 2019/12/04 14:24:20 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g3
 
 ### EXECUTABLE ###
 
