@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 13:52:17 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/04 14:15:32 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ void		new_window(t_env *e);
 void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
+int			key_hook(int keycode, t_env *e);
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},

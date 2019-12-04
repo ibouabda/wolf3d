@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 13:56:20 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/04 14:16:06 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
-	//open_texture(&e);
-	// mlx_hook(e.win_ptr, 2, (1 << 0), ft_key_hook, &e);
+	open_texture(&e);
+	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	// while(1);
 	printf("a\n");

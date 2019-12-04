@@ -1,9 +1,9 @@
 R 1280 720
-NO ./texture.xpm
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-S ./path_to_the_sprite_texture
+NO ./texture/texture.xpm
+SO ./texture/diamond_block.xpm
+WE ./texture/crafting_table_top.xpm
+EA ./texture/cobblestone.xpm
+S ./texture/tnt_side.xpm
 F 220,100,0
 C 225,30,0
 
