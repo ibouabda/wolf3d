@@ -6,7 +6,7 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/03 12:22:03 by ibouabda         ###   ########.fr        #
+#    Updated: 2019/12/04 12:04:16 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
-
+CFLAGS = -g
+# -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
 ### EXECUTABLE ###
@@ -25,7 +25,7 @@ NAME = wolf3d
 ### INCLUDES ###
 
 SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c read_param.c mlx_img.c\
-			check_texture.c
+			check_texture.c key_hook.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl

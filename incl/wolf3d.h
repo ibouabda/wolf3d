@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 12:43:17 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/04 12:03:32 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ void		new_window(t_env *e);
 void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
+int			key_hook(int keycode, t_env *e);
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},

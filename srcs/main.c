@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 12:43:32 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/04 12:04:32 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		main(int argc, char **argv)
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
 	open_texture(&e);
-	// mlx_hook(e.win_ptr, 2, (1 << 0), ft_key_hook, &e);
+	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	// while(1);
 	return (0);
