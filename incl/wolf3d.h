@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 12:02:46 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/04 13:52:17 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,13 +131,12 @@ typedef struct	s_env
 
 
 void		checkandparse(char *argv, t_env *e);
-void		ft_exit(int err, char **dbtable, t_list *m);
 int			ft_check_line(t_list *m);
 void		read_res(char *line, t_env *e, int i);
 void		read_path(char *line, t_env *e, int i, char **str);
 void		read_colors(char *line, t_env *e, int i, int **tab);
 int			read_first_param(int fd, t_env *e);
-void		ft_exit_params(t_env *e);
+void		ft_exit(int err, t_list *m, t_env *e);
 void		new_window(t_env *e);
 void		img(t_env *e);
 void		new_img(t_env *e);

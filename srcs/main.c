@@ -6,25 +6,13 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 11:51:37 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/04 13:56:20 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	ft_exit(int err, char **dbtable, t_list *m)
-{
-	if (dbtable)
-		ft_2dmemdel((void**)dbtable);
-	if (m)
-		ft_lstdelstr(m);
-	if (err == 1)
-		ft_putendl("error");
-	// while (1);
-	exit(err);
-}
-
-void	ft_exit_params(t_env *e)
+void	ft_exit(int err, t_list *m, t_env *e)
 {
 	if (e->tex.east_tex)
 		ft_strdel(&e->tex.east_tex);
@@ -40,9 +28,14 @@ void	ft_exit_params(t_env *e)
 		ft_memdel((void**)&e->tex.floor_color);
 	if (e->tex.ceiling_color)
 		ft_memdel((void**)&e->tex.ceiling_color);
-	ft_putendl("Error");
-	// while (1);
-	exit(1);
+	if (e->dbtab)
+		ft_2dmemdel((void**)&e->dbtab);
+	if (m)
+		ft_lstdelstr(m);
+	if (err == 1)
+		ft_putendl("Error");
+	while (1);
+	exit(err);
 }
 
 void	ft_initialize(t_env *e)
@@ -57,6 +50,7 @@ void	ft_initialize(t_env *e)
 	e->tex.west_tex = NULL;
 	e->tex.east_tex = NULL;
 	e->tex.sprite_tex = NULL;
+	e->dbtab = NULL;
 }
 
 int		main(int argc, char **argv)
@@ -64,7 +58,7 @@ int		main(int argc, char **argv)
 	t_env e;
 
 	if (argc != 2)
-		ft_exit(1, NULL, NULL);
+		ft_exit(1, NULL, &e);
 	ft_initialize(&e);
 	checkandparse(argv[1], &e);
 	new_window(&e);
@@ -77,9 +71,10 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
-	open_texture(&e);
+	//open_texture(&e);
 	// mlx_hook(e.win_ptr, 2, (1 << 0), ft_key_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	// while(1);
+	printf("a\n");
 	return (0);
 }
