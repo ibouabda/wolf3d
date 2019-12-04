@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_2dmemdel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 14:29:54 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/10/10 20:01:37 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/04 15:04:06 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/libft.h"
+#include <stdio.h>
 
 void	ft_2dmemdel(void **as)
 {

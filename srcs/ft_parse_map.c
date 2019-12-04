@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 11:30:27 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/04 14:38:38 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-char		*ft_insert_char(char *str, int nbvar)
+char	*ft_insert_char(char *str, int nbvar)
 {
 	char	*tab;
 	int		i;
@@ -35,10 +35,10 @@ char		*ft_insert_char(char *str, int nbvar)
 	return (tab);
 }
 
-char		**create_dbtable(t_list *m, int size, int nbvar)
+char	**create_dbtable(t_list *m, int size, int nbvar)
 {
 	char	**dbchar;
-	int	y;
+	int		y;
 
 	dbchar = ft_2dstrnew(size);
 	y = 0;
@@ -51,7 +51,7 @@ char		**create_dbtable(t_list *m, int size, int nbvar)
 	return (dbchar);
 }
 
-void		read_file(int fd, t_env *e)
+void	read_file(int fd, t_env *e)
 {
 	char	*line;
 	t_list	*m;
@@ -67,58 +67,57 @@ void		read_file(int fd, t_env *e)
 	{
 		ft_lstaddend(&m, ft_lstnewd(line, 0));
 		if (!line[0])
-			ft_exit(1, e->dbtab, m);
+			ft_exit(1, m, e);
 		e->mapy++;
 	}
 	ft_lstaddend(&m, ft_lstnewd(line, 0));
 	e->mapy++;
 	if (!line || !line[0])
-		ft_exit(1, e->dbtab, m);
+		ft_exit(1, m, e);
 	if (!m || !((char *)m->content)[0] || (e->mapx = ft_check_line(m)) == 0)
-		ft_exit(1, e->dbtab, m);
+		ft_exit(1, m, e);
 	e->dbtab = create_dbtable(m, e->mapy, e->mapx);
 	ft_lstdelstr(m);
 }
 
-void verify_map(t_env *e)
+void	verify_map(t_env *e)
 {
 	int i;
 
 	i = -1;
 	while (e->dbtab[0][++i])
 		if (e->dbtab[0][i] != '1')
-			ft_exit(1, e->dbtab, NULL);
+			ft_exit(1, NULL, e);
 	i = -1;
 	while (e->dbtab[e->mapy - 1][++i])
 		if (e->dbtab[e->mapy - 1][i] != '1')
-			ft_exit(1, e->dbtab, NULL);
+			ft_exit(1, NULL, e);
 	i = -1;
 	while (e->dbtab[++i])
 		if (e->dbtab[i][0] && e->dbtab[i][0] != '1')
-			ft_exit(1, e->dbtab, NULL);
+			ft_exit(1, NULL, e);
 	i = -1;
 	while (e->dbtab[++i])
 		if (e->dbtab[i][e->mapx - 1] && e->dbtab[i][e->mapx - 1] != '1')
-			ft_exit(1, e->dbtab, NULL);
+			ft_exit(1, NULL, e);
 }
 
-void		checkandparse(char *argv, t_env *e)
+void	checkandparse(char *argv, t_env *e)
 {
 	int fd;
 	int fd_dir;
 
 	if (ft_strlen(argv) >= 4 &&
 	ft_strcmp(&(argv)[ft_strlen(argv) - 4], ".cub") != 0)
-		ft_exit(1, NULL, NULL);
+		ft_exit(1,NULL, e);
 	fd_dir = open(argv, O_DIRECTORY);
 	if ((fd = open(argv, O_RDONLY)) < 0 || fd_dir > 0)
 	{
 		if (fd_dir > 0)
 			close(fd_dir);
-		ft_exit(1, NULL, NULL);
+		ft_exit(1,NULL, e);
 	}
 	read_first_param(fd, e);
-	e->bool = 0;
 	read_file(fd, e);
 	verify_map(e);
 	close(fd);

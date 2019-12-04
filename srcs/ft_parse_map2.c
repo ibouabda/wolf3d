@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:43:13 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/02 15:54:48 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:25:39 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../incl/wolf3d.h"
 
-
-int ft_iscorrect(char c)
+int		ft_iscorrect(char c)
 {
 	if (c == '0' || c == '1' || c == '2' || c == '3' || c == 'N' || c == 'S'
 	|| c == 'E' || c == 'O')
@@ -38,7 +36,7 @@ int		ft_analyze_line(char *line, int i, int nbvar, int *bool)
 			return (0);
 		i++;
 		if (line[i] && line[i] != ' ')
-			return(0);
+			return (0);
 		while (line[i] == ' ')
 			i++;
 		nbvar++;
