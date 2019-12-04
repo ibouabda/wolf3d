@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/03 12:40:06 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/04 11:51:37 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	ft_exit(int err, char **dbtable, t_list *m)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("error");
-	while (1)
-		;
+	// while (1);
 	exit(err);
 }
 
@@ -42,8 +41,7 @@ void	ft_exit_params(t_env *e)
 	if (e->tex.ceiling_color)
 		ft_memdel((void**)&e->tex.ceiling_color);
 	ft_putendl("Error");
-	while (1)
-		;
+	// while (1);
 	exit(1);
 }
 
@@ -69,6 +67,7 @@ int		main(int argc, char **argv)
 		ft_exit(1, NULL, NULL);
 	ft_initialize(&e);
 	checkandparse(argv[1], &e);
+	new_window(&e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
 	printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
@@ -79,7 +78,8 @@ int		main(int argc, char **argv)
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
 	open_texture(&e);
-	while (1)
-		;
+	// mlx_hook(e.win_ptr, 2, (1 << 0), ft_key_hook, &e);
+	mlx_loop(e.mlx_ptr);
+	// while(1);
 	return (0);
 }
