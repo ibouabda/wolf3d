@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 15:10:32 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/08 17:55:23 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_initialize(t_env *e)
 	e->bool = 0;
 	e->winx = 0;
 	e->winy = 0;
+	e->dist = 277;
 	e->tex.floor_color = NULL;
 	e->tex.ceiling_color = NULL;
 	e->tex.north_tex = NULL;
@@ -73,6 +74,9 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
+	ft_putnbrl(e.midx);
+	ft_putnbrl(e.midy);
+	printf("%f\n", e.ang);
 	open_texture(&e);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
