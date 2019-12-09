@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/08 17:55:23 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/09 16:01:39 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	ft_initialize(t_env *e)
 	e->tex.east_tex = NULL;
 	e->tex.sprite_tex = NULL;
 	e->dbtab = NULL;
+	e->player.x = -1;
+	e->player.y = -1;
 }
 
 int		main(int argc, char **argv)
@@ -64,7 +66,7 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
-	new_window(&e);
+	// new_window(&e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
 	printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
@@ -72,14 +74,15 @@ int		main(int argc, char **argv)
 	ft_puttabint(e.tex.floor_color, 3);
 	ft_putendl("");
 	ft_2dputstr(e.dbtab);
-	ft_putnbrl(e.mapx);
-	ft_putnbrl(e.mapy);
-	ft_putnbrl(e.midx);
-	ft_putnbrl(e.midy);
-	printf("%f\n", e.ang);
-	open_texture(&e);
-	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
-	mlx_loop(e.mlx_ptr);
-	printf("a\n");
+	printf("mapx = %i\n", e.mapx);
+	printf("mapy = %i\n", e.mapy);
+	// printf("%i", e.midx);
+	// printf("%i", e.midy);
+	printf("px = %i\n", e.player.x);
+	printf("py = %i\n", e.player.y);
+	printf("ang%f\n", e.ang);
+	// open_texture(&e);
+	// mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
+	// mlx_loop(e.mlx_ptr);
 	return (0);
 }
