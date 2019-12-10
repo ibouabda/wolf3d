@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 14:15:32 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:04:10 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ typedef struct	s_env
 	int				midx;
 	int				midy;
 	char			**dbtab;
+	int				count_ray;
+	int				ray_dist;
 	t_image			tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -142,6 +144,7 @@ void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
 int			key_hook(int keycode, t_env *e);
+float		fish_eye_calc_dist(t_env *e);
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},
