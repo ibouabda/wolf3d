@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 17:04:10 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:33:40 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ typedef struct	s_env
 	int				midx;
 	int				midy;
 	char			**dbtab;
-	int				count_ray;
 	int				ray_dist;
 	t_image			tex;
 	void			*mlx_ptr;

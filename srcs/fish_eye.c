@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/10 17:33:07 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:33:34 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ float	fish_eye_calc_dist(t_env *e)
 	float	cos;
 	float	real_dist_ray;
 
-	e->count_ray++;
 	mid_dist = dist_mid_ray(e);
 	if (e->ray_dist != 0)
 		cos = mid_dist / e->ray_dist;
