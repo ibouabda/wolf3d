@@ -3,11 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   calcul_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2019/12/09 16:15:11 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/10 17:08:19 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
+
+// double calcul_first_ray(t_env *e)
+// {
+// 	return (tan(e->rot + e->ang / 2));
+// }
+
+void ray_dist(t_env *e)
+{
+	e->rot + e->ang / 2
+
+
+}

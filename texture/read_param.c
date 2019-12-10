@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/08 17:55:14 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/10 15:10:47 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	read_res(char *line, t_env *e, int i)
 		i++;
 	e->midx = e->winx / 2;
 	e->midy = e->winy / 2;
-	e->ang = 60.0f / (float)e->winx;
+	e->ang = 60.0f;
 }
 
 void	search_id(char *line, t_env *e)

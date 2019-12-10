@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/09 15:56:07 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/10 15:25:05 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,14 @@ void	verify_map(t_env *e)
 	while (e->dbtab[++i])
 		if (e->dbtab[i][e->mapx - 1] && e->dbtab[i][e->mapx - 1] != '1')
 			ft_exit(1, NULL, e);
-	ft_2dstrchr(e->dbtab, 'N', &e->player);
-	ft_2dstrchr(e->dbtab, 'S', &e->player);
-	ft_2dstrchr(e->dbtab, 'E', &e->player);
-	ft_2dstrchr(e->dbtab, 'O', &e->player);
+	if (ft_2dstrchr(e->dbtab, 'N', &e->player))
+		e->rot = 90;
+	if (ft_2dstrchr(e->dbtab, 'S', &e->player))
+		e->rot = 270;
+	if (ft_2dstrchr(e->dbtab, 'E', &e->player))
+		e->rot = 0;
+	if (ft_2dstrchr(e->dbtab, 'O', &e->player))
+		e->rot = 180;
 }
 
 void	checkandparse(char *argv, t_env *e)

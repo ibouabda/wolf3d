@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 12:37:26 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:13:22 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ typedef struct	s_image
 
 typedef struct	s_env
 {
+	double			distx;
+	double			disty;
 	int				bool;
 	t_point			player;
 	int				mapx;
@@ -122,6 +124,7 @@ typedef struct	s_env
 	int				midy;
 	int				dist;
 	float			ang;
+	int				rot;
 	char			**dbtab;
 	t_image			tex;
 	void			*mlx_ptr;
@@ -145,6 +148,11 @@ void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
 int			key_hook(int keycode, t_env *e);
+void		ft_line2(t_env *e, float m);
+void		vertical(t_env *e);
+void		vertical2(t_env *e);
+
+
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},
