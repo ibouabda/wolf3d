@@ -6,13 +6,13 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:47 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/12 13:18:33 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 17:46:04 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	highline(t_env *e, float m)
+void	highline(t_env *e, double m)
 {
 	// int x;
 
@@ -21,28 +21,9 @@ void	highline(t_env *e, float m)
 	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
 	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
-		printf("e->distx = %f\n", e->distx);
-		printf("e->disty = %f\n", e->disty);
+		// printf("e->distx = %f\n", e->distx);
+		// printf("e->disty = %f\n", e->disty);
 		e->distx += m;
-		// x = (int)(x + 0.5); //arrondi en negatif ???
-		e->disty++;
-	}
-	e->disty = e->disty - e->player.y;
-	e->distx = e->distx - e->player.x;
-}
-
-void	highline2(t_env *e, float m)
-{
-	// int x;
-
-	e->disty = e->player.y;
-	e->distx = e->player.x;
-	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
-	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
-	{
-		printf("e->distx = %f\n", e->distx);
-		printf("e->disty = %f\n", e->disty);
-		e->distx -= m;
 		// x = (int)(x + 0.5); //arrondi en negatif ???
 		e->disty--;
 	}
@@ -50,7 +31,26 @@ void	highline2(t_env *e, float m)
 	e->distx = e->distx - e->player.x;
 }
 
-void	ft_line(t_env *e, float m)
+void	highline2(t_env *e, double m)
+{
+	// int x;
+
+	e->disty = e->player.y;
+	e->distx = e->player.x;
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
+	{
+		// printf("e->distx = %f\n", e->distx);
+		// printf("e->disty = %f\n", e->disty);
+		e->distx -= m;
+		// x = (int)(x + 0.5); //arrondi en negatif ???
+		e->disty++;
+	}
+	e->disty = e->disty - e->player.y;
+	e->distx = e->distx - e->player.x;
+}
+
+void	ft_line(t_env *e, double m)
 {
 	// int y;
 
@@ -59,34 +59,36 @@ void	ft_line(t_env *e, float m)
 	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
 	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
-		printf("e->distx = %f\n", e->distx);
-		printf("e->disty = %f\n", e->disty);
-		// printf("e->disty = %i\n", y);
-		e->disty += m;
+		// printf("e->distx = %f\n", e->distx);
+		// printf("e->disty = %f\n", e->disty);
+		// printf("e->disty = %i\n", (int)e->disty);
+		e->disty -= m;
 		// y = (int)(e->disty + 0.5);
 		e->distx++;
 	}
+	// printf("e->distx = %f\n", e->distx);
+	// printf("e->disty = %f\n", e->disty);
 	e->disty = e->disty - e->player.y;
 	e->distx = e->distx - e->player.x;
 }
 
-int		ft_distline(float angle, t_env *e)
+int		ft_distline(double angle, t_env *e)
 {
-	float m;
+	double m;
 
-	if (angle == 90 || angle == 270)
-		(angle == 90) ? vertical(e) : vertical2(e);
+	if (angle == 450 || angle == 630)
+		(angle == 450) ? vertical(e) : vertical2(e);
 	else
 	{
-		printf("angle = %f\n", angle);
+		// printf("angle = %f\n", angle);
 		m = tan(angle / (180 / M_PI));
-		printf("m = %f\n", m);
+		// printf("m = %f\n", m);
 		if (m >= -1.0 && m <= 1.0)
-			(m >= 0 ) ? ft_line(e, m) : ft_line2(e, m); //condition (m >= 0)
+			((angle >= 270 && angle <= 360) || (angle >= 0 && angle <= 90)) ? ft_line(e, m) : ft_line2(e, m); //condition (m >= 0)
 		else
 		{
 			m = 1 / m;
-			(m >= 0) ? highline(e, m) : highline2(e, m); //condition (m >= 0)
+			(angle >= 0 && angle <= 180) ? highline(e, m) : highline2(e, m); //condition (m >= 0)
 		}
 	}
 	return (1);

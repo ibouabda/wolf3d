@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_params.c                                      :+:      :+:    :+:   */
+/*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/12 12:10:03 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 17:02:36 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	read_res(char *line, t_env *e, int i)
 	e->midx = e->winx / 2;
 	e->midy = e->winy / 2;
 	e->ang = 60.0f;
+	e->raylag = e->ang / e->winx;
 }
 
 void	search_id(char *line, t_env *e)
