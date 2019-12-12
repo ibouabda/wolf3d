@@ -6,23 +6,28 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:24:00 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/10 16:43:09 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:30:02 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/wolf3d.h"
 
-int		wall_top(t_env *e)
+void	display_wall(t_env *e, int column_size, int top_wall)
 {
+	int i;
+	int c;
 
-}
-
-void	display_wall(t_env *e)
-{
-	int		wall_size;
-	int		wall_top;
-
-	wall_size = fish_eye_calc_dist(e);
-	wall_top = (project_sreen\2)-(wall_size/2);
-	while (e->img_string && )
+	c = 0;
+	i = 1276 * top_wall;
+	while (c <= 319)
+	{
+		while (column_size <= 0)
+		{
+			e->img_string[i] = 255;
+			e->img_string[i + 1] = 255;
+			e->img_string[i + 2] = 255;
+			e->img_string[i + 3] = 255;
+		}
+		c++;
+	}
 }

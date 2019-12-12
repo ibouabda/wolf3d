@@ -6,22 +6,22 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/10 17:33:34 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:16:18 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-float		dist_mid_ray(t_env *e)
+int		dist_mid_ray(t_env *e)
 {
 
 }
 
-float	fish_eye_calc_dist(t_env *e)
+int		fish_eye_calc_dist(t_env *e)
 {
-	float	mid_dist;
-	float	cos;
-	float	real_dist_ray;
+	int		mid_dist;
+	int		cos;
+	int		real_dist_ray;
 
 	mid_dist = dist_mid_ray(e);
 	if (e->ray_dist != 0)
@@ -34,7 +34,10 @@ void	calc_colonne(t_env *e)
 {
 	int		wall_size;
 	int		ray_dist_fisheyed;
+	int		top_wall;
 
 	ray_dist_fisheyed = fish_eye_calc_dist(e);
-	wall_size = (64/ray_dist)*277;
+	wall_size = (64/ray_dist_fisheyed)*277;
+	top_wall = 100-(wall_size/2);
+	display_wall(e, wall_size, top_wall);
 }

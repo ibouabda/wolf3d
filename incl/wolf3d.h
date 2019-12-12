@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 17:33:40 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 11:58:05 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,9 @@ void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
 int			key_hook(int keycode, t_env *e);
-float		fish_eye_calc_dist(t_env *e);
+int			fish_eye_calc_dist(t_env *e);
+void		display_wall(t_env *e, int wall_size, int wall_top);
+
 
 // static const t_func g_func[] = {
 // 	{"R", &read_res},
