@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:29:23 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/12 12:34:36 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:55:50 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,9 @@ void	ft_fill_pixel(t_point point, int color, t_env *e)
 	int	pos;
 
 	pos = point.y * e->winx * 4 + point.x * 4;
-	if (point.h >= 0)
-	{
-		e->img_string[pos] = (char)150;
-		e->img_string[pos + 1] = (char)0;
-		e->img_string[pos + 2] = (char)color;
-	}
-	else
-	{
-		e->img_string[pos] = (char)150;
-		e->img_string[pos + 1] = (char)color;
-		e->img_string[pos + 2] = (char)0;
-	}
+	e->img_string[pos] = (char)150;
+	e->img_string[pos + 1] = (char)0;
+	e->img_string[pos + 2] = (char)color;
 }
 
 void	new_window(t_env *e)

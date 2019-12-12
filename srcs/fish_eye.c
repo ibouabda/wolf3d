@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/12 12:34:37 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 13:13:47 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int		dist_mid_ray(t_env *e)
 
 }
 
-int		fish_eye_calc_dist(t_env *e)
+float	fish_eye_calc_dist(t_env *e)
 {
-	int		mid_dist;
-	int		cos;
-	int		real_dist_ray;
+	float	mid_dist;
+	float	cos;
+	float	real_dist_ray;
 
 	mid_dist = dist_mid_ray(e);
 	if (e->ray_dist != 0)
@@ -30,14 +30,13 @@ int		fish_eye_calc_dist(t_env *e)
 	return (real_dist_ray);
 }
 
-void	calc_colonne(t_env *e)
+float	calc_column(t_env *e)
 {
-	int		wall_size;
-	int		ray_dist_fisheyed;
-	int		top_wall;
+	float	column_size;
+	float	ray_dist_fisheyed;
+	float	top_wall;
 
 	ray_dist_fisheyed = fish_eye_calc_dist(e);
-	wall_size = (64/ray_dist_fisheyed)*277;
-	top_wall = 100-(wall_size/2);
-	display_wall(e, wall_size, top_wall);
+	column_size = (64/ray_dist_fisheyed)*277;
+	return(column_size);
 }

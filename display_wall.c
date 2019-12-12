@@ -6,25 +6,27 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:24:00 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/12 12:34:34 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 13:14:30 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/wolf3d.h"
 
-void	display_wall(t_env *e, int column_size, int top_wall)
+void	display_column(t_env *e)
 {
-	int i;
-	int c;
+	float	i;
+	float	top_wall;
+	float	column_size;
 
-	c = 0;
-	i = column_size;
-	while (c <= 319)
+	column_size = calc_column(e);
+	top_wall = (e->winy/2)-(column_size/2);
+	i = 0;
+	while (i <= column_size)
 	{
-		while (i <= column_size)
-		{
-			ft_fill_pixel();
-		}
-		c++;
+		e->pixel.x = ray;
+		e->pixel.y = top_wall;
+		ft_fill_pixel(e->pixel, 255, e);
+		top_wall++;
+		i++;
 	}
 }
