@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/09 16:01:39 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/12 12:33:57 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ int		main(int argc, char **argv)
 	printf("mapy = %i\n", e.mapy);
 	// printf("%i", e.midx);
 	// printf("%i", e.midy);
-	printf("px = %i\n", e.player.x);
-	printf("py = %i\n", e.player.y);
-	printf("ang%f\n", e.ang);
+	// printf("px = %i\n", e.player.x);
+	// printf("py = %i\n", e.player.y);
+	printf("ang = %f\n", e.ang);
+	printf("rot = %i\n", e.rot);
+	ray_dist(&e);
 	// open_texture(&e);
 	// mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	// mlx_loop(e.mlx_ptr);

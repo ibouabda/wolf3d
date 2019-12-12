@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2019/12/10 17:08:19 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:16:28 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 void ray_dist(t_env *e)
 {
-	e->rot + e->ang / 2
-
-
+	ft_distline(e->rot + e->ang / 2, e);
+	printf("e->distx = %f, e->disty = %f, distance = %f", e->distx, e->disty, sqrt(e->distx * e->distx + e->disty * e->disty));
 }

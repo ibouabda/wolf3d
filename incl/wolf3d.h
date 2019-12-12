@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 17:13:22 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:11:20 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,8 @@ int			key_hook(int keycode, t_env *e);
 void		ft_line2(t_env *e, float m);
 void		vertical(t_env *e);
 void		vertical2(t_env *e);
+int			ft_distline(float angle, t_env *e);
+void		ray_dist(t_env *e);
 
 
 

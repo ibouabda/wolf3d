@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
+#    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/04 15:04:11 by retounsi         ###   ########.fr        #
+#    Updated: 2019/12/12 12:13:31 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME = wolf3d
 ### INCLUDES ###
 
 SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c read_param.c mlx_img.c\
-			check_texture.c key_hook.c
+			check_texture.c key_hook.c bresenham2.c bresenham.c calcul_ray.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl

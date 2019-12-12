@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:17 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 17:13:25 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 13:09:29 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 void	ft_line2(t_env *e, float m)
 {
-	int y;
-
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[y][(int)e->distx] != '1')
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
+		printf("e->distx = %f\n", e->distx);
+		printf("e->disty = %f\n", e->disty);
+		// printf("e->disty = %i\n", y);
 		e->disty -= m;
-		y = (int)(y + 0.5);
+		// y = (int)(e->disty + 0.5);
 		e->distx--;
 	}
+	e->disty = e->disty - e->player.y;
+	e->distx = e->distx - e->player.x;
 }
 
 void	vertical(t_env *e)
 {
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[(int)e->disty][(int)e->distx] != '1')
+	while (e->disty> 0 && e->distx > 0 && e->disty< e->mapy && e->distx < e->mapx && e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
 		e->disty++;
 	}
@@ -40,7 +44,7 @@ void	vertical2(t_env *e)
 {
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[(int)e->disty][(int)e->distx] != '1')
+	while (e->disty > 0 && e->distx > 0 && e->disty < e->mapy && e->distx < e->mapx && e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
 		e->disty--;
 	}

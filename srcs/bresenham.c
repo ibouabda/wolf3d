@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:47 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/10 17:13:26 by ibouabda         ###   ########.fr       */
+/*   Updated: 2019/12/12 13:18:33 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,63 @@
 
 void	highline(t_env *e, float m)
 {
-	int x;
+	// int x;
 
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[(int)e->disty][x] != '1')
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
+		printf("e->distx = %f\n", e->distx);
+		printf("e->disty = %f\n", e->disty);
 		e->distx += m;
-		x = (int)(x + 0.5);
+		// x = (int)(x + 0.5); //arrondi en negatif ???
 		e->disty++;
 	}
+	e->disty = e->disty - e->player.y;
+	e->distx = e->distx - e->player.x;
 }
 
 void	highline2(t_env *e, float m)
 {
-	int x;
+	// int x;
 
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[(int)e->disty][x] != '1')
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
+		printf("e->distx = %f\n", e->distx);
+		printf("e->disty = %f\n", e->disty);
 		e->distx -= m;
-		x = (int)(x + 0.5); //arrondi en negatif ???
+		// x = (int)(x + 0.5); //arrondi en negatif ???
 		e->disty--;
 	}
+	e->disty = e->disty - e->player.y;
+	e->distx = e->distx - e->player.x;
 }
 
 void	ft_line(t_env *e, float m)
 {
-	int y;
+	// int y;
 
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	while (e->dbtab[y][(int)e->distx] != '1')
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->dbtab[(int)e->disty][(int)e->distx] != '1')
 	{
+		printf("e->distx = %f\n", e->distx);
+		printf("e->disty = %f\n", e->disty);
+		// printf("e->disty = %i\n", y);
 		e->disty += m;
-		y = (int)(y + 0.5);
+		// y = (int)(e->disty + 0.5);
 		e->distx++;
 	}
+	e->disty = e->disty - e->player.y;
+	e->distx = e->distx - e->player.x;
 }
 
-int		ft_drawline(float angle, t_env *e)
+int		ft_distline(float angle, t_env *e)
 {
 	float m;
 
@@ -62,7 +78,9 @@ int		ft_drawline(float angle, t_env *e)
 		(angle == 90) ? vertical(e) : vertical2(e);
 	else
 	{
-		m = tan(angle);
+		printf("angle = %f\n", angle);
+		m = tan(angle / (180 / M_PI));
+		printf("m = %f\n", m);
 		if (m >= -1.0 && m <= 1.0)
 			(m >= 0 ) ? ft_line(e, m) : ft_line2(e, m); //condition (m >= 0)
 		else
