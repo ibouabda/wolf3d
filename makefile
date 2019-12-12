@@ -6,7 +6,7 @@
 #    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/04 15:04:11 by retounsi         ###   ########.fr        #
+#    Updated: 2019/12/12 15:21:00 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME = wolf3d
 ### INCLUDES ###
 
 SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c read_param.c mlx_img.c\
-			check_texture.c key_hook.c
+			check_texture.c key_hook.c display_column.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl

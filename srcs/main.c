@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 15:02:35 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/12 16:43:56 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,17 @@ void	ft_initialize(t_env *e)
 
 int		main(int argc, char **argv)
 {
-	t_env e;
+	t_env	e;
+	int		bpp;
+	int		s_l;
+	int		endian;
 
 	ft_initialize(&e);
 	if (argc != 2)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
 	new_window(&e);
+	img(&e);
 	printf("%i\n", e.winx);
 	printf("%i\n", e.winy);
 	printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
@@ -73,9 +77,10 @@ int		main(int argc, char **argv)
 	ft_2dputstr(e.dbtab);
 	ft_putnbrl(e.mapx);
 	ft_putnbrl(e.mapy);
-	open_texture(&e);
+	// open_texture(&e);
+	display_column(&e);
+	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
-	printf("a\n");
 	return (0);
 }
