@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/04 15:04:16 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/13 11:29:36 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void	read_res(char *line, t_env *e, int i)
 	e->winy = ft_atoi(line + i);
 	while (line[i] && ft_isdigit(line[i]))
 		i++;
+	e->midx = e->winx / 2;
+	e->midy = e->winy / 2;
+	e->ang = 60.0f;
+	e->raylag = e->ang / e->winx;
 }
 
 void	search_id(char *line, t_env *e)

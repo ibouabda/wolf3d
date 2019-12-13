@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/12 16:35:39 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/13 11:51:25 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,11 @@ typedef struct	s_image
 
 typedef struct	s_env
 {
+	double			distx;
+	double			disty;
+	double			raylag;
 	int				bool;
+	t_point			player;
 	int				mapx;
 	int				mapy;
 	t_point			pixel;
@@ -120,8 +124,11 @@ typedef struct	s_env
 	int				winy;
 	int				midx;
 	int				midy;
+	int				dist;
+	double			ang;
+	int				rot;
 	char			**dbtab;
-	int				ray_dist;
+	double				ray_dist;
 	t_image			tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -144,21 +151,16 @@ void		img(t_env *e);
 void		new_img(t_env *e);
 void		open_texture(t_env *e);
 int			key_hook(int keycode, t_env *e);
-float		fish_eye_calc_dist(t_env *e);
 void		display_wall(t_env *e, float wall_size, float wall_top);
 void		ft_fill_pixel(t_point point, int color, t_env *e);
-void		display_column(t_env *e);
 void		img(t_env *e);
+void		ft_line2(t_env *e, double m);
+void		vertical(t_env *e);
+void		vertical2(t_env *e);
+int			ft_distline(double angle, t_env *e);
+void		ray_dist(t_env *e);
+void		display_column(t_env *e, int ray_num);
+double		fish_eye_calc_dist(t_env *e);
 
-
-// static const t_func g_func[] = {
-// 	{"R", &read_res},
-// 	{"NO", &read_path},
-// 	{"SO", &read_path},
-// 	{"WE", &read_path},
-// 	{"EA", &read_path},
-// 	{"S", &read_path},
-
-// }
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/12 16:43:56 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/13 11:31:38 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_initialize(t_env *e)
 	e->bool = 0;
 	e->winx = 0;
 	e->winy = 0;
+	e->dist = 277;
 	e->tex.floor_color = NULL;
 	e->tex.ceiling_color = NULL;
 	e->tex.north_tex = NULL;
@@ -53,6 +54,8 @@ void	ft_initialize(t_env *e)
 	e->tex.east_tex = NULL;
 	e->tex.sprite_tex = NULL;
 	e->dbtab = NULL;
+	e->player.x = -1;
+	e->player.y = -1;
 }
 
 int		main(int argc, char **argv)
@@ -75,10 +78,14 @@ int		main(int argc, char **argv)
 	ft_puttabint(e.tex.floor_color, 3);
 	ft_putendl("");
 	ft_2dputstr(e.dbtab);
-	ft_putnbrl(e.mapx);
-	ft_putnbrl(e.mapy);
+	printf("mapx = %i\n", e.mapx);
+	printf("mapy = %i\n", e.mapy);
+	printf("px = %i\n", e.player.x);
+	printf("py = %i\n", e.player.y);
+	printf("ang = %f\n", e.ang);
+	printf("rot = %i\n", e.rot);
 	// open_texture(&e);
-	display_column(&e);
+	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);

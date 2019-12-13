@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:22:12 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/04 14:38:34 by retounsi         ###   ########.fr       */
+/*   Updated: 2019/12/09 15:48:09 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,6 @@ void				ft_putnbrl(int n);
 void				ft_memswitch(void **a, void **b);
 int					get_next_line(const int fd, char **line);
 int					*ft_intnew_clean(int size);
+int					ft_2dstrchr(char **str, char c, t_point *a);
 
 #endif
