@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/13 11:31:38 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 11:21:59 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,19 @@ int		main(int argc, char **argv)
 	checkandparse(argv[1], &e);
 	new_window(&e);
 	img(&e);
-	printf("%i\n", e.winx);
-	printf("%i\n", e.winy);
-	printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
-	ft_puttabint(e.tex.ceiling_color, 3);
-	ft_puttabint(e.tex.floor_color, 3);
-	ft_putendl("");
-	ft_2dputstr(e.dbtab);
-	printf("mapx = %i\n", e.mapx);
-	printf("mapy = %i\n", e.mapy);
-	printf("px = %i\n", e.player.x);
-	printf("py = %i\n", e.player.y);
-	printf("ang = %f\n", e.ang);
-	printf("rot = %i\n", e.rot);
+	// printf("%i\n", e.winx);
+	// printf("%i\n", e.winy);
+	// printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
+	// ft_puttabint(e.tex.ceiling_color, 3);
+	// ft_puttabint(e.tex.floor_color, 3);
+	// ft_putendl("");
+	// ft_2dputstr(e.dbtab);
+	// printf("mapx = %i\n", e.mapx);
+	// printf("mapy = %i\n", e.mapy);
+	// printf("px = %i\n", e.player.x);
+	// printf("py = %i\n", e.player.y);
+	// printf("ang = %f\n", e.ang);
+	// printf("rot = %i\n", e.rot);
 	// open_texture(&e);
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);

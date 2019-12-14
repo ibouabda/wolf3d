@@ -6,39 +6,22 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/13 12:31:31 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 12:26:09 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-double	dist_mid_ray(t_env *e)
-{
-	int i;
-	double rayang;
-
-	i = 0;
-	rayang = e->rot;
-	if (rayang > 360.0)
-		rayang -= 360.0;
-	else if (rayang < 0.0)
-		rayang = 360.0 - rayang;
-	ft_distline(rayang, e);
-	return(sqrt(e->distx * e->distx + e->disty * e->disty) * 100);
-}
-
 double	fish_eye_calc_dist(t_env *e)
 {
-	double	mid_dist;
-	double	cos;
 	double	real_dist_ray;
 
-	mid_dist = dist_mid_ray(e);
-	cos = mid_dist / e->ray_dist;
-	real_dist_ray = e->ray_dist * cos;
-	printf("cos : %f\n", e->ray_dist);
-	printf("cos : %f\n", cos);
-	printf("ray : %f\n", real_dist_ray);
+	real_dist_ray = ABS(e->ray_dist * cos(ABS(e->rayang - e->rot) / (180.0 / M_PI)));
+	// printf("ray : %f\n", (e->ray_dist));
+	// printf("ray_dist : %f\n", e->ray_dist);
+	// printf("cos : %f\n", cos);
+	// printf("ray : %f\n", real_dist_ray);
+	// printf("ray_dist * cos : %f\n", (double)((double)e->ray_dist * (double)cos));
 	return (real_dist_ray);
 }
 

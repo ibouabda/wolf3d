@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/13 11:51:25 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/13 16:41:04 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct	s_env
 	double			distx;
 	double			disty;
 	double			raylag;
+	double			rayang;
 	int				bool;
 	t_point			player;
 	int				mapx;
@@ -157,7 +158,7 @@ void		img(t_env *e);
 void		ft_line2(t_env *e, double m);
 void		vertical(t_env *e);
 void		vertical2(t_env *e);
-int			ft_distline(double angle, t_env *e);
+int			ft_distline(t_env *e);
 void		ray_dist(t_env *e);
 void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);

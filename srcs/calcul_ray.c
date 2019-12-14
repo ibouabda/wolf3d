@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2019/12/13 12:27:58 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 12:24:31 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 void ray_dist(t_env *e)
 {
 	int i;
-	double rayang;
 
 	i = 0;
-	rayang = e->rot + e->ang / 2;
-    // printf("rayang = %f\n", rayang);
+	e->rayang = e->rot + e->ang / 2;
+    // printf("e->rayang = %f\n", e->rayang);
 	while (i < e->winx)
 	{
-		if (rayang > 360.0)
-			rayang -= 360.0;
-		else if (rayang < 0.0)
-			rayang = 360.0 - rayang;
-		ft_distline(rayang, e);
-		e->ray_dist = sqrt(e->distx * e->distx + e->disty * e->disty) * 100;
+		if (e->rayang > 360.0)
+			e->rayang -= 360.0;
+		else if (e->rayang < 0.0)
+			e->rayang = 360.0 - e->rayang;
+		ft_distline(e);
+		e->ray_dist = sqrt(e->distx * e->distx + e->disty * e->disty) * 20;
+		// printf("angle : %f\n", (e->rayang));
+		// printf("ray : %f\n", (e->ray_dist));
 		display_column(e, i);
-        // printf("rayang = %f\n", rayang);
-		rayang -= e->raylag;
+		// printf("test = %i\n", (int)(39.999999 + 0.000001));
+        // printf("e->rayang = %f\n", e->rayang);
+		e->rayang -= e->raylag;
 		i++;
 	}
-	// printf("rayang = %f\n", rayang);
+	// printf("e->rayang = %f\n", e->rayang);
 	// printf("e->distx = %f, e->disty = %f, distance = %f", e->distx, e->disty, sqrt(e->distx * e->distx + e->disty * e->disty));
 }
