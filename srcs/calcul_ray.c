@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2019/12/14 12:24:31 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 17:48:17 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ray_dist(t_env *e)
 		if (e->rayang > 360.0)
 			e->rayang -= 360.0;
 		else if (e->rayang < 0.0)
-			e->rayang = 360.0 - e->rayang;
+			e->rayang = 360.0 + e->rayang;
 		ft_distline(e);
 		e->ray_dist = sqrt(e->distx * e->distx + e->disty * e->disty) * 20;
 		// printf("angle : %f\n", (e->rayang));

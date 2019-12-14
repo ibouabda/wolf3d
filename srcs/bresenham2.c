@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:17 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 12:17:52 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 12:36:14 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_line2(t_env *e, double m)
 		// printf("e->distx = %f\n", e->distx);
 		// printf("e->disty = %f\n", e->disty);
 		// printf("e->disty = %i\n", (int)e->disty);
-		e->disty += m * 0.1;
+		e->disty += m * 0.01;
 		y = (int)(e->disty + 0.5);
-		e->distx -= 0.1;
+		e->distx -= 0.01;
 	}
 	// printf("e->distx = %f\n", e->distx);
 	// printf("e->disty = %f\n", e->disty);

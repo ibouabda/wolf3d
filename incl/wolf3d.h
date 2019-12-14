@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/13 16:41:04 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 19:21:25 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct	s_image
 	char			*sprite_tex;
 	int				*floor_color;
 	int				*ceiling_color;
+	int				*wall_color;
 }				t_image;
 
 typedef struct	s_env
@@ -117,7 +118,7 @@ typedef struct	s_env
 	double			raylag;
 	double			rayang;
 	int				bool;
-	t_point			player;
+	t_dpoint		player;
 	int				mapx;
 	int				mapy;
 	t_point			pixel;
@@ -129,7 +130,7 @@ typedef struct	s_env
 	double			ang;
 	int				rot;
 	char			**dbtab;
-	double				ray_dist;
+	double			ray_dist;
 	t_image			tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
@@ -137,8 +138,6 @@ typedef struct	s_env
 	void			*img_ptr;
 	char			*img_string;
 }				t_env;
-
-
 
 void		checkandparse(char *argv, t_env *e);
 int			ft_check_line(t_list *m);
@@ -153,7 +152,7 @@ void		new_img(t_env *e);
 void		open_texture(t_env *e);
 int			key_hook(int keycode, t_env *e);
 void		display_wall(t_env *e, float wall_size, float wall_top);
-void		ft_fill_pixel(t_point point, int color, t_env *e);
+void		ft_fill_pixel(t_point point, int *color, t_env *e);
 void		img(t_env *e);
 void		ft_line2(t_env *e, double m);
 void		vertical(t_env *e);
@@ -162,6 +161,5 @@ int			ft_distline(t_env *e);
 void		ray_dist(t_env *e);
 void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
-
 
 #endif

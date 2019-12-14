@@ -6,20 +6,20 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:29:23 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/14 10:30:38 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 19:25:18 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	ft_fill_pixel(t_point point, int color, t_env *e)
+void	ft_fill_pixel(t_point point, int *color, t_env *e)
 {
 	int	pos;
 
 	pos = point.y * e->winx * 4 + point.x * 4;
-	e->img_string[pos] = (char)color;
-	e->img_string[pos + 1] = (char)0;
-	e->img_string[pos + 2] = (char)0;
+	e->img_string[pos] = color[0];
+	e->img_string[pos + 1] = color[1];
+	e->img_string[pos + 2] = color[2];
 }
 
 void	new_window(t_env *e)

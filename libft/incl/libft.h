@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:22:12 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/09 15:48:09 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 15:52:36 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ typedef struct		s_point
 	int y;
 	int h;
 }					t_point;
+
+typedef struct		s_dpoint
+{
+	double x;
+	double y;
+}					t_dpoint;
+
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *src, size_t n);
@@ -156,6 +163,6 @@ void				ft_putnbrl(int n);
 void				ft_memswitch(void **a, void **b);
 int					get_next_line(const int fd, char **line);
 int					*ft_intnew_clean(int size);
-int					ft_2dstrchr(char **str, char c, t_point *a);
+int					ft_2dstrchr(char **str, char c, t_dpoint *a);
 
 #endif

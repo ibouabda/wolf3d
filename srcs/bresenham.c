@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:47 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 12:17:09 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 17:12:16 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ int		ft_distline(t_env *e)
 {
 	double m;
 
-	if ((int)(e->rayang + 0.0001) == 90 || (int)(e->rayang + 0.0001) == 270)
-		((int)(e->rayang + 0.0001) == 90 ? vertical(e) : vertical2(e));
-	else
-	{
+	// if ((int)(e->rayang + 0.0001) == 90 || (int)(e->rayang + 0.0001) == 270)
+	// 	((int)(e->rayang + 0.0001) == 90 ? vertical(e) : vertical2(e));
+	// else
+	// {
 		// printf("e->rayang = %f\n", e->rayang);
 		m = tan(e->rayang / (180.0 / M_PI));
 		// printf("m = %f\n", m);
@@ -94,6 +94,6 @@ int		ft_distline(t_env *e)
 			m = 1 / m;
 			(e->rayang >= 0 && e->rayang <= 180) ? highline(e, m) : highline2(e, m); //condition (m >= 0)
 		}
-	}
+	// }
 	return (1);
 }

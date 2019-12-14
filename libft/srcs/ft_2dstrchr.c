@@ -6,13 +6,13 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:35:35 by idris             #+#    #+#             */
-/*   Updated: 2019/12/09 15:56:41 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 15:52:38 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/libft.h"
 
-int ft_2dstrchr(char **str, char c, t_point *a)
+int ft_2dstrchr(char **str, char c, t_dpoint *a)
 {
     int y;
     int x;
@@ -25,8 +25,8 @@ int ft_2dstrchr(char **str, char c, t_point *a)
         {
             if (str[y][x] == c)
             {
-                a->x = x;
-                a->y = y;
+                a->x = (int)x;
+                a->y = (int)y;
                 return (1);
             }
             x++;

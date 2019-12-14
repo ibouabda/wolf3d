@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 11:21:59 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/14 19:33:30 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_exit(int err, t_list *m, t_env *e)
 	if (e->tex.floor_color)
 		ft_memdel((void**)&e->tex.floor_color);
 	if (e->tex.ceiling_color)
+		ft_memdel((void**)&e->tex.ceiling_color);
+	if (e->tex.wall_color)
 		ft_memdel((void**)&e->tex.ceiling_color);
 	if (e->dbtab)
 		ft_2dstrdel(e->dbtab);
@@ -56,6 +58,10 @@ void	ft_initialize(t_env *e)
 	e->dbtab = NULL;
 	e->player.x = -1;
 	e->player.y = -1;
+	e->tex.wall_color = ft_intnew(3);
+	e->tex.wall_color[0] = 255;
+	e->tex.wall_color[1] = 255;
+	e->tex.wall_color[2] = 255;
 }
 
 int		main(int argc, char **argv)
