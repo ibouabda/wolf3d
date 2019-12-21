@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 19:21:25 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/15 11:51:19 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ typedef struct	s_env
 	double			rayang;
 	int				bool;
 	t_dpoint		player;
+	double			pi;
 	int				mapx;
 	int				mapy;
 	t_point			pixel;

@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:47 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 17:12:16 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/15 12:27:04 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	highline(t_env *e, double m)
 		x = (int)(e->distx + 0.5);
 		e->disty -= 0.01;
 	}
+	// printf("e->distx = %f\n", e->distx);
+	// printf("e->disty = %f\n", e->disty);
 	e->disty = e->disty - e->player.y;
 	e->distx = e->distx - e->player.x;
 }
@@ -85,7 +87,7 @@ int		ft_distline(t_env *e)
 	// else
 	// {
 		// printf("e->rayang = %f\n", e->rayang);
-		m = tan(e->rayang / (180.0 / M_PI));
+		m = tan(e->rayang / e->pi);
 		// printf("m = %f\n", m);
 		if (m >= -1.0 && m <= 1.0)
 			((e->rayang >= 270 && e->rayang <= 360) || (e->rayang >= 0 && e->rayang <= 90)) ? ft_line(e, m) : ft_line2(e, m); //condition (m >= 0)

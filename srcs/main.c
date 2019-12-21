@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 19:33:30 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/15 11:50:46 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,11 @@ void	ft_initialize(t_env *e)
 	e->dbtab = NULL;
 	e->player.x = -1;
 	e->player.y = -1;
+	e->pi = (180.0 / M_PI);
 	e->tex.wall_color = ft_intnew(3);
-	e->tex.wall_color[0] = 255;
-	e->tex.wall_color[1] = 255;
-	e->tex.wall_color[2] = 255;
+	e->tex.wall_color[0] = 200;
+	e->tex.wall_color[1] = 200;
+	e->tex.wall_color[2] = 200;
 }
 
 int		main(int argc, char **argv)

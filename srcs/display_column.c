@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/14 19:30:25 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/15 11:51:51 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ double	fish_eye_calc_dist(t_env *e)
 {
 	double	real_dist_ray;
 
-	real_dist_ray = ABS(e->ray_dist * cos(ABS(e->rayang - e->rot) / (180.0 / M_PI)));
-	// printf("ray : %f\n", (e->ray_dist));
+	real_dist_ray = ABS(e->ray_dist * cos((e->rayang - e->rot) / e->pi));
+	// printf("ray_ang : %f\n", e->rayang);
+	// printf("ray_ang - e->rot : %f\n", e->rayang - e->rot);
 	// printf("ray_dist : %f\n", e->ray_dist);
 	// printf("cos : %f\n", cos);
-	// printf("ray : %f\n", real_dist_ray);
+	// printf("real_ray : %f\n", real_dist_ray);
 	// printf("ray_dist * cos : %f\n", (double)((double)e->ray_dist * (double)cos));
 	return (real_dist_ray);
 }
@@ -34,11 +35,6 @@ int		calc_column(t_env *e)
 	ray_dist_fisheyed = fish_eye_calc_dist(e);
 	column_size = (64 / ray_dist_fisheyed) * 277;
 	return(column_size);
-}
-
-void	display_plafond_and_floor(int top_wall)
-{
-
 }
 
 void	display_column(t_env *e, int ray_num)

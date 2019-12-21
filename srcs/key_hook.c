@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 18:22:27 by idris            ###   ########.fr       */
+/*   Updated: 2019/12/15 11:57:31 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,38 @@ void move_ws(int keycode, t_env *e)
 	double x;
 	double m;
 
-	m = tan(e->rot / (180.0 / M_PI));
+	m = tan(e->rot / e->pi);
 	if (m >= -1.0 && m <= 1.0)
 	{
-		y = m;
 		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
+		{
+			y = -m;
+			printf("angle 315/45\n");
 			x = sqrt(1 - y * y);
+		}
 		else
+		{
+			y = m;
+			printf("angle 135/235\n");
 			x = -sqrt(1 - y * y);
+		}
 	}
 	else
 	{
 		m = 1 / m;
-		x = m;
+		 // a verifier
 		if (e->rot >= 0 && e->rot <= 180)
+		{
+			x = m;
+			printf("angle 0/180\n");
 			y = -sqrt(1 - x * x);
+		}
 		else
+		{
+			x = -m;
+			printf("angle 180/360\n");
 			y = sqrt(1 - x * x);
+		}
 	}
 	e->player.y = (keycode == W) ? e->player.y + y : e->player.y - y;
 	e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;
@@ -62,7 +77,7 @@ int		key_hook(int keycode, t_env *e)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
 		e->rot = 360.0 + e->rot;
-	// printf("rot = %i\n", e->rot);
+	printf("rot = %i\n", e->rot);
 	// printf("e->player.x = %f\n", e->player.x);
 	// printf("e->player.y = %f\n", e->player.y);
 	new_img(e);
