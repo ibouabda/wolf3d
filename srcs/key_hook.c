@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/15 11:57:31 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/15 16:27:10 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void move_ws(int keycode, t_env *e)
 		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
 		{
 			y = -m;
-			printf("angle 315/45\n");
+			// printf("angle 315/45\n");
 			x = sqrt(1 - y * y);
 		}
 		else
 		{
 			y = m;
-			printf("angle 135/235\n");
+			// printf("angle 135/235\n");
 			x = -sqrt(1 - y * y);
 		}
 	}
@@ -41,13 +41,13 @@ void move_ws(int keycode, t_env *e)
 		if (e->rot >= 0 && e->rot <= 180)
 		{
 			x = m;
-			printf("angle 0/180\n");
+			// printf("angle 0/180\n");
 			y = -sqrt(1 - x * x);
 		}
 		else
 		{
 			x = -m;
-			printf("angle 180/360\n");
+			// printf("angle 180/360\n");
 			y = sqrt(1 - x * x);
 		}
 	}
@@ -65,10 +65,10 @@ int		key_hook(int keycode, t_env *e)
 	}
 	if (keycode == W || keycode == S)
 		move_ws(keycode, e);
-	if (keycode == A)
-		e->player.x += 0.2;
-	if (keycode == D)
-		e->player.x -= 0.2;
+	// if (keycode == A)
+	// 	e->player.x += 0.2;
+	// if (keycode == D)
+	// 	e->player.x -= 0.2;
 	if (keycode == LEFT_ARROW)
 		e->rot = e->rot + 10;
 	if (keycode == RIGHT_ARROW)
