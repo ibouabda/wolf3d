@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/15 16:27:10 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/16 11:12:31 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void move_ws(int keycode, t_env *e)
 		{
 			y = -m;
 			// printf("angle 315/45\n");
-			x = sqrt(1 - y * y);
+			x = sqrt(1 - y * y); // mouvement a 0.1 segfault
 		}
 		else
 		{
@@ -51,8 +51,12 @@ void move_ws(int keycode, t_env *e)
 			y = sqrt(1 - x * x);
 		}
 	}
-	e->player.y = (keycode == W) ? e->player.y + y : e->player.y - y;
-	e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;
+	if ((keycode == W && e->dbtab[(int)(e->player.y + y + 0.5)][(int)(e->player.x + x + 0.5)] != '1')
+	|| (keycode == S && e->dbtab[(int)(e->player.y - y + 0.5)][(int)(e->player.x - x + 0.5)] != '1'))
+	{
+		e->player.y = (keycode == W) ? e->player.y + y : e->player.y - y;
+		e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;
+	}
 }
 
 int		key_hook(int keycode, t_env *e)
