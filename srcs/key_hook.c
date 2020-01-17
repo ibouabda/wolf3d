@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/16 11:12:31 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/16 14:50:14 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@ void move_ws(int keycode, t_env *e)
 	double x;
 	double m;
 
-	m = tan(e->rot / e->pi);
+	m = tan(e->rot / e->pi); // ajouter protection pour angle droit 90 / 270
+	printf("m = %f\n", m);
 	if (m >= -1.0 && m <= 1.0)
 	{
 		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
 		{
-			y = -m;
+			y = -m * 0.3;
 			// printf("angle 315/45\n");
-			x = sqrt(1 - y * y); // mouvement a 0.1 segfault
+			x = sqrt(0.3 - y * y); // mouvement a 0.3 segfault
 		}
 		else
 		{
-			y = m;
+			y = m * 0.3;
 			// printf("angle 135/235\n");
-			x = -sqrt(1 - y * y);
+			x = -sqrt(0.3 - y * y);
 		}
 	}
 	else
@@ -40,15 +41,15 @@ void move_ws(int keycode, t_env *e)
 		 // a verifier
 		if (e->rot >= 0 && e->rot <= 180)
 		{
-			x = m;
+			x = m * 0.3;
 			// printf("angle 0/180\n");
-			y = -sqrt(1 - x * x);
+			y = -sqrt(0.3 - x * x);
 		}
 		else
 		{
-			x = -m;
+			x = -m * 0.3;
 			// printf("angle 180/360\n");
-			y = sqrt(1 - x * x);
+			y = sqrt(0.3 - x * x);
 		}
 	}
 	if ((keycode == W && e->dbtab[(int)(e->player.y + y + 0.5)][(int)(e->player.x + x + 0.5)] != '1')
