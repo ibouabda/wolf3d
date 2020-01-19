@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calcul_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/18 17:18:53 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/19 15:28:33 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,14 @@ void ray_dist(t_env *e)
 			e->rayang = 360.0 + e->rayang;
 		ft_dda(e);
 		e->ray_dist = sqrt(e->distx + e->disty) * 20;
-		// dprintf(fd, "angle : %f\n", (e->rayang));
-		// dprintf(fd, "coef. : %f\n", (tan(e->rayang / e->pi)));
-		// dprintf(fd, "ray_dist : %f\n", (e->ray_dist));
+		dprintf(fd, "angle : %f\n", (e->rayang));
+		dprintf(fd, "coef. : %f\n", (tan(e->rayang / e->pi)));
+		dprintf(fd, "ray_dist : %f\n", (e->ray_dist));
 		display_column(e, i);
 		// printf("test = %i\n", (int)(39.999999 + 0.000001));
         // printf("e->rayang = %f\n", e->rayang);
 		e->rayang -= e->raylag;
-		printf("e->rayang = %f\n", e->rayang);
 		i++;
-		// printf("e->winx = %i, i = %i,\n", e->winx, i);
 	}
 	close(fd);
 	// printf("e->rayang = %f\n", e->rayang);
