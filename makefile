@@ -6,7 +6,7 @@
 #    By: idris <idris@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/13 11:40:48 by idris            ###   ########.fr        #
+#    Updated: 2020/01/18 16:56:10 by idris            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ NAME = wolf3d
 
 SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c read_param.c mlx_img.c\
 			display_column.c check_texture.c key_hook.c bresenham2.c\
-			bresenham.c calcul_ray.c
+			bresenham.c calcul_ray.c dda.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl

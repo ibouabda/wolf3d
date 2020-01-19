@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/15 11:51:19 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/18 16:45:59 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ typedef struct	s_env
 	double			rayang;
 	int				bool;
 	t_dpoint		player;
+	t_dpoint		playerx;
+	t_dpoint		playery;
 	double			pi;
 	int				mapx;
 	int				mapy;
@@ -162,5 +164,6 @@ int			ft_distline(t_env *e);
 void		ray_dist(t_env *e);
 void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
+void		ft_dda(t_env *e);
 
 #endif
