@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/16 11:12:31 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/19 14:10:33 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		key_hook(int keycode, t_env *e)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
 		e->rot = 360.0 + e->rot;
-	printf("rot = %i\n", e->rot);
+	// printf("rot = %i\n", e->rot);
 	// printf("e->player.x = %f\n", e->player.x);
 	// printf("e->player.y = %f\n", e->player.y);
 	new_img(e);

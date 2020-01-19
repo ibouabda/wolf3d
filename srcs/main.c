@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/15 11:50:46 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/19 15:09:23 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ int		main(int argc, char **argv)
 	// printf("py = %i\n", e.player.y);
 	// printf("ang = %f\n", e.ang);
 	// printf("rot = %i\n", e.rot);
-	// open_texture(&e);
+	open_texture(&e);
+	printf("texture noth : %s\n", e.tex.north_img);
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);

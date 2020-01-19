@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   display_column.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/15 11:51:51 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/19 16:18:09 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
+
+// void	print_sprite(t_env *e, void *dist_sprite, int ray_num)
+// {
+// 	int top_sprite;
+// 	int sprite_size;
+// 	int i;
+
+// 	i = 0;
+// 	sprite_size = 22 * (e->median_ray_sprite / 277);
+// 	top_sprite = (e->winy / 2) + (sprite_size / 2);
+// 	while (i < sprite_size)
+// 	{
+// 		e->pixel.x = ray_num;
+// 		e->pixel.y = top_sprite;
+// 		ft_fill_pixel(e->pixel, /*?*/, e);
+// 		top_sprite++;
+// 		i++;
+// 	}
+// }
+
+// void	display_sprite(t_env *e, t_list *sprite, int ray_num)
+// {
+// 	while (sprite)
+// 	{
+// 		print_sprite(e, sprite->content, ray_num);
+// 		sprite = sprite->next;
+// 	}
+// }
 
 double	fish_eye_calc_dist(t_env *e)
 {
@@ -48,6 +76,8 @@ void	display_column(t_env *e, int ray_num)
 	if (top_wall < 0 || top_wall > e->winy)
 		top_wall = 0;
 	i = 0;
+	e->texel.x = ray_num / 5;
+	e->texel.y = 0;
 	while (i < e->winy && i < top_wall)
 	{
 		e->pixel.x = ray_num;
@@ -60,7 +90,8 @@ void	display_column(t_env *e, int ray_num)
 	{
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
-		ft_fill_pixel(e->pixel, e->tex.wall_color, e);
+		print_texture(e, e->pixel, e->texel);
+		e->texel.y++;
 		top_wall++;
 		i++;
 	}

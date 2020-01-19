@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/15 11:51:19 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/19 16:09:08 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@
 
 typedef struct	s_image
 {
-	void			*north_img;
-	void			*south_img;
-	void			*west_img;
-	void			*east_img;
-	void			*sprite_img;
+	char			*north_img;
+	char			*south_img;
+	char			*west_img;
+	char			*east_img;
+	char			*sprite_img;
 	char			*north_tex;
 	char			*south_tex;
 	char			*west_tex;
@@ -123,6 +123,7 @@ typedef struct	s_env
 	int				mapx;
 	int				mapy;
 	t_point			pixel;
+	t_point			texel;
 	int				winx;
 	int				winy;
 	int				midx;
@@ -162,5 +163,6 @@ int			ft_distline(t_env *e);
 void		ray_dist(t_env *e);
 void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
+void		print_texture(t_env *e, t_point point, t_point texel);
 
 #endif
