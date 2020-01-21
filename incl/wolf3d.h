@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/20 15:00:26 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/21 08:39:34 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@
 
 typedef struct	s_image
 {
-	char			*north_img;
-	char			*south_img;
-	char			*west_img;
-	char			*east_img;
-	char			*sprite_img;
+	void			*north_img;
+	void			*south_img;
+	void			*west_img;
+	void			*east_img;
+	void			*sprite_img;
 	char			*north_tex;
 	char			*south_tex;
 	char			*west_tex;
