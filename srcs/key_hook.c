@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/19 14:10:33 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:37:44 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ void move_ws(int keycode, t_env *e)
 	{
 		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
 		{
-			y = -m;
+			y = -m * 0.5;
 			// printf("angle 315/45\n");
-			x = sqrt(1 - y * y); // mouvement a 0.1 segfault
+			x = sqrt(0.5 - y * y); // mouvement a 0.1 segfault
 		}
 		else
 		{
-			y = m;
+			y = m * 0.5;
 			// printf("angle 135/235\n");
-			x = -sqrt(1 - y * y);
+			x = -sqrt(0.5 - y * y);
 		}
 	}
 	else
@@ -40,15 +40,15 @@ void move_ws(int keycode, t_env *e)
 		 // a verifier
 		if (e->rot >= 0 && e->rot <= 180)
 		{
-			x = m;
+			x = m * 0.5;
 			// printf("angle 0/180\n");
-			y = -sqrt(1 - x * x);
+			y = -sqrt(0.5 - x * x);
 		}
 		else
 		{
-			x = -m;
+			x = -m * 0.5;
 			// printf("angle 180/360\n");
-			y = sqrt(1 - x * x);
+			y = sqrt(0.5 - x * x);
 		}
 	}
 	if ((keycode == W && e->dbtab[(int)(e->player.y + y + 0.5)][(int)(e->player.x + x + 0.5)] != '1')
@@ -74,9 +74,9 @@ int		key_hook(int keycode, t_env *e)
 	// if (keycode == D)
 	// 	e->player.x -= 0.2;
 	if (keycode == LEFT_ARROW)
-		e->rot = e->rot + 10;
+		e->rot = e->rot + 5;
 	if (keycode == RIGHT_ARROW)
-		e->rot = e->rot - 10;
+		e->rot = e->rot - 5;
 	if (e->rot > 360.0)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)

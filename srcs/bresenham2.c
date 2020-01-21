@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:38:17 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/15 17:32:29 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/21 13:44:55 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 void	ft_line2(t_env *e, double m)
 {
-	int y;
-	int x;
-
 	e->disty = e->player.y;
 	e->distx = e->player.x;
-	y = (int)(e->disty + 0.5);
-	x = (int)(e->distx + 0.5);
-	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx &&
-	x < e->mapx && y < e->mapy && e->dbtab[y][x] != '1')
+	e->wall.y = (int)(e->disty + 0.5);
+	e->wall.x = (int)(e->distx + 0.5);
+	while (e->disty >= 0 && e->distx >= 0 && e->disty < e->mapy && e->distx < e->mapx
+	&& e->wall.x < e->mapx && e->wall.y < e->mapy && e->dbtab[e->wall.y][e->wall.x] != '1')
 	{
 		// printf("e->distx = %f\n", e->distx);
 		// printf("e->disty = %f\n", e->disty);
 		// printf("e->disty = %i\n", (int)e->disty);
 		e->disty += m * 0.01;
 		e->distx -= 0.01;
-		y = (int)(e->disty + 0.5);
-		x = (int)(e->distx + 0.5);
+		e->wall.y = (int)(e->disty + 0.5);
+		e->wall.x = (int)(e->distx + 0.5);
 	}
 	// printf("e->distx = %f\n", e->distx);
 	// printf("e->disty = %f\n", e->disty);

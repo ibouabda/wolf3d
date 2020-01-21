@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 15:47:38 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/21 08:49:11 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/21 17:18:24 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,19 @@ void	print_texture(t_env *e, t_point pixel, t_point texel)
 
 	pos = pixel.y * e->winx * 4 + pixel.x * 4;
 	texel_pos = texel.x * 64 * 4 + texel.y * 4;
-	e->img_string[pos] = e->tex.east_tex[texel_pos];
-	e->img_string[pos + 1] = e->tex.east_tex[texel_pos + 1];
-	e->img_string[pos + 2] = e->tex.east_tex[texel_pos + 2];
+	if (e->ray_dist <= 150.0)
+	{
+		// printf("ray_dist : %f\n", e->ray_dist);
+		e->img_string[pos] = e->tex.east_tex[texel_pos] - (e->ray_dist / 3.0);
+		e->img_string[pos + 1] = e->tex.east_tex[texel_pos + 1] - (e->ray_dist / 3.0);
+		e->img_string[pos + 2] = e->tex.east_tex[texel_pos + 2] - (e->ray_dist / 3.0);
+	}
+	else
+	{
+		e->img_string[pos] = e->tex.east_tex[texel_pos] - 150 / 3;
+		e->img_string[pos + 1] = e->tex.east_tex[texel_pos + 1] - 150 / 3;
+		e->img_string[pos + 2] = e->tex.east_tex[texel_pos + 2] - 150 / 3;
+	}
 }
 
 void	calc_ray_posx(t_env *e)

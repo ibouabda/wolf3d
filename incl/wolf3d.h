@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/21 08:39:34 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/21 13:40:58 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct	s_image
 
 typedef struct	s_env
 {
+	t_point			wall;
 	double			distx;
 	double			disty;
 	double			raylag;

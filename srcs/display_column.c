@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/20 15:03:23 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:33:53 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	display_column(t_env *e, int ray_num)
 	if (top_wall < 0 || top_wall > e->winy)
 		top_wall = 0;
 	i = 0;
+	e->texel.x = ((int)(((e->player.x + e->distx) - (int)(e->distx + e->player.x)) * 64));
 	while (i < e->winy && i < top_wall)
 	{
 		e->pixel.x = ray_num;
@@ -86,13 +87,10 @@ void	display_column(t_env *e, int ray_num)
 	i = 0;
 	while (i < e->winy && i < column_size)
 	{
-		if (e->texel.y == 64)
-			e->texel.y = 0;
+		e->texel.y = i / (column_size / 64.0);
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		print_texture(e, e->pixel, e->texel);
-		if (e->texel.y < 64)
-			e->texel.y++;
 		top_wall++;
 		i++;
 	}
@@ -103,9 +101,5 @@ void	display_column(t_env *e, int ray_num)
 		ft_fill_pixel(e->pixel, e->tex.floor_color, e);
 		top_wall++;
 	}
-	if (e->texel.x < 64)
-		e->texel.x++;
-	if (e->texel.x == 64)
-		e->texel.x = 0;
 	e->texel.y = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:56:23 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/21 10:03:25 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/21 10:40:27 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	open_texture(t_env *e)
 		ft_exit(1, NULL, e);
 	if ((e->tex.east_img = mlx_xpm_file_to_image(e->mlx_ptr, e->tex.east_tex, &width, &height)) == NULL)
 		ft_exit(1, NULL, e);
-	printf("width : %i\n", width);
-	printf("height : %i\n", height);
+	// printf("width : %i\n", width);
+	// printf("height : %i\n", height);
 	e->tex.east_tex = mlx_get_data_addr(e->tex.east_img, &(bpp), &(s_l), &(endian));
-	ft_putnbrl(width);
-	ft_putnbrl(height);
+// 	ft_putnbrl(width);
+// 	ft_putnbrl(height);
 }

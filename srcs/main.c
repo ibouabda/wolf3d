@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/21 09:49:18 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/21 13:28:38 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_initialize(t_env *e)
 	e->tex.wall_color[0] = 200;
 	e->tex.wall_color[1] = 200;
 	e->tex.wall_color[2] = 200;
-	e->texel.x = 0;
 	e->texel.y = 0;
 }
 
