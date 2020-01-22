@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/21 16:33:53 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:58:45 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		calc_column(t_env *e)
 	double	top_wall;
 
 	ray_dist_fisheyed = fish_eye_calc_dist(e);
-	column_size = (64 / ray_dist_fisheyed) * 277;
+	column_size = (64 / ray_dist_fisheyed) * 519;
 	return(column_size);
 }
 
@@ -70,7 +70,9 @@ void	display_column(t_env *e, int ray_num)
 	int		i;
 	int		top_wall;
 	int		column_size;
+	int		column_dif;
 
+	column_dif = (column_size - e->winy) / 2;
 	column_size = calc_column(e);
 	top_wall = (e->winy / 2) - (column_size / 2);
 	if (top_wall < 0 || top_wall > e->winy)
@@ -84,8 +86,10 @@ void	display_column(t_env *e, int ray_num)
 		ft_fill_pixel(e->pixel, e->tex.ceiling_color, e);
 		i++;
 	}
-	i = 0;
-	while (i < e->winy && i < column_size)
+	i = column_size > e->winy ? (column_size - e->winy) / 2 : 0;
+	column_dif = i;
+	while ((i < e->winy && i < column_size)
+	|| (column_size > e->winy && i < e->winy + column_dif))
 	{
 		e->texel.y = i / (column_size / 64.0);
 		e->pixel.x = ray_num;
