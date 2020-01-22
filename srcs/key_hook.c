@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/16 14:50:14 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:40:59 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		key_hook(int keycode, t_env *e)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
 		e->rot = 360.0 + e->rot;
-	printf("rot = %i\n", e->rot);
+	// printf("rot = %i\n", e->rot);
 	// printf("e->player.x = %f\n", e->player.x);
 	// printf("e->player.y = %f\n", e->player.y);
 	new_img(e);
