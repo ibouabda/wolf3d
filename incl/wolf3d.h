@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/18 16:45:59 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/23 10:59:20 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,8 @@ typedef struct	s_env
 	double			rayang;
 	int				bool;
 	t_dpoint		player;
-	t_dpoint		playerx;
-	t_dpoint		playery;
+	t_dpoint		ddax;
+	t_dpoint		dday;
 	double			pi;
 	int				mapx;
 	int				mapy;

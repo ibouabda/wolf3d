@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/22 16:40:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/23 10:50:48 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void move_ws(int keycode, t_env *e)
 	double m;
 
 	m = tan(e->rot / e->pi); // ajouter protection pour angle droit 90 / 270
-	printf("m = %f\n", m);
+	// printf("m = %f\n", m);
 	if (m >= -1.0 && m <= 1.0)
 	{
 		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
