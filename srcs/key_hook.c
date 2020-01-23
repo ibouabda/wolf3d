@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/22 14:57:49 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:52:16 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int		key_hook(int keycode, t_env *e)
 	// if (keycode == D)
 	// 	e->player.x -= 0.2;
 	if (keycode == LEFT_ARROW)
-		e->rot = e->rot + 3;
+		e->rot = e->rot + 1;
 	if (keycode == RIGHT_ARROW)
-		e->rot = e->rot - 3;
+		e->rot = e->rot - 1;
 	if (e->rot > 360.0)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)

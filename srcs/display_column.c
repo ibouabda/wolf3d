@@ -6,45 +6,48 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/22 16:58:45 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:54:37 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-// void	print_sprite(t_env *e, void *dist_sprite, int ray_num)
-// {
-// 	int top_sprite;
-// 	int sprite_size;
-// 	int i;
+void	calc_sprite(t_env *e, void *dist_sprite, int ray_num)
+{
+	t_point sprite_cord;
+	int		top_sprite;
+	int		sprite_size;
+	int		i;
 
-// 	i = 0;
-// 	sprite_size = 22 * (e->median_ray_sprite / 277);
-// 	top_sprite = (e->winy / 2) + (sprite_size / 2);
-// 	while (i < sprite_size)
-// 	{
-// 		e->pixel.x = ray_num;
-// 		e->pixel.y = top_sprite;
-// 		ft_fill_pixel(e->pixel, /*?*/, e);
-// 		top_sprite++;
-// 		i++;
-// 	}
-// }
+	i = 0;
+	sprite_size = 32 * (dist_sprite / 277);
+	top_sprite = (e->winy / 2) + (sprite_size / 2);
+	sprite_cord.x = ((int)(((e->player.x + e->distx) - (int)(e->distx + e->player.x)) * 32));
+	while (i < sprite_size)
+	{
+		e->pixel.x = ray_num;
+		e->pixel.y = top_sprite;
+		print_sprite(e, e->pixel, sprite_cord);
+		sprite_cord.y = i / (sprite_size / 32);
+		top_sprite++;
+		i++;
+	}
+}
 
-// void	display_sprite(t_env *e, t_list *sprite, int ray_num)
-// {
-// 	while (sprite)
-// 	{
-// 		print_sprite(e, sprite->content, ray_num);
-// 		sprite = sprite->next;
-// 	}
-// }
+void	display_sprite(t_env *e, t_list *sprite, int ray_num)
+{
+	while (sprite)
+	{
+		calc_sprite(e, sprite->content, ray_num);
+		sprite = sprite->next;
+	}
+}
 
 double	fish_eye_calc_dist(t_env *e)
 {
 	double	real_dist_ray;
 
-	real_dist_ray = ABS(e->ray_dist * cos((e->rayang - e->rot) / e->pi));
+	real_dist_ray = ABS(e->ray_dist  * cos((e->rayang - e->rot) / e->pi));
 	// printf("ray_ang : %f\n", e->rayang);
 	// printf("ray_ang - e->rot : %f\n", e->rayang - e->rot);
 	// printf("ray_dist : %f\n", e->ray_dist);
@@ -105,5 +108,4 @@ void	display_column(t_env *e, int ray_num)
 		ft_fill_pixel(e->pixel, e->tex.floor_color, e);
 		top_wall++;
 	}
-	e->texel.y = 0;
 }

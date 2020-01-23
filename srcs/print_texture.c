@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 15:47:38 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/22 14:55:57 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:47:17 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,17 @@ void	print_texture(t_env *e, t_point pixel, t_point texel)
 	}
 }
 
-void	calc_ray_posx(t_env *e)
+void	print_sprite(t_env *e, t_point point, t_point sprite_cord)
 {
-	double	wallx;
-	int		texnum;
+	int	pos;
+	int sprite_pos;
 
-	texnum = e->dbtab[e->mapx][e->mapy] - 1;
-	wallx = e->player.y + (e->rayang - e->rot) * e->disty; 
+	pos = point.y * e->winx * 4 + point.x * 4;
+	sprite_pos = sprite_cord.y * e->winx * 32 + sprite_cord.x * 4;
+	if (e->tex.sprite_tex[sprite_pos + 3] != 0)
+	{
+		e->img_string[pos] = e->tex.sprite_tex[sprite_pos];
+		e->img_string[pos + 1] = e->tex.sprite_tex[sprite_pos + 1];
+		e->img_string[pos + 2] = e->tex.sprite_tex[sprite_pos + 2];
+	}
 }

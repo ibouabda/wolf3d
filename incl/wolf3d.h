@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/21 13:40:58 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:47:16 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,5 +165,6 @@ void		ray_dist(t_env *e);
 void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
 void		print_texture(t_env *e, t_point point, t_point texel);
+void		print_sprite(t_env *e, t_point point, t_point sprite_cord);
 
 #endif
