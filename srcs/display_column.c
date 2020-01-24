@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/24 11:03:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/24 11:36:22 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,15 @@ double	fish_eye_calc_dist(t_env *e)
 	return (real_dist_ray);
 }
 
-int		calc_column(t_env *e)
+int		calc_column(t_env *e, int *top_wall, int *column_dif)
 {
 	double	column_size;
 	double	ray_dist_fisheyed;
-	double	top_wall;
 
 	ray_dist_fisheyed = fish_eye_calc_dist(e);
 	column_size = (64 / ray_dist_fisheyed) * 519;
+	*top_wall = (e->winy / 2) - (column_size / 2);
+	*column_dif = (column_size - e->winy) / 2;
 	return(column_size);
 }
 
@@ -75,16 +76,14 @@ void	display_column(t_env *e, int ray_num)
 	int		column_size;
 	int		column_dif;
 
-	column_dif = (column_size - e->winy) / 2;
-	column_size = calc_column(e);
-	top_wall = (e->winy / 2) - (column_size / 2);
+	column_size = calc_column(e, &top_wall, &column_dif);
 	if (top_wall < 0 || top_wall > e->winy)
 		top_wall = 0;
 	i = 0;
 	if (e->wall_dir == 'h')
 		e->texel.x = ((int)(((e->player.x + e->dday.x) - (int)(e->dday.x + e->player.x)) * 64));
 	else
-		e->texel.x = ((int)(((e->player.x + e->ddax.x) - (int)(e->ddax.x + e->player.x)) * 64));
+		e->texel.x = ((int)(((e->player.y + e->ddax.y) - (int)(e->ddax.y + e->player.y)) * 64));
 	while (i < e->winy && i < top_wall)
 	{
 		e->pixel.x = ray_num;

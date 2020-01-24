@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/24 09:44:42 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/24 11:24:22 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ typedef struct	s_env
 	double			disty;
 	double			raylag;
 	double			rayang;
+	int				mid_wall;
 	t_dpoint		ddax;
 	t_dpoint		dday;
 	int				bool;

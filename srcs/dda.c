@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/24 09:43:07 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/24 11:06:20 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void		ft_dda(t_env *e)
 	// e->dday.x = e->player.x;
 	// e->dday.y = e->player.y;
 	// printf("e->rayang = %f, e->player.x = %f, e->player.y = %f\n", e->rayang, e->player.x, e->player.y);
-	printf("e->ddax.x = %f, e->ddax.y = %f\n", e->ddax.x, e->ddax.y);
+	// printf("e->ddax.x = %f, e->ddax.y = %f\n", e->ddax.x, e->ddax.y);
     ddax(e, ystep);
     // printf("ddax\n");
 	if (e->rayang >= 0.0 && e->rayang <= 180.0)
