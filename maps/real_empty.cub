@@ -1,7 +1,7 @@
 R 1280 720
-NO ./texture/texture.xpm
-SO ./texture/diamond_block.xpm
-WE ./texture/crafting_table_top.xpm
+NO ./texture/jungle_log.xpm
+SO ./texture/diamond_ore.xpm
+WE ./texture/iron_ore.xpm
 EA ./texture/cobblestone.xpm
 S ./texture/tnt_side.xpm
 F 100,100,100

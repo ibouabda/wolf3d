@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+         #
+#    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2020/01/24 09:15:56 by redatounsi       ###   ########.fr        #
+#    Updated: 2020/01/24 11:54:00 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
 
-CC = gcc
+CC = gcc -Wall -Werror -Wextra
 
 CFLAGS = -g3
 # -Wall -Werror -Wextra

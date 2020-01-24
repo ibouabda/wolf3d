@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/21 13:28:38 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/24 11:54:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	ft_initialize(t_env *e)
 int		main(int argc, char **argv)
 {
 	t_env	e;
-	int		bpp;
-	int		s_l;
-	int		endian;
+	// int		bpp;
+	// int		s_l;
+	// int		endian;
 
 	ft_initialize(&e);
 	if (argc != 2)

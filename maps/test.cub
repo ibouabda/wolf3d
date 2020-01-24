@@ -1,11 +1,11 @@
 R 1280 720
-NO ./texture/texture.xpm
-SO ./texture/diamond_block.xpm
-WE ./texture/crafting_table_top.xpm
+NO ./texture/iron_ore.xpm
+SO ./texture/diamond_ore.xpm
+WE ./texture/emerald_ore.xpm
 EA ./texture/cobblestone.xpm
 S ./texture/tnt_side.xpm
-F 100,100,100
-C 50,50,50
+C 255,170,128
+F 38,77,115
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1
