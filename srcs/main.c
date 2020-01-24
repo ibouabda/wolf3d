@@ -5,13 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
-/*   Created: 2019/11/30 15:03:40 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/02 11:55:28 by ibouabda         ###   ########.fr       */
-=======
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/21 13:28:38 by retounsi         ###   ########.fr       */
->>>>>>> d460ffcff2eb86ad086abb1a49e5d07973dfe61e
+/*   Updated: 2020/01/24 10:36:30 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +14,6 @@
 
 void	ft_exit(int err, t_list *m, t_env *e)
 {
-<<<<<<< HEAD
-	if (e->east_texture)
-		ft_strdel(&e->east_texture);
-	if (e->north_texture)
-		ft_strdel(&e->north_texture);
-	if (e->south_texture)
-		ft_strdel(&e->south_texture);
-	if (e->west_texture)
-		ft_strdel(&e->west_texture);
-	if (e->sprite_texture)
-		ft_strdel(&e->sprite_texture);
-	if (e->floor_color)
-		ft_memdel((void**)&e->floor_color);
-	if (e->ceiling_color)
-		ft_memdel((void**)&e->ceiling_color);
-	ft_putendl("Error");
-	while (1);
-	exit(1);
-=======
 	int i;
 
 	i = 0;
@@ -88,7 +64,6 @@ void	ft_initialize(t_env *e)
 	e->tex.wall_color[1] = 200;
 	e->tex.wall_color[2] = 200;
 	e->texel.y = 0;
->>>>>>> d460ffcff2eb86ad086abb1a49e5d07973dfe61e
 }
 
 int		main(int argc, char **argv)
