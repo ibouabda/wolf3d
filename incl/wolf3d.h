@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/23 11:47:16 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:44:42 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,13 @@ typedef struct	s_image
 typedef struct	s_env
 {
 	t_point			wall;
+	int				wall_dir;
 	double			distx;
 	double			disty;
 	double			raylag;
 	double			rayang;
+	t_dpoint		ddax;
+	t_dpoint		dday;
 	int				bool;
 	t_dpoint		player;
 	double			pi;
@@ -166,5 +169,6 @@ void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
 void		print_texture(t_env *e, t_point point, t_point texel);
 void		print_sprite(t_env *e, t_point point, t_point sprite_cord);
+void		ft_dda(t_env *e);
 
 #endif

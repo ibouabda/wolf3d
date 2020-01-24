@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calcul_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/22 14:12:30 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:46:26 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ void ray_dist(t_env *e)
 			e->rayang -= 360.0;
 		else if (e->rayang < 0.0)
 			e->rayang = 360.0 + e->rayang;
-		ft_distline(e);
-		e->ray_dist = sqrt(e->distx * e->distx + e->disty * e->disty) * 30;
+		ft_dda(e);
+		if (e->wall_dir == 'h')
+			e->ray_dist = sqrt(e->dday.x * e->dday.x + e->dday.y * e->dday.y) * 30;
+		else
+			e->ray_dist = sqrt(e->ddax.x * e->ddax.x + e->ddax.y * e->ddax.y) * 30;
 		dprintf(fd, "angle : %f\n", (e->rayang));
 		dprintf(fd, "coef. : %f\n", (tan(e->rayang / e->pi)));
 		dprintf(fd, "ray_dist : %f\n", (e->ray_dist));
