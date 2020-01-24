@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
+#    By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2019/12/02 11:16:26 by ibouabda         ###   ########.fr        #
+#    Updated: 2020/01/24 09:15:56 by redatounsi       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
-
+CFLAGS = -g3
+# -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
 ### EXECUTABLE ###
@@ -24,8 +24,9 @@ NAME = wolf3d
 
 ### INCLUDES ###
 
-SRC_NAME =	main.c\
-			read_param.c
+SRC_NAME = main.c ft_parse_map.c ft_parse_map2.c read_param.c mlx_img.c\
+			display_column.c check_texture.c key_hook.c bresenham2.c\
+			bresenham.c calcul_ray.c print_texture.c dda.c
 SRC_PATH = srcs
 OBJ_PATH = objs
 HEADER = incl
@@ -57,9 +58,9 @@ WHITE       = \033[1;37m
 all: tmp $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(GREEN)Checking lib files ...$(NOC)"
 	@make -C $(LIBFT)
 	@make -C $(LIBMLX)
+	@echo "$(GREEN)Project compiling ...$(NOC)"
 	@$(CC) $(CFLAGS) -L $(LIBFT) -o $@ $^ $(MLXFLAGS) -L $(LIBMLX) minilibx_macos/libmlx.a libft/libft.a
 	@echo "$(GREEN)Project successfully compiled !$(NOC)"
 
@@ -68,7 +69,6 @@ tmp:
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 	@$(CC) $(CFLAGS) -I $(HEADER) -c -o $@ $<
-	@echo "$(BLUE)Creating object file -> $(YELLOW)$(notdir $@)... $(GREEN)[Done]$(NOC)"
 
 
 clean:

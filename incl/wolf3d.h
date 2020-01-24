@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/01 19:44:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:44:42 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,23 +90,54 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+typedef struct	s_image
+{
+	void			*north_img;
+	void			*south_img;
+	void			*west_img;
+	void			*east_img;
+	void			*sprite_img;
+	char			*north_tex;
+	char			*south_tex;
+	char			*west_tex;
+	char			*east_tex;
+	char			*sprite_tex;
+	int				*floor_color;
+	int				*ceiling_color;
+	int				*wall_color;
+}				t_image;
 
 typedef struct	s_env
 {
+	t_point			wall;
+	int				wall_dir;
+	double			distx;
+	double			disty;
+	double			raylag;
+	double			rayang;
+	t_dpoint		ddax;
+	t_dpoint		dday;
 	int				bool;
-	int				depx;
-	int				depy;
+	t_dpoint		player;
+	double			pi;
+	int				mapx;
+	int				mapy;
+	t_point			pixel;
+	t_point			texel;
 	int				winx;
 	int				winy;
 	int				midx;
 	int				midy;
-	char			*north_texture;
-	char			*south_texture;
-	char			*west_texture;
-	char			*east_texture;
-	char			*sprite_texture;
-	int				*floor_color;
-	int				*ceiling_color;
+	int				dist;
+	double			ang;
+	int				rot;
+	char			**dbtab;
+	double			ray_dist;
+	t_image			tex;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
@@ -114,26 +145,30 @@ typedef struct	s_env
 	char			*img_string;
 }				t_env;
 
-// typedef struct	s_func
-// {
-// 	char	name[2];
-// 	void	(*ft)(char *line, t_env *e, int i);
-// }				t_func;
-
-void	read_res(char *line, t_env *e, int i);
-void	read_path(char *line, t_env *e, int i, char **str);
-void	read_colors(char *line, t_env *e, int i, int **tab);
-int		read_first_param(int fd, t_env *e);
-void	ft_exit_params(t_env *e);
-
-// static const t_func g_func[] = {
-// 	{"R", &read_res},
-// 	{"NO", &read_path},
-// 	{"SO", &read_path},
-// 	{"WE", &read_path},
-// 	{"EA", &read_path},
-// 	{"S", &read_path},
-
-// }
+void		checkandparse(char *argv, t_env *e);
+int			ft_check_line(t_list *m);
+void		read_res(char *line, t_env *e, int i);
+void		read_path(char *line, t_env *e, int i, char **str);
+void		read_colors(char *line, t_env *e, int i, int **tab);
+int			read_first_param(int fd, t_env *e);
+void		ft_exit(int err, t_list *m, t_env *e);
+void		new_window(t_env *e);
+void		img(t_env *e);
+void		new_img(t_env *e);
+void		open_texture(t_env *e);
+int			key_hook(int keycode, t_env *e);
+void		display_wall(t_env *e, float wall_size, float wall_top);
+void		ft_fill_pixel(t_point point, int *color, t_env *e);
+void		img(t_env *e);
+void		ft_line2(t_env *e, double m);
+void		vertical(t_env *e);
+void		vertical2(t_env *e);
+int			ft_distline(t_env *e);
+void		ray_dist(t_env *e);
+void		display_column(t_env *e, int ray_num);
+double		fish_eye_calc_dist(t_env *e);
+void		print_texture(t_env *e, t_point point, t_point texel);
+void		print_sprite(t_env *e, t_point point, t_point sprite_cord);
+void		ft_dda(t_env *e);
 
 #endif
