@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 17:01:48 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:08:02 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ int			key_hook(int keycode, t_env *e);
 void		display_wall(t_env *e, float wall_size, float wall_top);
 void		ft_fill_pixel(t_point point, int *color, t_env *e);
 void		img(t_env *e);
+void		ft_dda(t_env *e);
 void		ft_line2(t_env *e, double m);
 void		vertical(t_env *e);
 void		vertical2(t_env *e);
@@ -190,3 +191,5 @@ void		display_column(t_env *e, int ray_num);
 double		fish_eye_calc_dist(t_env *e);
 void		display_texture(t_env *e);
 void		print_sprite(t_env *e, t_point point, t_point sprite_cord);
+
+#endif

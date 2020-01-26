@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 16:59:44 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:06:55 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void move_ws(int keycode, t_env *e)
 	m = tan(e->rot / e->pi);
 	if (m >= -1.0 && m <= 1.0)
 	{
+		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
+		{
 			y = -m * 0.1;
 			x = sqrt(0.1 - y * y); // mouvement a 0.1 segfault
 		}
