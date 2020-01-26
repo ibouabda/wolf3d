@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 14:46:52 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:26:18 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void move_ws(int keycode, t_env *e)
 	double y;
 	double x;
 	double m;
+
 
 	m = tan(e->rot / e->pi);
 	if (m >= -1.0 && m <= 1.0)

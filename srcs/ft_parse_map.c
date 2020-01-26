@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 10:21:59 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/26 15:26:21 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void	verify_map(t_env *e)
 		e->rot = 0;
 	if (ft_2dstrchr(e->dbtab, 'O', &e->player))
 		e->rot = 180;
+	e->player.x = e->player.x + 0.5;
+	e->player.y = e->player.y + 0.5;
 }
 
 void	checkandparse(char *argv, t_env *e)
