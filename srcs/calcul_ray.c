@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/26 17:26:24 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:29:17 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ray_dist(t_env *e)
 {
 	int i;
-	int fd;
+	// int fd;
 
 	i = 0;
 	e->rayang = e->rot + e->ang / 2;
@@ -41,7 +41,7 @@ void ray_dist(t_env *e)
 		e->rayang -= e->raylag;
 		i++;
 	}
-	close(fd);
+	// close(fd);
 	// printf("e->rayang = %f\n", e->rayang);
 	// printf("e->distx = %f, e->disty = %f, distance = %f", e->distx, e->disty, sqrt(e->distx * e->distx + e->disty * e->disty));
 }
