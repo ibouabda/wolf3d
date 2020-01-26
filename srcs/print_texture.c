@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 15:47:38 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/26 17:16:57 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:49:17 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 
 static void	print_texture(t_env *e, t_txt *txt, int pos, int texel_pos)
 {
-	if (e->ray_dist <= 150.0)
-	{
-		e->img_string[pos] = txt->image[texel_pos] - (e->ray_dist / 3.0);
-		e->img_string[pos + 1] = txt->image[texel_pos + 1] - (e->ray_dist / 3.0);
-		e->img_string[pos + 2] = txt->image[texel_pos + 2] - (e->ray_dist / 3.0);
-	}
-	else
-	{
-		e->img_string[pos] = txt->image[texel_pos] - 150 / 3;
-		e->img_string[pos + 1] = txt->image[texel_pos + 1] - 150 / 3;
-		e->img_string[pos + 2] = txt->image[texel_pos + 2] - 150 / 3;
-	}
+		e->img_string[pos] = txt->image[texel_pos];
+		e->img_string[pos + 1] = txt->image[texel_pos + 1];
+		e->img_string[pos + 2] = txt->image[texel_pos + 2];
 }
 
 void		display_texture(t_env *e)
