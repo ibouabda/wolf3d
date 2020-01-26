@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 14:23:33 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:57:35 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void	verify_map(t_env *e)
 		e->rot = 0;
 	if (ft_2dstrchr(e->dbtab, 'O', &e->player))
 		e->rot = 180;
+	e->player.x = e->player.x + 0.5;
+	e->player.y = e->player.y + 0.5;
 }
 
 void	checkandparse(char *argv, t_env *e)

@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/24 11:08:31 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:59:44 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void move_ws(int keycode, t_env *e)
 	m = tan(e->rot / e->pi);
 	if (m >= -1.0 && m <= 1.0)
 	{
-		if ((e->rot >= 270 && e->rot <= 360) || (e->rot >= 0 && e->rot <= 90))
-		{
 			y = -m * 0.1;
-			// printf("angle 315/45\n");
 			x = sqrt(0.1 - y * y); // mouvement a 0.1 segfault
 		}
 		else
@@ -51,8 +48,8 @@ void move_ws(int keycode, t_env *e)
 			y = sqrt(0.1 - x * x);
 		}
 	}
-	if ((keycode == W && e->dbtab[(int)(e->player.y + y + 0.5)][(int)(e->player.x + x + 0.5)] != '1')
-	|| (keycode == S && e->dbtab[(int)(e->player.y - y + 0.5)][(int)(e->player.x - x + 0.5)] != '1'))
+	if ((keycode == W && e->dbtab[(int)(e->player.y + y)][(int)(e->player.x + x)] != '1')
+	|| (keycode == S && e->dbtab[(int)(e->player.y - y)][(int)(e->player.x - x)] != '1'))
 	{
 		e->player.y = (keycode == W) ? e->player.y + y : e->player.y - y;
 		e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;

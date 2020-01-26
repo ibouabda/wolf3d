@@ -6,13 +6,13 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 15:47:38 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/26 15:13:59 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 17:02:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	print_texture(t_env *e, t_txt *txt, int pos, int texel_pos)
+static void	print_texture(t_env *e, t_txt *txt, int pos, int texel_pos)
 {
 	if (e->ray_dist <= 150.0)
 	{
@@ -28,7 +28,7 @@ void	print_texture(t_env *e, t_txt *txt, int pos, int texel_pos)
 	}
 }
 
-void	display_texture(t_env *e)
+void		display_texture(t_env *e)
 {
 	int	pos;
 	int texel_pos;
