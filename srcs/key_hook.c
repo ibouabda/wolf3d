@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/24 15:29:13 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 14:46:52 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void move_ws(int keycode, t_env *e)
 			y = sqrt(0.1 - x * x);
 		}
 	}
-	if ((keycode == W && e->dbtab[(int)(e->player.y + y + 0.5)][(int)(e->player.x + x + 0.5)] != '1')
-	|| (keycode == S && e->dbtab[(int)(e->player.y - y + 0.5)][(int)(e->player.x - x + 0.5)] != '1'))
+	if ((keycode == W && e->dbtab[(int)(e->player.y + y)][(int)(e->player.x + x)] != '1')
+	|| (keycode == S && e->dbtab[(int)(e->player.y - y)][(int)(e->player.x - x)] != '1'))
 	{
 		e->player.y = (keycode == W) ? e->player.y + y : e->player.y - y;
 		e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;

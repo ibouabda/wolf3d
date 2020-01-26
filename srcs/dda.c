@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/24 15:28:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 14:52:42 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void ddax(t_env *e, double ystep)
     int x;
     int y;
 
-    x = (int)(e->ddax.x);
+	if ((e->rayang >= 270.0 && e->rayang <= 360.0)
+       || (e->rayang >= 0.0 && e->rayang <= 90.0))
+    	x = (int)(e->ddax.x);
+	else
+		x = (int)(e->ddax.x - 0.5);
     y = (int)(e->ddax.y);
     while (e->ddax.y >= 0 && e->ddax.x >= 0
     && e->ddax.y < e->mapy && e->ddax.y < e->mapx
@@ -48,7 +52,10 @@ void dday(t_env *e, double xstep)
     int y;
 
     x = (int)(e->dday.x);
-    y = (int)(e->dday.y);
+	if (e->rayang >= 0.0 && e->rayang <= 180.0)
+		y = (int)(e->dday.y - 0.5);
+	else
+		y = (int)(e->dday.y);
     while (e->dday.y >= 0 && e->dday.x >= 0
     && e->dday.y < e->mapy && e->dday.x < e->mapx
 	&& x < e->mapx && y < e->mapy && e->dbtab[y][x] != '1')
