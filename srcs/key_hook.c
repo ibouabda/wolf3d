@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 17:28:55 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 20:28:59 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int		key_hook(int keycode, t_env *e)
 	// if (keycode == D)
 	// 	e->player.x -= 0.2;
 	if (keycode == LEFT_ARROW)
-		e->rot = e->rot + 2;
+		e->rot = e->rot + 3;
 	if (keycode == RIGHT_ARROW)
-		e->rot = e->rot - 2;
+		e->rot = e->rot - 3;
 	if (e->rot > 360.0)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
