@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/24 10:59:55 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/26 16:57:38 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ray_dist(t_env *e)
 
 	i = 0;
 	e->rayang = e->rot + e->ang / 2;
-	fd = open("test.txt", O_WRONLY);
+	// fd = open("test.txt", O_WRONLY);
     // printf("e->rayang = %f\n", e->rayang);
 	while (i < e->winx)
 	{
@@ -32,9 +32,9 @@ void ray_dist(t_env *e)
 			e->ray_dist = sqrt(e->dday.x * e->dday.x + e->dday.y * e->dday.y) * 30;
 		else
 			e->ray_dist = sqrt(e->ddax.x * e->ddax.x + e->ddax.y * e->ddax.y) * 30;
-		dprintf(fd, "angle : %f\n", (e->rayang));
-		dprintf(fd, "coef. : %f\n", (tan(e->rayang / e->pi)));
-		dprintf(fd, "ray_dist : %f\n", (e->ray_dist));
+		// dprintf(fd, "angle : %f\n", (e->rayang));
+		// dprintf(fd, "coef. : %f\n", (tan(e->rayang / e->pi)));
+		// dprintf(fd, "ray_dist : %f\n", (e->ray_dist));
 		display_column(e, i);
 		// printf("test = %i\n", (int)(39.999999 + 0.000001));
         // printf("e->rayang = %f\n", e->rayang);
