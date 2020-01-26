@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/24 14:48:48 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/26 15:17:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	display_column(t_env *e, int ray_num)
 	{
 		e->pixel.x = ray_num;
 		e->pixel.y = i;
-		ft_fill_pixel(e->pixel, e->tex.ceiling_color, e);
+		ft_fill_pixel(e->pixel, e->images.ceiling_color, e);
 		i++;
 	}
 	i = column_size > e->winy ? (column_size - e->winy) / 2 : 0;
@@ -99,7 +99,7 @@ void	display_column(t_env *e, int ray_num)
 		e->texel.y = i / (column_size / 64.0);
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
-		print_texture(e, e->pixel, e->texel);
+		display_texture(e);
 		top_wall++;
 		i++;
 	}
@@ -107,7 +107,7 @@ void	display_column(t_env *e, int ray_num)
 	{
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
-		ft_fill_pixel(e->pixel, e->tex.floor_color, e);
+		ft_fill_pixel(e->pixel, e->images.floor_color, e);
 		top_wall++;
 	}
 }

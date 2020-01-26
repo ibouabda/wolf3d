@@ -1,7 +1,7 @@
 R 1280 720
 NO ./texture/iron_ore.xpm
 SO ./texture/diamond_ore.xpm
-WE ./texture/emerald_ore.xpm
+WE ./texture/cobblestone.xpm
 EA ./texture/cobblestone.xpm
 S ./texture/tnt_side.xpm
 C 255,170,128

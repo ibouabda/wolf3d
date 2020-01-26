@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_param.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2019/12/13 11:29:36 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/26 14:25:36 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,33 +88,33 @@ void	search_id(char *line, t_env *e)
 	if (line[0] == 'R')
 		read_res(line, e, 1);
 	if (line[0] == 'S' && line[1] != 'O')
-		read_path(line, e, 1, &e->tex.sprite_tex);
+		read_path(line, e, 1, &e->images.sprite.image);
 	if (line[0] == 'F')
-		read_colors(line, e, 1, &e->tex.floor_color);
+		read_colors(line, e, 1, &e->images.floor_color);
 	if (line[0] == 'C')
-		read_colors(line, e, 1, &e->tex.ceiling_color);
+		read_colors(line, e, 1, &e->images.ceiling_color);
 	if (line[0] == 'N' && line[1] == 'O')
-		read_path(line, e, 2, &e->tex.north_tex);
+		read_path(line, e, 2, &e->images.north.image);
 	if (line[0] == 'S' && line[1] == 'O')
-		read_path(line, e, 2, &e->tex.south_tex);
+		read_path(line, e, 2, &e->images.south.image);
 	if (line[0] == 'W' && line[1] == 'E')
-		read_path(line, e, 2, &e->tex.west_tex);
+		read_path(line, e, 2, &e->images.west.image);
 	if (line[0] == 'E' && line[1] == 'A')
-		read_path(line, e, 2, &e->tex.east_tex);
+		read_path(line, e, 2, &e->images.east.image);
 	ft_strdel(&line);
 }
 
-int		read_first_param(int fd, t_env *e)
+int		read_first_param(int fd, t_env *e, t_images *images)
 {
 	char	*line;
 
 	while (get_next_line(fd, &line))
 	{
 		search_id(line, e);
-		if (!(e->winx == 0 || e->winy == 0 || e->tex.floor_color == 0
-		|| e->tex.ceiling_color == 0 || e->tex.north_tex == 0
-		|| e->tex.south_tex == 0 || e->tex.west_tex == 0
-		|| e->tex.east_tex == 0 || e->tex.sprite_tex == 0))
+		if (!(e->winx == 0 || e->winy == 0 || images->floor_color == 0
+		|| images->ceiling_color == 0 || images->north.image == 0
+		|| images->south.image == 0 || images->west.image == 0
+		|| images->east.image == 0 || images->sprite.image == 0))
 		{
 			e->bool = 1;
 			break ;

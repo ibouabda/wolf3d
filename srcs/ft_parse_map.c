@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 10:21:59 by idris            ###   ########.fr       */
+/*   Updated: 2020/01/26 14:23:33 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	checkandparse(char *argv, t_env *e)
 			close(fd_dir);
 		ft_exit(1,NULL, e);
 	}
-	read_first_param(fd, e);
+	read_first_param(fd, e, &e->images);
 	read_file(fd, e);
 	verify_map(e);
 	close(fd);
