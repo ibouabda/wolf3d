@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/26 16:59:03 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:39:24 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,12 @@ void		ft_dda(t_env *e)
 	t_dpoint ddax2;
 	t_dpoint dday2;
 
-	// printf("rayang = %f\n", e->rayang);
     ystep = tan(e->rayang / e->pi);
     xstep = 1 / ystep;
-    // printf("xstep = %f, ystep = %f\n", xstep, ystep);
 	if ((e->rayang >= 270.0 && e->rayang <= 360.0)
     || (e->rayang >= 0.0 && e->rayang <= 90.0))
 	{
-		// printf("ok\n");
 		e->ddax.x = 1 - (e->player.x - ((int)(e->player.x)));
-		// printf("e->ddax.x = %f\n",e->ddax.x);
 		if ((int)e->ddax.x == 1)
 		{
 			e->ddax.y = e->player.y;
@@ -108,29 +104,19 @@ void		ft_dda(t_env *e)
 	}
 	else
 	{
-		// printf("ok2\n");
 		e->ddax.x = (e->player.x - ((int)(e->player.x)));
 		e->ddax.y = e->player.y + ystep * e->ddax.x;
 		e->ddax.x = e->player.x - (e->ddax.x);
 	}
-	// e->ddax.x = e->player.x;
-	// e->ddax.y = e->player.y;
-	// e->dday.x = e->player.x;
-	// e->dday.y = e->player.y;
-	// printf("e->rayang = %f, e->player.x = %f, e->player.y = %f\n", e->rayang, e->player.x, e->player.y);
-	// printf("e->ddax.x = %f, e->ddax.y = %f\n", e->ddax.x, e->ddax.y);
     ddax(e, ystep);
-    // printf("ddax\n");
 	if (e->rayang >= 0.0 && e->rayang <= 180.0)
 	{
-		// printf("ok3\n");
     	e->dday.y = (e->player.y - ((int)(e->player.y)));
     	e->dday.x = e->player.x + xstep * e->dday.y;
     	e->dday.y = e->player.y - e->dday.y;
 	}
 	else
 	{
-		// printf("ok4\n");
 		e->dday.y = 1 - (e->player.y - ((int)(e->player.y)));
 		if ((int)e->dday.y == 1)
 		{
@@ -143,9 +129,7 @@ void		ft_dda(t_env *e)
     		e->dday.y = e->player.y + e->dday.y;
 		}
 	}
-	// printf("e->dday.x = %f, e->dday.y = %f\n", e->dday.x, e->dday.y);
     dday(e, xstep);
-    // printf("dday\n");
 	ddax2.x = e->ddax.x;
 	ddax2.y = e->ddax.y;
 	dday2.y = e->dday.y;
@@ -156,12 +140,10 @@ void		ft_dda(t_env *e)
     ddax2.x = ddax2.x * ddax2.x;
     if (dday2.y + dday2.x <= ddax2.y + ddax2.x)
     {
-		e->wall_dir = 'h'; //horizontal
-		// printf("y\n");
+		e->wall_dir = 'h';
     }
     else
     {
-		e->wall_dir = 'v'; //vertical
-		// printf("x\n");
+		e->wall_dir = 'v';
     }
 }
