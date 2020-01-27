@@ -6,7 +6,7 @@
 /*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 15:47:38 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/26 21:01:16 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/27 10:01:02 by redatounsi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		display_texture(t_env *e)
 	int texel_pos;
 
 	pos = e->pixel.y * e->winx * 4 + e->pixel.x * 4;
-	texel_pos = e->texel.x * 64 * 4 + e->texel.y * 4;
+	texel_pos = e->texel.y * 64 * 4 + e->texel.x * 4;
 	if (e->wall_dir == 'h' && e->rayang >= 0 && e->rayang <= 180)
 		print_texture(e, &e->images.north, pos, texel_pos);
 	else if (e->wall_dir == 'h' && e->rayang <= 360 && e->rayang >= 180)
