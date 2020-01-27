@@ -1,8 +1,8 @@
 R 1280 720
-NO ./texture/medium_gperez.xpm
-SO ./texture/medium_gperez.xpm
+NO ./texture/medium_ibouabda.xpm
+SO ./texture/medium_retounsi.xpm
 WE ./texture/medium_ibouabda.xpm
-EA ./texture/medium_ibouabda.xpm
+EA ./texture/medium_gperez.xpm
 S ./texture/tnt_side.xpm
 F 100,100,100
 C 255,100,50
