@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 17:08:02 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/27 11:27:53 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,6 @@ typedef struct	s_txt
 {
 	void	*ptr_image;
 	char	*image;
-	int		width;
-	int		height;
 }				t_txt;
 
 typedef struct	s_images
@@ -112,6 +110,8 @@ typedef struct	s_images
 	int		*floor_color;
 	int		*ceiling_color;
 	int		*wall_color;
+	int		width;
+	int		height;
 }				t_images;
 
 // typedef struct	s_image

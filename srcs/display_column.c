@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_column.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: redatounsi <redatounsi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/27 10:00:24 by redatounsi       ###   ########.fr       */
+/*   Updated: 2020/01/27 11:27:16 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	display_column(t_env *e, int ray_num)
 		top_wall = 0;
 	i = 0;
 	if (e->wall_dir == 'h')
-		e->texel.x = ((int)(((e->player.x + e->dday.x) - (int)(e->dday.x + e->player.x)) * 64));
+		e->texel.x = ((int)(((e->player.x + e->dday.x) - (int)(e->dday.x + e->player.x)) * e->images.width));
 	else
-		e->texel.x = ((int)(((e->player.y + e->ddax.y) - (int)(e->ddax.y + e->player.y)) * 64));
+		e->texel.x = ((int)(((e->player.y + e->ddax.y) - (int)(e->ddax.y + e->player.y)) * e->images.height));
 	while (i < e->winy && i < top_wall)
 	{
 		e->pixel.x = ray_num;
@@ -96,7 +96,7 @@ void	display_column(t_env *e, int ray_num)
 	while ((i < e->winy && i < column_size)
 	|| (column_size > e->winy && i < e->winy + column_dif))
 	{
-		e->texel.y = i / (column_size / 64.0);
+		e->texel.y = i / (column_size / (double)e->images.height);
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		display_texture(e);

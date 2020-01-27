@@ -1,5 +1,5 @@
 R 1280 720
-NO ./texture/diamond_ore.xpm
+NO ./texture/cobblestone.xpm
 SO ./texture/cobblestone.xpm
 WE ./texture/cobblestone.xpm
 EA ./texture/cobblestone.xpm

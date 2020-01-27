@@ -6,7 +6,7 @@
 #    By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2020/01/26 16:55:12 by retounsi         ###   ########.fr        #
+#    Updated: 2020/01/27 11:27:59 by retounsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc -Wall -Werror -Wextra
 
-CFLAGS = -g3
+CFLAGS = -g3 -fsanitize=address
 # -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
