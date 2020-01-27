@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/27 15:05:06 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:55:02 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct	s_env
 	t_point			texel;
 	int				winx;
 	int				winy;
+	int				mid_winy;
 	int				midx;
 	int				midy;
 	int				dist;
