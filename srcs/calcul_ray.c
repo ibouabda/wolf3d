@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calcul_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/28 12:25:33 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:48:47 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ray_dist(t_env *e)
 		else
 			e->ray_dist = sqrt(e->ddax.x * e->ddax.x
 			+ e->ddax.y * e->ddax.y) * 64;
-		display_column(e, i);
+		display_column(e, i, 0, 0);
 		e->rayang -= e->raylag;
 		i++;
 	}

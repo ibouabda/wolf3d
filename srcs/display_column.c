@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_column.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/28 11:40:16 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:52:22 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 	return (column_size);
 }
 
-void	display_column(t_env *e, int ray_num)
+void	display_column(t_env *e, int ray_num, int i, int column_size)
 {
-	int		i;
-	int		column_size;
 	int		column_dif;
 	int		top_wall;
+	double	texel_prop;
 
 	column_size = calc_column(e, &top_wall, ray_num, 0);
 	i = column_size > e->winy ? (column_size - e->winy) / 2 : 0;
 	column_dif = i;
+	texel_prop = column_size / (double)e->images.north.height;
 	while ((i < e->winy && i < column_size)
 	|| (column_size > e->winy && i < e->winy + column_dif))
 	{
-		e->texel.y = i / (column_size / (double)e->images.north.height);
+		e->texel.y = i / texel_prop;
 		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		display_texture(e);

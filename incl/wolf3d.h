@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 12:34:58 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:49:47 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@
 # define FRACTAL "Choose Fractal : 1, 2, 3, 4"
 # define PAUSE "Pause : ESC"
 # define RESET "Reset : Z"
-# define QUIT "If You Wanna Quit The Game Press On ESC"
+# define QUIT "Press ESC To Quit The Game"
 
 # include "../libft/incl/libft.h"
 # include "../minilibx_macos/mlx.h"
@@ -130,6 +130,7 @@ typedef struct	s_env
 	int				mapy;
 	t_point			pixel;
 	t_point			texel;
+	double			texel_prop;
 	int				winx;
 	int				winy;
 	int				mid_winy;
@@ -167,7 +168,7 @@ void			vertical(t_env *e);
 void			vertical2(t_env *e);
 int				ft_distline(t_env *e);
 void			ray_dist(t_env *e);
-void			display_column(t_env *e, int ray_num);
+void			display_column(t_env *e, int ray_num, int i, int column_size);
 double			fish_eye_calc_dist(t_env *e);
 void			display_texture(t_env *e);
 void			print_sprite(t_env *e, t_point point, t_point sprite_cord);
