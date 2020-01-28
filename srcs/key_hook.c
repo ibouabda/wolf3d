@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 12:28:27 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:54:49 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int		key_hook(int keycode, t_env *e)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
 		e->rot = 360.0 + e->rot;
+	printf("e->player.x = %f, e->player.y = %f\n", e->player.x, e->player.y);
+	printf("e->mapx = %i, e->mapy = %i\n", e->mapx, e->mapy);
 	new_img(e);
 	ray_dist(e);
 	mlx_put_image_to_window(e->mlx_ptr, e->win_ptr, e->img_ptr, 0, 0);
