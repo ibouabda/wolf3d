@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/28 13:52:22 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:25:44 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 	else
 		e->texel.x = ((int)(((e->player.y + e->ddax.y)
 		- (int)(e->ddax.y + e->player.y)) * e->images.north.height));
+	e->pixel.x = ray_num;
 	while (i < e->winy && i < *top_wall)
 	{
-		e->pixel.x = ray_num;
 		e->pixel.y = i;
 		ft_fill_pixel(e->pixel, e->images.ceiling_color, e);
 		i++;
@@ -52,7 +52,6 @@ void	display_column(t_env *e, int ray_num, int i, int column_size)
 	|| (column_size > e->winy && i < e->winy + column_dif))
 	{
 		e->texel.y = i / texel_prop;
-		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		display_texture(e);
 		top_wall++;
@@ -60,7 +59,6 @@ void	display_column(t_env *e, int ray_num, int i, int column_size)
 	}
 	while (top_wall < e->winy)
 	{
-		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		ft_fill_pixel(e->pixel, e->images.floor_color, e);
 		top_wall++;
