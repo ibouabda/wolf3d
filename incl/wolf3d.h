@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/27 15:05:06 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:34:58 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef WOLF3D_H
 
@@ -69,9 +68,7 @@
 # define DOWN_ARROW 125
 # define UP_ARROW 126
 
-# define PTR_MOTION_MASK (1L<<6)
 # define MOTION_NOTIFY 6
-# define KEY_PRESS_MASK (1L<<0)
 # define KEY_PRESS 2
 
 # define TITLE "WOLF_3D"
@@ -90,9 +87,9 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct	s_txt
 {
@@ -113,23 +110,6 @@ typedef struct	s_images
 	int		*ceiling_color;
 	int		*wall_color;
 }				t_images;
-
-// typedef struct	s_image
-// {
-// 	void			*north_img;
-// 	void			*south_img;
-// 	void			*west_img;
-// 	void			*east_img;
-// 	void			*sprite_img;
-// 	char			*north_tex;
-// 	char			*south_tex;
-// 	char			*west_tex;
-// 	char			*east_tex;
-// 	char			*sprite_tex;
-// 	int				*floor_color;
-// 	int				*ceiling_color;
-// 	int				*wall_color;
-// }				t_image;
 
 typedef struct	s_env
 {
@@ -152,7 +132,7 @@ typedef struct	s_env
 	t_point			texel;
 	int				winx;
 	int				winy;
-	int				midx;
+	int				mid_winy;
 	int				midy;
 	int				dist;
 	double			ang;
@@ -166,30 +146,30 @@ typedef struct	s_env
 	char			*img_string;
 }				t_env;
 
-void		checkandparse(char *argv, t_env *e);
-int			ft_check_line(t_list *m);
-void		read_res(char *line, t_env *e, int i);
-void		read_path(char *line, t_env *e, int i, char **str);
-void		read_colors(char *line, t_env *e, int i, int **tab);
-int			read_first_param(int fd, t_env *e, t_images *images);
-void		ft_exit(int err, t_list *m, t_env *e);
-void		new_window(t_env *e);
-void		img(t_env *e);
-void		new_img(t_env *e);
-void		open_texture(t_env *e);
-int			key_hook(int keycode, t_env *e);
-void		display_wall(t_env *e, float wall_size, float wall_top);
-void		ft_fill_pixel(t_point point, int *color, t_env *e);
-void		img(t_env *e);
-void		ft_dda(t_env *e);
-void		ft_line2(t_env *e, double m);
-void		vertical(t_env *e);
-void		vertical2(t_env *e);
-int			ft_distline(t_env *e);
-void		ray_dist(t_env *e);
-void		display_column(t_env *e, int ray_num);
-double		fish_eye_calc_dist(t_env *e);
-void		display_texture(t_env *e);
-void		print_sprite(t_env *e, t_point point, t_point sprite_cord);
+void			checkandparse(char *argv, t_env *e);
+int				ft_check_line(t_list *m);
+void			read_res(char *line, t_env *e, int i);
+void			read_path(char *line, t_env *e, int i, char **str);
+void			read_colors(char *line, t_env *e, int i, int **tab);
+int				read_first_param(int fd, t_env *e, t_images *images);
+void			ft_exit(int err, t_list *m, t_env *e);
+void			new_window(t_env *e);
+void			img(t_env *e);
+void			new_img(t_env *e);
+void			open_texture(t_env *e);
+int				key_hook(int keycode, t_env *e);
+void			display_wall(t_env *e, float wall_size, float wall_top);
+void			ft_fill_pixel(t_point point, int *color, t_env *e);
+void			img(t_env *e);
+void			ft_dda(t_env *e);
+void			ft_line2(t_env *e, double m);
+void			vertical(t_env *e);
+void			vertical2(t_env *e);
+int				ft_distline(t_env *e);
+void			ray_dist(t_env *e);
+void			display_column(t_env *e, int ray_num);
+double			fish_eye_calc_dist(t_env *e);
+void			display_texture(t_env *e);
+void			print_sprite(t_env *e, t_point point, t_point sprite_cord);
 
 #endif

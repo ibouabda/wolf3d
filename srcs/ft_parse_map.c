@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 11:41:11 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/26 16:57:35 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:27:22 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,8 @@ void	read_file(int fd, t_env *e)
 	ft_lstdelstr(m);
 }
 
-void	verify_map(t_env *e)
+void	verify_map(t_env *e, int i)
 {
-	int i;
-
-	i = -1;
 	while (e->dbtab[0][++i])
 		if (e->dbtab[0][i] != '1')
 			ft_exit(1, NULL, e);
@@ -119,16 +116,16 @@ void	checkandparse(char *argv, t_env *e)
 
 	if (ft_strlen(argv) >= 4 &&
 	ft_strcmp(&(argv)[ft_strlen(argv) - 4], ".cub") != 0)
-		ft_exit(1,NULL, e);
+		ft_exit(1, NULL, e);
 	fd_dir = open(argv, O_DIRECTORY);
 	if ((fd = open(argv, O_RDONLY)) < 0 || fd_dir > 0)
 	{
 		if (fd_dir > 0)
 			close(fd_dir);
-		ft_exit(1,NULL, e);
+		ft_exit(1, NULL, e);
 	}
 	read_first_param(fd, e, &e->images);
 	read_file(fd, e);
-	verify_map(e);
+	verify_map(e, -1);
 	close(fd);
 }

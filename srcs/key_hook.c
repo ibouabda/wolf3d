@@ -6,23 +6,25 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/27 17:05:46 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:28:27 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void move_ws(int keycode, t_env *e)
+void	move_ws(int keycode, t_env *e)
 {
 	double y;
 	double x;
 
 	x = cos(e->rot / e->pi);
 	y = sin(e->rot / e->pi);
-	if ((keycode == W && e->dbtab[(int)(e->player.y - y)][(int)(e->player.x + x)] != '1' &&
+	if ((keycode == W
+	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x + x)] != '1' &&
 	e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1' &&
 	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1')
-	|| (keycode == S && e->dbtab[(int)(e->player.y + y)][(int)(e->player.x - x)] != '1' &&
+	|| (keycode == S
+	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x - x)] != '1' &&
 	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1' &&
 	e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
 	{
@@ -31,17 +33,19 @@ void move_ws(int keycode, t_env *e)
 	}
 }
 
-void move_ad(int keycode, t_env *e)
+void	move_ad(int keycode, t_env *e)
 {
 	double y;
 	double x;
 
 	x = sin(e->rot / e->pi);
 	y = cos(e->rot / e->pi);
-	if ((keycode == A && e->dbtab[(int)(e->player.y - y)][(int)(e->player.x - x)] != '1' &&
+	if ((keycode == A
+	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x - x)] != '1' &&
 	e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1' &&
 	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1')
-	|| (keycode == D && e->dbtab[(int)(e->player.y + y)][(int)(e->player.x + x)] != '1' &&
+	|| (keycode == D
+	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x + x)] != '1' &&
 	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1' &&
 	e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
 	{
@@ -70,9 +74,6 @@ int		key_hook(int keycode, t_env *e)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
 		e->rot = 360.0 + e->rot;
-	// printf("rot = %i\n", e->rot);
-	// printf("e->player.x = %f\n", e->player.x);
-	// printf("e->player.y = %f\n", e->player.y);
 	new_img(e);
 	ray_dist(e);
 	mlx_put_image_to_window(e->mlx_ptr, e->win_ptr, e->img_ptr, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/27 15:38:30 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:29:39 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_exit(int err, t_list *m, t_env *e)
 {
-	int i;
-
-	i = 0;
 	if (e->images.east.image)
 		ft_strdel(&e->images.east.image);
 	if (e->images.north.image)
@@ -47,7 +44,6 @@ void	ft_initialize(t_env *e)
 	e->bool = 0;
 	e->winx = 0;
 	e->winy = 0;
-	e->dist = 277;
 	e->images.floor_color = NULL;
 	e->images.ceiling_color = NULL;
 	e->images.north.image = NULL;
@@ -69,33 +65,16 @@ void	ft_initialize(t_env *e)
 int		main(int argc, char **argv)
 {
 	t_env	e;
-	// int		bpp;
-	// int		s_l;
-	// int		endian;
 
 	ft_initialize(&e);
 	if (argc != 2)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
+	e.dist = (e.winx / 2) / (tan(30 / e.pi));
+	e.mid_winy = e.winy / 2;
 	new_window(&e);
 	img(&e);
-	// printf("%i\n", e.winx);
-	// printf("%i\n", e.winy);
-	// printf("%s\n%s\n%s\n%s\n%s\n", e.tex.west_tex, e.tex.east_tex, e.tex.north_tex, e.tex.sprite_tex, e.tex.south_tex);
-	// ft_puttabint(e.tex.ceiling_color, 3);
-	// ft_puttabint(e.tex.floor_color, 3);
-	// ft_putendl("");
-	// ft_2dputstr(e.dbtab);
-	// printf("mapx = %i\n", e.mapx);
-	// printf("mapy = %i\n", e.mapy);
-	// printf("px = %i\n", e.player.x);
-	// printf("py = %i\n", e.player.y);
-	// printf("ang = %f\n", e.ang);
-	// printf("rot = %i\n", e.rot);
 	open_texture(&e);
-	// printf("east_texture : %s\n", e.tex.east_tex);
-	// printf("img : %s\n", e.img_string);
-	// ft_2dputstr(e.dbtab);
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
