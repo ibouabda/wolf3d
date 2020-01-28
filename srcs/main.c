@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 12:29:39 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:14:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ int		main(int argc, char **argv)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
 	e.dist = (e.winx / 2) / (tan(30 / e.pi));
-	e.mid_winy = e.winy / 2;
+	e.midy = e.winy / 2;
+	e.winx_img = e.winx * 4;
 	new_window(&e);
 	img(&e);
 	open_texture(&e);
+	e.texture_res_img = e.images.north.width * 4;
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);

@@ -1,8 +1,8 @@
-R 200 200
-NO ./texture/54621_i_256.xpm
-SO ./texture/47663_r_256.xpm
-WE ./texture/54621_i_256.xpm
-EA ./texture/74718_g_256.xpm
+R 1280 720
+NO ./texture/cobblestone.xpm
+SO ./texture/emerald_ore.xpm
+WE ./texture/diamond_ore.xpm
+EA ./texture/tumblr_inline_o1zzwz417Z1r4q36m_400.xpm
 S ./texture/tnt_side.xpm
 F 100,100,100
 C 255,100,50

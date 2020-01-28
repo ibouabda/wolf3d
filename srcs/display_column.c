@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/28 16:25:44 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:55:37 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 
 	ray_dist_fisheyed = ABS(e->ray_dist * cos((e->rayang - e->rot) / e->pi));
 	column_size = (64 / ray_dist_fisheyed) * e->dist;
-	*top_wall = e->mid_winy - (column_size / 2);
+	*top_wall = e->midy - (column_size / 2);
 	if (*top_wall < 0 || *top_wall > e->winy)
 		*top_wall = 0;
 	if (e->wall_dir == 'h')
 		e->texel.x = ((int)(((e->player.x + e->dday.x)
-		- (int)(e->dday.x + e->player.x)) * e->images.north.width));
+		- (int)(e->dday.x + e->player.x)) * e->images.north.width)) * 4;
 	else
 		e->texel.x = ((int)(((e->player.y + e->ddax.y)
-		- (int)(e->ddax.y + e->player.y)) * e->images.north.height));
-	e->pixel.x = ray_num;
+		- (int)(e->ddax.y + e->player.y)) * e->images.north.height)) * 4;
+	e->pixel.x = ray_num * 4;
 	while (i < e->winy && i < *top_wall)
 	{
 		e->pixel.y = i;

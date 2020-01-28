@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 14:15:16 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 17:14:27 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,9 @@ typedef struct	s_env
 	t_point			texel;
 	double			texel_prop;
 	int				winx;
+	int				winx_img;
+	int				texture_res_img;
 	int				winy;
-	int				mid_winy;
 	int				midy;
 	int				dist;
 	double			ang;
