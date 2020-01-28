@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/28 12:19:24 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:16:07 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,10 @@ void	dday(t_env *e, double xstep, int x, int y)
 	}
 }
 
-void	ft_dda(t_env *e)
+double	ft_dda(t_env *e)
 {
 	double		ystep;
 	double		xstep;
-	t_dpoint	ddax2;
-	t_dpoint	dday2;
 
 	ystep = tan(e->rayang / e->pi);
 	xstep = 1 / ystep;
@@ -130,12 +128,16 @@ void	ft_dda(t_env *e)
 	dday(e, xstep, 0, 0);
 	e->dday.y = e->dday.y - e->player.y;
 	e->dday.x = e->dday.x - e->player.x;
-	ddax2.x = e->ddax.x * e->ddax.x;
-	ddax2.y = e->ddax.y * e->ddax.y;
-	dday2.y = e->dday.y * e->dday.y;
-	dday2.x = e->dday.x * e->dday.x;
-	if (dday2.y + dday2.x <= ddax2.y + ddax2.x)
+	xstep = e->ddax.x * e->ddax.x + e->ddax.y * e->ddax.y;
+	ystep = e->dday.y * e->dday.y + e->dday.x * e->dday.x;
+	if (ystep <= xstep)
+	{
 		e->wall_dir = 'h';
+		return (ystep);
+	}
 	else
+	{
 		e->wall_dir = 'v';
+		return (xstep);
+	}
 }

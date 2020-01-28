@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 13:49:47 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:15:16 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ int				key_hook(int keycode, t_env *e);
 void			display_wall(t_env *e, float wall_size, float wall_top);
 void			ft_fill_pixel(t_point point, int *color, t_env *e);
 void			img(t_env *e);
-void			ft_dda(t_env *e);
+double			ft_dda(t_env *e);
 void			ft_line2(t_env *e, double m);
 void			vertical(t_env *e);
 void			vertical2(t_env *e);
