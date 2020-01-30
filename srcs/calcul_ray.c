@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:46:58 by idris             #+#    #+#             */
-/*   Updated: 2020/01/28 14:18:33 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/30 17:17:03 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	ray_dist(t_env *e)
 			e->rayang -= 360.0;
 		else if (e->rayang < 0.0)
 			e->rayang = 360.0 + e->rayang;
-		if (e->wall_dir == 'h')
-			e->ray_dist = sqrt(ft_dda(e)) * 64;
-		else
-			e->ray_dist = sqrt(ft_dda(e)) * 64;
+		e->ray_dist = sqrt(ft_dda(e)) * 64;
 		display_column(e, i, 0, 0);
 		e->rayang -= e->raylag;
 		i++;
