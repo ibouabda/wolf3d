@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 12:29:39 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/31 15:57:42 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ void	ft_initialize(t_env *e)
 	e->texel.y = 0;
 }
 
+static int	hook_close(t_env *e)
+{
+	ft_exit(0, NULL, e);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	t_env	e;
@@ -77,6 +83,7 @@ int		main(int argc, char **argv)
 	open_texture(&e);
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
+	mlx_hook(e.win_ptr, 17, (1L << 0), hook_close, &e);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
 	return (0);

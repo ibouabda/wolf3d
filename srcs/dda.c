@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/30 18:05:51 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/01/31 15:28:24 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ddax(t_env *e, double ystep, int x, int y)
 	? (int)(e->ddax.x) : (int)(e->ddax.x - 0.5);
 	y = (int)(e->ddax.y);
 	while (e->ddax.y >= 0 && e->ddax.x >= 0
-	&& e->ddax.y < e->mapy && e->ddax.y < e->mapx
+	&& e->ddax.y < e->mapy && e->ddax.x < e->mapx
 	&& x < e->mapx && y < e->mapy && e->dbtab[y][x] != '1')
 	{
 		if ((e->rayang >= 270.0 && e->rayang <= 360.0)
@@ -122,13 +122,10 @@ double	ft_dda(t_env *e)
 	xstep = 1 / ystep;
 	prepddax(e, ystep);
 	ddax(e, ystep, 0, 0);
-	printf("e->mapx = %i, e->mapy = %i\n", e->mapx, e->mapy);
-	printf("e->ddax.x = %f, e->ddax.y = %f\n", e->ddax.x, e->ddax.y);
 	e->ddax.y = e->ddax.y - e->player.y;
 	e->ddax.x = e->ddax.x - e->player.x;
 	prepdday(e, xstep);
 	dday(e, xstep, 0, 0);
-	printf("e->dday.x = %f, e->dday.y = %f\n", e->dday.x, e->dday.y);
 	e->dday.y = e->dday.y - e->player.y;
 	e->dday.x = e->dday.x - e->player.x;
 	xstep = e->ddax.x * e->ddax.x + e->ddax.y * e->ddax.y;
@@ -136,13 +133,11 @@ double	ft_dda(t_env *e)
 	if (ystep <= xstep)
 	{
 		e->wall_dir = 'h';
-		printf("%c\n", e->wall_dir);
 		return (ystep);
 	}
 	else
 	{
 		e->wall_dir = 'v';
-		printf("%c\n", e->wall_dir);
 		return (xstep);
 	}
 }
