@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 17:14:27 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/02/01 17:50:55 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ typedef struct	s_env
 	int				wall_dir;
 	double			distx;
 	double			disty;
+	double			ystep;
+	double			xstep;
 	double			raylag;
 	double			rayang;
 	int				mid_wall;

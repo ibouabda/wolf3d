@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/01/31 09:54:37 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/02/01 19:04:51 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 	double	column_size;
 	double	ray_dist_fisheyed;
 
-	ray_dist_fisheyed = ABS(e->ray_dist * cos((e->rayang - e->rot) / e->pi));
+	ray_dist_fisheyed = e->ray_dist * cos((e->rayang - e->rot) / e->pi);
 	column_size = (64 / ray_dist_fisheyed) * e->dist;
 	*top_wall = e->midy - (column_size / 2);
 	if (*top_wall < 0 || *top_wall > e->winy)

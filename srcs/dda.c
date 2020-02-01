@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/28 17:40:27 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/02/01 17:51:24 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ double	ft_dda(t_env *e)
 
 	ystep = tan(e->rayang / e->pi);
 	xstep = 1 / ystep;
+	e->ystep = ystep;
+	e->xstep = xstep;
 	prepddax(e, ystep);
 	ddax(e, ystep, 0, 0);
 	e->ddax.y = e->ddax.y - e->player.y;
