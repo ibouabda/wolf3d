@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/31 16:39:38 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:56:23 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	move_ws(int keycode, t_env *e)
 {
-	double y;
-	double x;
+	float y;
+	float x;
 
 	x = cos(e->rot / e->pi) / 2;
 	y = sin(e->rot / e->pi) / 2;
@@ -35,8 +35,8 @@ void	move_ws(int keycode, t_env *e)
 
 void	move_ad(int keycode, t_env *e)
 {
-	double y;
-	double x;
+	float y;
+	float x;
 
 	x = sin(e->rot / e->pi) / 2;
 	y = cos(e->rot / e->pi) / 2;

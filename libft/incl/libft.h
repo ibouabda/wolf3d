@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:22:12 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/12/14 15:52:36 by idris            ###   ########.fr       */
+/*   Updated: 2020/02/01 12:40:00 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ typedef struct		s_dpoint
 	double x;
 	double y;
 }					t_dpoint;
+
+typedef struct		s_fpoint
+{
+	float x;
+	float y;
+}					t_fpoint;
 
 
 int					ft_atoi(const char *str);
@@ -163,6 +169,6 @@ void				ft_putnbrl(int n);
 void				ft_memswitch(void **a, void **b);
 int					get_next_line(const int fd, char **line);
 int					*ft_intnew_clean(int size);
-int					ft_2dstrchr(char **str, char c, t_dpoint *a);
+int					ft_2dstrchr(char **str, char c, t_fpoint *a);
 
 #endif

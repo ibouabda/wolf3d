@@ -1,8 +1,8 @@
-R 860 480
-NO ./texture/crafting_table_top.xpm
-SO ./texture/sand.xpm
-WE ./texture/emerald_ore.xpm
-EA ./texture/pumpkin.xpm
+R 1280 720
+NO ./texture/bookshelf.xpm
+SO ./texture/bookshelf.xpm
+WE ./texture/acacia_planks.xpm
+EA ./texture/acacia_planks.xpm
 S ./texture/tnt_side.xpm
 F 100,100,100
 C 255,100,50
@@ -12,8 +12,8 @@ C 255,100,50
 1 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1
 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 1
 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1
-1 1 0 0 0 0 0 0 0 0 1 0 0 0 E 0 0 0 0 0 0 0 0 0 0 0 0 1 1
-1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1
+1 1 0 0 0 0 0 0 0 0 1 0 0 0 E 0 0 0 0 0 0 0 1 0 0 0 0 1 1
+1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 1
 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 1
 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1
 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1

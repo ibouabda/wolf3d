@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/31 15:57:42 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 12:21:06 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
-	e.dist = (e.winx / 2) / (tan(30 / e.pi));
-	e.mid_winy = e.winy / 2;
+	e.project_screen = (e.winx / 2) / (tan(30 / e.pi));
+	e.midy = e.winy / 2;
 	new_window(&e);
 	img(&e);
 	open_texture(&e);

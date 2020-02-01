@@ -6,13 +6,13 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:12:18 by redatounsi        #+#    #+#             */
-/*   Updated: 2020/01/31 15:28:24 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 12:33:14 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	prepddax(t_env *e, double ystep)
+void	prepddax(t_env *e, float ystep)
 {
 	if ((e->rayang >= 270.0 && e->rayang <= 360.0)
 	|| (e->rayang >= 0.0 && e->rayang <= 90.0))
@@ -37,7 +37,7 @@ void	prepddax(t_env *e, double ystep)
 	}
 }
 
-void	prepdday(t_env *e, double xstep)
+void	prepdday(t_env *e, float xstep)
 {
 	if (e->rayang >= 0.0 && e->rayang <= 180.0)
 	{
@@ -61,7 +61,7 @@ void	prepdday(t_env *e, double xstep)
 	}
 }
 
-void	ddax(t_env *e, double ystep, int x, int y)
+void	ddax(t_env *e, float ystep, int x, int y)
 {
 	x = (e->rayang >= 270.0 && e->rayang <= 360.0)
 	|| (e->rayang >= 0.0 && e->rayang <= 90.0)
@@ -88,7 +88,7 @@ void	ddax(t_env *e, double ystep, int x, int y)
 	}
 }
 
-void	dday(t_env *e, double xstep, int x, int y)
+void	dday(t_env *e, float xstep, int x, int y)
 {
 	x = (int)(e->dday.x);
 	y = e->rayang >= 0.0 && e->rayang <= 180.0 ?
@@ -113,19 +113,23 @@ void	dday(t_env *e, double xstep, int x, int y)
 	}
 }
 
-double	ft_dda(t_env *e)
+float	ft_dda(t_env *e)
 {
-	double		ystep;
-	double		xstep;
+	float		ystep;
+	float		xstep;
 
 	ystep = tan(e->rayang / e->pi);
 	xstep = 1 / ystep;
 	prepddax(e, ystep);
 	ddax(e, ystep, 0, 0);
-	e->ddax.y = e->ddax.y - e->player.y;
-	e->ddax.x = e->ddax.x - e->player.x;
+	e->wallx.y = e->ddax.y;
+	e->wallx.x = e->ddax.x;
 	prepdday(e, xstep);
 	dday(e, xstep, 0, 0);
+	e->wally.y = e->dday.y;
+	e->wally.x = e->dday.x;
+	e->ddax.y = e->ddax.y - e->player.y;
+	e->ddax.x = e->ddax.x - e->player.x;
 	e->dday.y = e->dday.y - e->player.y;
 	e->dday.x = e->dday.x - e->player.x;
 	xstep = e->ddax.x * e->ddax.x + e->ddax.y * e->ddax.y;
@@ -133,11 +137,13 @@ double	ft_dda(t_env *e)
 	if (ystep <= xstep)
 	{
 		e->wall_dir = 'h';
+		e->ddax = e->wally;
 		return (ystep);
 	}
 	else
 	{
 		e->wall_dir = 'v';
+		e->ddax = e->wallx;
 		return (xstep);
 	}
 }

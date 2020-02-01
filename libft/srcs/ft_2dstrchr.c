@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_2dstrchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:35:35 by idris             #+#    #+#             */
-/*   Updated: 2019/12/14 15:52:38 by idris            ###   ########.fr       */
+/*   Updated: 2020/02/01 12:39:34 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/libft.h"
 
-int ft_2dstrchr(char **str, char c, t_dpoint *a)
+int ft_2dstrchr(char **str, char c, t_fpoint *a)
 {
     int y;
     int x;

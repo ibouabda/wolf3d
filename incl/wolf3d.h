@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/28 14:15:16 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 12:39:02 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,33 +113,31 @@ typedef struct	s_images
 
 typedef struct	s_env
 {
-	t_point			wall;
+	t_fpoint		wallx;
+	t_fpoint		wally;
 	int				wall_dir;
-	double			distx;
-	double			disty;
-	double			raylag;
-	double			rayang;
+	float			raylag;
+	float			rayang;
 	int				mid_wall;
-	t_dpoint		ddax;
-	t_dpoint		dday;
+	t_fpoint		ddax;
+	t_fpoint		dday;
 	int				bool;
 	t_images		images;
-	t_dpoint		player;
-	double			pi;
+	t_fpoint		player;
+	float			pi;
 	int				mapx;
 	int				mapy;
 	t_point			pixel;
 	t_point			texel;
-	double			texel_prop;
+	float			texel_prop;
 	int				winx;
 	int				winy;
-	int				mid_winy;
 	int				midy;
-	int				dist;
-	double			ang;
+	int				project_screen;
+	float			ang;
 	int				rot;
 	char			**dbtab;
-	double			ray_dist;
+	float			ray_dist;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
@@ -162,14 +160,14 @@ int				key_hook(int keycode, t_env *e);
 void			display_wall(t_env *e, float wall_size, float wall_top);
 void			ft_fill_pixel(t_point point, int *color, t_env *e);
 void			img(t_env *e);
-double			ft_dda(t_env *e);
-void			ft_line2(t_env *e, double m);
+float			ft_dda(t_env *e);
+void			ft_line2(t_env *e, float m);
 void			vertical(t_env *e);
 void			vertical2(t_env *e);
 int				ft_distline(t_env *e);
 void			ray_dist(t_env *e);
 void			display_column(t_env *e, int ray_num, int i, int column_size);
-double			fish_eye_calc_dist(t_env *e);
+float			fish_eye_calc_dist(t_env *e);
 void			display_texture(t_env *e);
 void			print_sprite(t_env *e, t_point point, t_point sprite_cord);
 
