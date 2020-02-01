@@ -6,48 +6,58 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 10:56:23 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 18:42:25 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
-void	move_ws(int keycode, t_env *e)
+void	move_ws(int keycode, t_env *e, float x, float y)
 {
-	float y;
-	float x;
-
-	x = cos(e->rot / e->pi) / 2;
-	y = sin(e->rot / e->pi) / 2;
 	if ((keycode == W
-	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x + x)] != '1' &&
-	e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1')
+	&& (e->dbtab[(int)(e->player.y - y - 0.000001f)]
+	[(int)(e->player.x + x - 0.000001f)] != '1'
+	&& e->dbtab[(int)(e->player.y - y + 0.000001f)]
+	[(int)(e->player.x + x + 0.000001f)] != '1') &&
+	((e->dbtab[(int)(e->player.y - y - 0.000001f)][(int)(e->player.x)] != '1' &&
+	e->dbtab[(int)(e->player.y - y + 0.000001f)][(int)(e->player.x)] != '1') &&
+	(e->dbtab[(int)(e->player.y)][(int)(e->player.x + x - 0.000001f)] != '1' &&
+	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x + 0.000001f)] != '1')))
 	|| (keycode == S
-	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x - x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1' &&
-	e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
+	&& (e->dbtab[(int)(e->player.y + y - 0.000001f)]
+	[(int)(e->player.x - x - 0.000001f)] != '1'
+	&& e->dbtab[(int)(e->player.y + y + 0.000001f)]
+	[(int)(e->player.x - x + 0.000001f)] != '1') &&
+	((e->dbtab[(int)(e->player.y + y - 0.000001f)][(int)(e->player.x)] != '1' &&
+	e->dbtab[(int)(e->player.y + y + 0.000001f)][(int)(e->player.x)] != '1') &&
+	(e->dbtab[(int)(e->player.y)][(int)(e->player.x - x - 0.000001f)] != '1' &&
+	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x + 0.000001f)] != '1'))))
 	{
 		e->player.y = (keycode == W) ? e->player.y - y : e->player.y + y;
 		e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;
 	}
 }
 
-void	move_ad(int keycode, t_env *e)
+void	move_ad(int keycode, t_env *e, float x, float y)
 {
-	float y;
-	float x;
-
-	x = sin(e->rot / e->pi) / 2;
-	y = cos(e->rot / e->pi) / 2;
 	if ((keycode == A
-	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x - x)] != '1' &&
-	e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1')
+	&& (e->dbtab[(int)(e->player.y - y - 0.000001f)]
+	[(int)(e->player.x - x - 0.000001f)] != '1'
+	&& e->dbtab[(int)(e->player.y - y + 0.000001f)]
+	[(int)(e->player.x - x + 0.000001f)] != '1') &&
+	((e->dbtab[(int)(e->player.y - y - 0.000001f)][(int)(e->player.x)] != '1' &&
+	e->dbtab[(int)(e->player.y - y + 0.000001f)][(int)(e->player.x)] != '1') &&
+	(e->dbtab[(int)(e->player.y)][(int)(e->player.x - x - 0.000001f)] != '1' &&
+	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x + 0.000001f)] != '1')))
 	|| (keycode == D
-	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x + x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1' &&
-	e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
+	&& (e->dbtab[(int)(e->player.y + y - 0.000001f)]
+	[(int)(e->player.x + x - 0.000001f)] != '1'
+	&& e->dbtab[(int)(e->player.y + y + 0.000001f)]
+	[(int)(e->player.x + x + 0.000001f)] != '1') &&
+	((e->dbtab[(int)(e->player.y + y - 0.000001f)][(int)(e->player.x)] != '1' &&
+	e->dbtab[(int)(e->player.y + y + 0.000001f)][(int)(e->player.x)] != '1') &&
+	(e->dbtab[(int)(e->player.y)][(int)(e->player.x + x - 0.000001f)] != '1' &&
+	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x + 0.000001f)] != '1'))))
 	{
 		e->player.y = (keycode == A) ? e->player.y - y : e->player.y + y;
 		e->player.x = (keycode == A) ? e->player.x - x : e->player.x + x;
@@ -63,9 +73,9 @@ int		key_hook(int keycode, t_env *e)
 		ft_exit(0, NULL, e);
 	}
 	if (keycode == W || keycode == S)
-		move_ws(keycode, e);
+		move_ws(keycode, e, cos(e->rot / e->pi) / 2, sin(e->rot / e->pi) / 2);
 	if (keycode == A || keycode == D)
-		move_ad(keycode, e);
+		move_ad(keycode, e, sin(e->rot / e->pi) / 2, cos(e->rot / e->pi) / 2);
 	if (keycode == LEFT_ARROW)
 		e->rot = e->rot + 5;
 	if (keycode == RIGHT_ARROW)

@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:28:35 by ibouabda          #+#    #+#             */
-/*   Updated: 2019/10/10 20:01:37 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 18:56:20 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_itoa_base(int nb, int base)
 	number = ft_strnew(size);
 	while (nb != 0)
 	{
-		number[i] = base_def[ABS(nb % base)];
+		number[i] = base_def[abs(nb % base)];
 		nb = nb / base;
 		i++;
 	}

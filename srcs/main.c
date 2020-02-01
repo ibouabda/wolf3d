@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 12:21:06 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 13:38:18 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_initialize(t_env *e)
 	e->texel.y = 0;
 }
 
-static int	hook_close(t_env *e)
+int		hook_close(t_env *e)
 {
 	ft_exit(0, NULL, e);
 	return (0);

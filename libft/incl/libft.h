@@ -6,15 +6,13 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 15:22:12 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 12:40:00 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/01 18:53:23 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 
 # define LIBFT_H
-# define ABS(Value) (Value < 0 ? Value * -1 : Value)
-# define BOOL(Value) (Value == 0 ? Value++ : Value--)
 # define BUFF_SIZE 4096
 # include <string.h>
 # include <stdlib.h>
@@ -60,7 +58,6 @@ typedef struct		s_fpoint
 	float x;
 	float y;
 }					t_fpoint;
-
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *src, size_t n);
@@ -170,5 +167,7 @@ void				ft_memswitch(void **a, void **b);
 int					get_next_line(const int fd, char **line);
 int					*ft_intnew_clean(int size);
 int					ft_2dstrchr(char **str, char c, t_fpoint *a);
+int					ft_abs(int value);
+int					ft_bool(int value);
 
 #endif
