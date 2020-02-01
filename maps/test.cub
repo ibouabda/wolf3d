@@ -1,10 +1,10 @@
-R 860 480
-NO ./texture/cobblestone.xpm
-SO ./texture/cobblestone.xpm
-WE ./texture/cobblestone.xpm
-EA ./texture/cobblestone.xpm
+R 1280 720
+NO ./texture/eagle.xpm
+SO ./texture/redbrick.xpm
+WE ./texture/greystone.xpm
+EA ./texture/wood.xpm
 S ./texture/tnt_side.xpm
-C 255,170,128
+C 10,10,10
 F 38,77,115
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
