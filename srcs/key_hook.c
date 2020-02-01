@@ -6,7 +6,7 @@
 /*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/01/31 16:53:53 by retounsi         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:02:40 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@ void	move_ws(int keycode, t_env *e)
 
 	x = cos(e->rot / e->pi);
 	y = sin(e->rot / e->pi);
-	if ((e->dbtab[(int)(e->player.y - y)][(int)(e->player.x + x)] != '1' &&
-	e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1')
-	|| (e->dbtab[(int)(e->player.y + y)][(int)(e->player.x - x)] != '1' &&
-	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1' &&
-	e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
+	if (((keycode == W || keycode == UP_ARROW)
+	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x + x)] != '1'
+	&& e->dbtab[(int)(e->player.y - y)][(int)(e->player.x)] != '1'
+	&& e->dbtab[(int)(e->player.y)][(int)(e->player.x + x)] != '1')
+	|| ((keycode == S || keycode == DOWN_ARROW)
+	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x - x)] != '1'
+	&& e->dbtab[(int)(e->player.y)][(int)(e->player.x - x)] != '1'
+	&& e->dbtab[(int)(e->player.y + y)][(int)(e->player.x)] != '1'))
 	{
-		e->player.y = (keycode == W) || (keycode == UP_ARROW) ?
-			e->player.y - y : e->player.y + y;
-		e->player.x = (keycode == W) || (keycode == UP_ARROW) ?
-			e->player.x + x : e->player.x - x;
+		e->player.y = (keycode == W) || (keycode == UP_ARROW)
+		? e->player.y - y : e->player.y + y;
+		e->player.x = (keycode == W) || (keycode == UP_ARROW)
+		? e->player.x + x : e->player.x - x;
 	}
 }
 
