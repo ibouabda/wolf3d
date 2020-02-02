@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 13:38:18 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 16:14:05 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ int		main(int argc, char **argv)
 	checkandparse(argv[1], &e);
 	e.project_screen = (e.winx / 2) / (tan(30 / e.pi));
 	e.midy = e.winy / 2;
+	e.winx_img = e.winx * 4;
 	new_window(&e);
 	img(&e);
 	open_texture(&e);
+	e.texture_res_img = e.images.north.width * 4;
 	ray_dist(&e);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 17, (1L << 0), hook_close, &e);

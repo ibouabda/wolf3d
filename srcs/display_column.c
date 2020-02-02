@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/01 19:00:32 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 16:14:58 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 		*top_wall = 0;
 	if (e->wall_dir == 'h')
 		e->texel.x = ((int)(((e->ddax.x)
-		- (int)(e->ddax.x)) * e->images.north.width));
+		- (int)(e->ddax.x)) * e->images.north.width)) * 4;
 	else
 		e->texel.x = ((int)(((e->ddax.y)
-		- (int)(e->ddax.y)) * e->images.north.height));
+		- (int)(e->ddax.y)) * e->images.north.height)) * 4;
+	e->pixel.x = ray_num * 4;
 	while (i < e->winy && i < *top_wall)
 	{
-		e->pixel.x = ray_num;
 		e->pixel.y = i;
 		ft_fill_pixel(e->pixel, e->images.ceiling_color, e);
 		i++;
@@ -52,7 +52,6 @@ void	display_column(t_env *e, int ray_num, int i, int column_size)
 	|| (column_size > e->winy && i < e->winy + column_dif))
 	{
 		e->texel.y = i / texel_prop;
-		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		display_texture(e);
 		top_wall++;
@@ -60,7 +59,6 @@ void	display_column(t_env *e, int ray_num, int i, int column_size)
 	}
 	while (top_wall < e->winy)
 	{
-		e->pixel.x = ray_num;
 		e->pixel.y = top_wall;
 		ft_fill_pixel(e->pixel, e->images.floor_color, e);
 		top_wall++;

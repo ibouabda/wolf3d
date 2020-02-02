@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 18:42:25 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 16:17:10 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void	move_ws(int keycode, t_env *e, float x, float y)
 	(e->dbtab[(int)(e->player.y)][(int)(e->player.x - x - 0.000001f)] != '1' &&
 	e->dbtab[(int)(e->player.y)][(int)(e->player.x - x + 0.000001f)] != '1'))))
 	{
-		e->player.y = (keycode == W) ? e->player.y - y : e->player.y + y;
-		e->player.x = (keycode == W) ? e->player.x + x : e->player.x - x;
+		e->player.y = (keycode == W) || (keycode == UP_ARROW)
+		? e->player.y - y : e->player.y + y;
+		e->player.x = (keycode == W) || (keycode == UP_ARROW)
+		? e->player.x + x : e->player.x - x;
 	}
 }
 
@@ -72,6 +74,8 @@ int		key_hook(int keycode, t_env *e)
 		mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 		ft_exit(0, NULL, e);
 	}
+	if (keycode == UP_ARROW || keycode == DOWN_ARROW)
+		move_ws(keycode, e, sin(e->rot / e->pi) / 2, cos(e->rot / e->pi) / 2);
 	if (keycode == W || keycode == S)
 		move_ws(keycode, e, cos(e->rot / e->pi) / 2, sin(e->rot / e->pi) / 2);
 	if (keycode == A || keycode == D)

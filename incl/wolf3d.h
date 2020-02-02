@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/01 12:39:02 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 16:09:50 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ typedef struct	s_env
 	t_point			texel;
 	float			texel_prop;
 	int				winx;
+	int				winx_img;
+	int				texture_res_img;
 	int				winy;
 	int				midy;
 	int				project_screen;

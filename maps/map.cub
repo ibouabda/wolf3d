@@ -1,10 +1,10 @@
-R 640 480
+R 1280 720
 NO ./texture/bookshelf.xpm
 SO ./texture/bookshelf.xpm
 WE ./texture/acacia_planks.xpm
 EA ./texture/acacia_planks.xpm
 S ./texture/tnt_side.xpm
-C 255,170,128
+C 10,10,10
 F 38,77,115
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
