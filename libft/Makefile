@@ -6,7 +6,7 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 21:31:16 by ibouabda          #+#    #+#              #
-#    Updated: 2020/02/01 18:53:09 by ibouabda         ###   ########.fr        #
+#    Updated: 2020/02/02 18:06:36 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g3
 
 ### EXECUTABLE ###
 
@@ -79,11 +79,6 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
 
 tmp:
 	@mkdir -p $(OBJ_PATH)
-
-# $(NAME): $(OBJ_NAME)
-#	gcc $(CFLAGS) -c $(SRC_NAME)
-#	ar rc $(NAME) $(OBJ_NAME)
-#	ranlib $(NAME)
 
 clean:
 	@rm -rf $(OBJ_PATH)

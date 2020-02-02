@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/02 16:13:33 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 18:20:34 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	read_res(char *line, t_env *e, int i)
 	if (e->winy != 0)
 		ft_exit(1, NULL, e);
 	e->winy = ft_atoi(line + i);
+	if (e->winx > 2560 || e->winx < 50 || e->winy > 1440 || e->winy < 50)
+		ft_exit(1, NULL, e);
 	while (line[i] && ft_isdigit(line[i]))
 		i++;
 	e->midy = e->winy / 2;

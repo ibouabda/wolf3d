@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/02 16:09:50 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 17:46:51 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,11 @@
 
 # define TITLE "WOLF_3D"
 # define BEGIN "Let's Play : Press On ENTER"
-# define MOVE "Move : Arrows"
-# define VAR "Activate/Desactivate Variation : Right Click"
-# define ZOOM "Zoom/Unzoom : Scroll"
-# define COLORS "Choose Colors : R, G, B, N"
-# define FRACTAL "Choose Fractal : 1, 2, 3, 4"
+# define MOVE "Move Forward & Backward : UP & Down Arrow Or W & S"
+# define STRAF "Straf : A & D"
+# define ROTATE "Rotation : LEFT_ARROW & RIGHT_ARROW"
 # define PAUSE "Pause : ESC"
-# define RESET "Reset : Z"
-# define QUIT "Press ESC To Quit The Game"
+# define QUIT "Press ESC Or Click on the Cross To Quit The Game"
 
 # include "../libft/incl/libft.h"
 # include "../minilibx_macos/mlx.h"
@@ -140,6 +137,7 @@ typedef struct	s_env
 	int				rot;
 	char			**dbtab;
 	float			ray_dist;
+	float			var;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*esc_img_ptr;
@@ -172,5 +170,6 @@ void			display_column(t_env *e, int ray_num, int i, int column_size);
 float			fish_eye_calc_dist(t_env *e);
 void			display_texture(t_env *e);
 void			print_sprite(t_env *e, t_point point, t_point sprite_cord);
+void			interface(t_env *e);
 
 #endif

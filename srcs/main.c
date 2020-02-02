@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/02 16:14:05 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/02 18:29:04 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	ft_initialize(t_env *e)
 	e->images.wall_color[1] = 200;
 	e->images.wall_color[2] = 200;
 	e->texel.y = 0;
+	e->var = 0.000001;
 }
 
 int		hook_close(t_env *e)
@@ -76,15 +77,18 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		ft_exit(1, NULL, &e);
 	checkandparse(argv[1], &e);
+	e.bool = 0;
 	e.project_screen = (e.winx / 2) / (tan(30 / e.pi));
 	e.midy = e.winy / 2;
 	e.winx_img = e.winx * 4;
 	new_window(&e);
+	e.esc_img_ptr = mlx_new_image(e.mlx_ptr, e.winx, e.winy);
+	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.esc_img_ptr, 0, 0);
+	interface(&e);
 	img(&e);
 	open_texture(&e);
 	e.texture_res_img = e.images.north.width * 4;
 	ray_dist(&e);
-	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.img_ptr, 0, 0);
 	mlx_hook(e.win_ptr, 17, (1L << 0), hook_close, &e);
 	mlx_hook(e.win_ptr, 2, (1 << 0), key_hook, &e);
 	mlx_loop(e.mlx_ptr);
