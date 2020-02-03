@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_column.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:10:37 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/02 18:30:02 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/03 15:17:28 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 {
-	float	column_size;
+	int		column_size;
 	float	ray_dist_fisheyed;
 
 	ray_dist_fisheyed = e->ray_dist * cos((e->rayang - e->rot) / e->pi);
@@ -29,7 +29,7 @@ int		calc_column(t_env *e, int *top_wall, int ray_num, int i)
 		e->texel.x = ((int)(((e->ddax.y)
 		- (int)(e->ddax.y)) * e->images.north.height)) * 4;
 	e->pixel.x = ray_num * 4;
-	while (i < e->winy && i < *top_wall)
+	while (i <= e->winy && i < *top_wall)
 	{
 		e->pixel.y = i;
 		ft_fill_pixel(e->pixel, e->images.ceiling_color, e);

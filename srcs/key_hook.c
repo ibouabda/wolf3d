@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: retounsi <retounsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/02 17:57:07 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/03 11:46:42 by retounsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,13 @@ void	key_hook2(int keycode, t_env *e)
 	}
 	if (keycode == W || keycode == S || keycode == UP_ARROW
 	|| keycode == DOWN_ARROW)
-		move_ws(keycode, e, cos(e->rot / e->pi) / 2, sin(e->rot / e->pi) / 2);
+		move_ws(keycode, e, cos(e->rot / e->pi) / 4, sin(e->rot / e->pi) / 4);
 	if (keycode == A || keycode == D)
-		move_ad(keycode, e, sin(e->rot / e->pi) / 2, cos(e->rot / e->pi) / 2);
+		move_ad(keycode, e, sin(e->rot / e->pi) / 4, cos(e->rot / e->pi) / 4);
 	if (keycode == LEFT_ARROW)
-		e->rot = e->rot + 5;
+		e->rot = e->rot + 3;
 	if (keycode == RIGHT_ARROW)
-		e->rot = e->rot - 5;
+		e->rot = e->rot - 3;
 	if (e->rot > 360.0)
 		e->rot -= 360.0;
 	else if (e->rot < 0.0)
