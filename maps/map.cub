@@ -3,7 +3,6 @@ NO ./texture/snow.xpm
 SO ./texture/bookshelf.xpm
 WE ./texture/sandstone.xpm
 EA ./texture/acacia_planks.xpm
-S ./texture/tnt_side.xpm
 C 10,10,10
 F 38,77,115
 

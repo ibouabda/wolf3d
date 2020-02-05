@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/02 17:46:51 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/05 15:48:59 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ typedef struct	s_images
 	t_txt	south;
 	t_txt	west;
 	t_txt	east;
-	t_txt	sprite;
 	int		*floor_color;
 	int		*ceiling_color;
 	int		*wall_color;

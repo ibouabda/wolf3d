@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/02 18:20:34 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:33:44 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,23 @@ void	search_id(char *line, t_env *e)
 {
 	if (line[0] == 'R')
 		read_res(line, e, 1);
-	if (line[0] == 'S' && line[1] != 'O')
-		read_path(line, e, 1, &e->images.sprite.image);
-	if (line[0] == 'F')
+	else if (line[0] == 'F')
 		read_colors(line, e, 1, &e->images.floor_color);
-	if (line[0] == 'C')
+	else if (line[0] == 'C')
 		read_colors(line, e, 1, &e->images.ceiling_color);
-	if (line[0] == 'N' && line[1] == 'O')
+	else if (line[0] == 'N' && line[1] == 'O')
 		read_path(line, e, 2, &e->images.north.image);
-	if (line[0] == 'S' && line[1] == 'O')
+	else if (line[0] == 'S' && line[1] == 'O')
 		read_path(line, e, 2, &e->images.south.image);
-	if (line[0] == 'W' && line[1] == 'E')
+	else if (line[0] == 'W' && line[1] == 'E')
 		read_path(line, e, 2, &e->images.west.image);
-	if (line[0] == 'E' && line[1] == 'A')
+	else if (line[0] == 'E' && line[1] == 'A')
 		read_path(line, e, 2, &e->images.east.image);
+	else
+	{
+		ft_strdel(&line);
+		ft_exit(1, NULL, e);
+	}
 	ft_strdel(&line);
 }
 
@@ -111,11 +114,11 @@ int		read_first_param(int fd, t_env *e, t_images *images)
 
 	while (get_next_line(fd, &line))
 	{
-		search_id(line, e);
+		search_id(line, e);	
 		if (!(e->winx == 0 || e->winy == 0 || images->floor_color == 0
 		|| images->ceiling_color == 0 || images->north.image == 0
 		|| images->south.image == 0 || images->west.image == 0
-		|| images->east.image == 0 || images->sprite.image == 0))
+		|| images->east.image == 0))
 		{
 			e->bool = 1;
 			break ;

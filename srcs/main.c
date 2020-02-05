@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/02 18:29:04 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:46:45 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	ft_exit(int err, t_list *m, t_env *e)
 {
-	if (e->images.east.image)
-		ft_strdel(&e->images.east.image);
-	if (e->images.north.image)
-		ft_strdel(&e->images.north.image);
-	if (e->images.south.image)
-		ft_strdel(&e->images.south.image);
-	if (e->images.west.image)
-		ft_strdel(&e->images.west.image);
-	if (e->images.sprite.image)
-		ft_strdel(&e->images.sprite.image);
+	if (e->images.east.ptr_image)
+		mlx_destroy_image(e->mlx_ptr, e->images.east.ptr_image);
+	if (e->images.north.ptr_image)
+		mlx_destroy_image(e->mlx_ptr, e->images.north.ptr_image);
+	if (e->images.south.ptr_image)
+		mlx_destroy_image(e->mlx_ptr, e->images.south.ptr_image);
+	if (e->images.west.ptr_image)
+		mlx_destroy_image(e->mlx_ptr, e->images.west.ptr_image);
+	if (e->esc_img_ptr)
+		mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
+	if (e->esc_img_ptr)
+		mlx_destroy_image(e->mlx_ptr, e->img_ptr);
+	if (e->win_ptr)
+		mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 	if (e->images.floor_color)
 		ft_memdel((void**)&e->images.floor_color);
 	if (e->images.ceiling_color)
-		ft_memdel((void**)&e->images.ceiling_color);
-	if (e->images.wall_color)
 		ft_memdel((void**)&e->images.ceiling_color);
 	if (e->dbtab)
 		ft_2dstrdel(e->dbtab);
@@ -50,15 +52,10 @@ void	ft_initialize(t_env *e)
 	e->images.south.image = NULL;
 	e->images.west.image = NULL;
 	e->images.east.image = NULL;
-	e->images.sprite.image = NULL;
 	e->dbtab = NULL;
 	e->player.x = -1;
 	e->player.y = -1;
 	e->pi = (180.0 / M_PI);
-	e->images.wall_color = ft_intnew(3);
-	e->images.wall_color[0] = 200;
-	e->images.wall_color[1] = 200;
-	e->images.wall_color[2] = 200;
 	e->texel.y = 0;
 	e->var = 0.000001;
 }
@@ -82,11 +79,11 @@ int		main(int argc, char **argv)
 	e.midy = e.winy / 2;
 	e.winx_img = e.winx * 4;
 	new_window(&e);
+	open_texture(&e);
 	e.esc_img_ptr = mlx_new_image(e.mlx_ptr, e.winx, e.winy);
 	mlx_put_image_to_window(e.mlx_ptr, e.win_ptr, e.esc_img_ptr, 0, 0);
 	interface(&e);
 	img(&e);
-	open_texture(&e);
 	e.texture_res_img = e.images.north.width * 4;
 	ray_dist(&e);
 	mlx_hook(e.win_ptr, 17, (1L << 0), hook_close, &e);
