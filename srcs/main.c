@@ -3,34 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/05 16:46:45 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:14:58 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/wolf3d.h"
 
+// void	ft_exit(int err, t_list *m, t_env *e)
+// {
+// 	if (e->images.east.ptr_image)
+// 		mlx_destroy_image(e->mlx_ptr, e->images.east.ptr_image);
+// 	if (e->images.north.ptr_image)
+// 		mlx_destroy_image(e->mlx_ptr, e->images.north.ptr_image);
+// 	if (e->images.south.ptr_image)
+// 		mlx_destroy_image(e->mlx_ptr, e->images.south.ptr_image);
+// 	if (e->images.west.ptr_image)
+// 		mlx_destroy_image(e->mlx_ptr, e->images.west.ptr_image);
+// 	if (e->esc_img_ptr)
+// 		mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
+// 	if (e->img_ptr)
+// 		mlx_destroy_image(e->mlx_ptr, e->img_ptr);
+// 	if (e->win_ptr)
+// 		mlx_destroy_window(e->mlx_ptr, e->win_ptr);
+// 	if (e->images.floor_color)
+// 		ft_memdel((void**)&e->images.floor_color);
+// 	if (e->images.ceiling_color)
+// 		ft_memdel((void**)&e->images.ceiling_color);
+// 	if (e->dbtab)
+// 		ft_2dstrdel(e->dbtab);
+// 	if (m)
+// 		ft_lstdelstr(m);
+// 	if (err == 1)
+// 		ft_putendl("Error");
+// 	while(1);
+// 	exit(err);
+// }
+
 void	ft_exit(int err, t_list *m, t_env *e)
 {
-	if (e->images.east.ptr_image)
-		mlx_destroy_image(e->mlx_ptr, e->images.east.ptr_image);
-	if (e->images.north.ptr_image)
-		mlx_destroy_image(e->mlx_ptr, e->images.north.ptr_image);
-	if (e->images.south.ptr_image)
-		mlx_destroy_image(e->mlx_ptr, e->images.south.ptr_image);
-	if (e->images.west.ptr_image)
-		mlx_destroy_image(e->mlx_ptr, e->images.west.ptr_image);
-	if (e->esc_img_ptr)
-		mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
-	if (e->esc_img_ptr)
-		mlx_destroy_image(e->mlx_ptr, e->img_ptr);
-	if (e->win_ptr)
-		mlx_destroy_window(e->mlx_ptr, e->win_ptr);
+	if (e->images.east.image)
+		ft_strdel(&e->images.east.image);
+	if (e->images.north.image)
+		ft_strdel(&e->images.north.image);
+	if (e->images.south.image)
+		ft_strdel(&e->images.south.image);
+	if (e->images.west.image)
+		ft_strdel(&e->images.west.image);
+	mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
+	mlx_destroy_image(e->mlx_ptr, e->img_ptr);
+	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 	if (e->images.floor_color)
 		ft_memdel((void**)&e->images.floor_color);
 	if (e->images.ceiling_color)
+		ft_memdel((void**)&e->images.ceiling_color);
+	if (e->images.wall_color)
 		ft_memdel((void**)&e->images.ceiling_color);
 	if (e->dbtab)
 		ft_2dstrdel(e->dbtab);
@@ -38,6 +67,7 @@ void	ft_exit(int err, t_list *m, t_env *e)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("Error");
+	while(1);
 	exit(err);
 }
 
