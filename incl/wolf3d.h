@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 12:24:50 by idris            ###   ########.fr       */
+/*   Updated: 2020/02/06 14:24:46 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,5 +168,6 @@ void			display_column(t_env *e, int ray_num, int i, int column_size);
 float			fish_eye_calc_dist(t_env *e);
 void			display_texture(t_env *e);
 void			interface(t_env *e);
+// void			ft_exit_img(int err, t_list *m, t_env *e);
 
 #endif
