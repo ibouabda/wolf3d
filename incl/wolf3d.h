@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/05 15:48:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:24:50 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ typedef struct	s_images
 	t_txt	east;
 	int		*floor_color;
 	int		*ceiling_color;
-	int		*wall_color;
 }				t_images;
 
 typedef struct	s_env
@@ -168,7 +167,6 @@ void			ray_dist(t_env *e);
 void			display_column(t_env *e, int ray_num, int i, int column_size);
 float			fish_eye_calc_dist(t_env *e);
 void			display_texture(t_env *e);
-void			print_sprite(t_env *e, t_point point, t_point sprite_cord);
 void			interface(t_env *e);
 
 #endif

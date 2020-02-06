@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/05 16:46:07 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:29:36 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,9 @@ int		key_hook(int keycode, t_env *e)
 		e->bool = keycode == ENTER ? 1 : 0;
 		if (keycode == ESC)
 		{
+			mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
+			mlx_destroy_image(e->mlx_ptr, e->img_ptr);
+			mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 			ft_exit(0, NULL, e);
 		}
 	}

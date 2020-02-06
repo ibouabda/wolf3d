@@ -6,7 +6,7 @@
 /*   By: idris <idris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 12:14:58 by idris            ###   ########.fr       */
+/*   Updated: 2020/02/06 12:29:55 by idris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,9 @@ void	ft_exit(int err, t_list *m, t_env *e)
 		ft_strdel(&e->images.south.image);
 	if (e->images.west.image)
 		ft_strdel(&e->images.west.image);
-	mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
-	mlx_destroy_image(e->mlx_ptr, e->img_ptr);
-	mlx_destroy_window(e->mlx_ptr, e->win_ptr);
 	if (e->images.floor_color)
 		ft_memdel((void**)&e->images.floor_color);
 	if (e->images.ceiling_color)
-		ft_memdel((void**)&e->images.ceiling_color);
-	if (e->images.wall_color)
 		ft_memdel((void**)&e->images.ceiling_color);
 	if (e->dbtab)
 		ft_2dstrdel(e->dbtab);
