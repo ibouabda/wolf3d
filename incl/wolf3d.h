@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 14:37:55 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:43:36 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,6 @@ int				read_first_param(int fd, t_env *e, t_images *images);
 void			ft_exit(int err, t_list *m, t_env *e);
 void			new_window(t_env *e);
 void			img(t_env *e);
-void			new_img(t_env *e);
 void			open_texture(t_env *e);
 int				key_hook(int keycode, t_env *e);
 void			display_wall(t_env *e, float wall_size, float wall_top);

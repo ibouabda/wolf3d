@@ -1,4 +1,4 @@
-R 860 480
+R 1280 720
 NO ./texture/bookshelf.xpm
 SO ./texture/bookshelf.xpm
 WE ./texture/acacia_planks.xpm

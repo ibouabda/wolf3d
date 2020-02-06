@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:50:25 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/05 16:33:44 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:45:36 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int		read_first_param(int fd, t_env *e, t_images *images)
 
 	while (get_next_line(fd, &line))
 	{
-		search_id(line, e);	
+		search_id(line, e);
 		if (!(e->winx == 0 || e->winy == 0 || images->floor_color == 0
 		|| images->ceiling_color == 0 || images->north.image == 0
 		|| images->south.image == 0 || images->west.image == 0

@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:57:58 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 14:38:08 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:45:15 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	interface(t_env *e)
 	int a;
 
 	a = e->winy / 20;
-	mlx_string_put(e->mlx_ptr, e->win_ptr, e->winx / 2 - ft_strlen(TITLE) * 5,\
+	mlx_string_put(e->mlx_ptr, e->win_ptr, e->winx / 2 - ft_strlen(TITLE) * 3,\
 	e->winy / 4 - a, 0xffffff, TITLE);
 	mlx_string_put(e->mlx_ptr, e->win_ptr, e->winx / 2 - ft_strlen(BEGIN) * 5,\
 	e->winy / 4, 0xffffff, BEGIN);
@@ -96,9 +96,9 @@ void	key_hook2(int keycode, t_env *e)
 	}
 	if (keycode == W || keycode == S || keycode == UP_ARROW
 	|| keycode == DOWN_ARROW)
-		move_ws(keycode, e, cos(e->rot / e->pi) / 2, sin(e->rot / e->pi) / 2);
+		move_ws(keycode, e, cos(e->rot / e->pi) / 4, sin(e->rot / e->pi) / 4);
 	if (keycode == A || keycode == D)
-		move_ad(keycode, e, sin(e->rot / e->pi) / 2, cos(e->rot / e->pi) / 2);
+		move_ad(keycode, e, sin(e->rot / e->pi) / 4, cos(e->rot / e->pi) / 4);
 	if (keycode == LEFT_ARROW)
 		e->rot = e->rot + 5;
 	if (keycode == RIGHT_ARROW)
@@ -109,7 +109,6 @@ void	key_hook2(int keycode, t_env *e)
 		e->rot = 360.0 + e->rot;
 	if (e->bool == 1)
 	{
-		new_img(e);
 		ray_dist(e);
 		mlx_put_image_to_window(e->mlx_ptr, e->win_ptr, e->img_ptr, 0, 0);
 	}
