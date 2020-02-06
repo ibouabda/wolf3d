@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:56:23 by retounsi          #+#    #+#             */
-/*   Updated: 2020/02/06 14:24:59 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:38:04 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	load_texture(t_txt *t, t_env *e)
 
 	if ((t->ptr_image = mlx_xpm_file_to_image(e->mlx_ptr, t->image,
 		&t->width, &t->height)) == NULL)
-		ft_exit(1, NULL, e);
+		ft_exit_img(1, NULL, e);
 	ft_strdel(&t->image);
 	t->image = mlx_get_data_addr(t->ptr_image, &(bpp), &(s_l), &(endian));
 }
@@ -37,5 +37,5 @@ void	open_texture(t_env *e)
 	|| e->images.north.width != e->images.east.width
 	|| e->images.north.width != e->images.west.width
 	|| e->images.north.width != e->images.south.width)
-		ft_exit(1, NULL, e);
+		ft_exit_img(1, NULL, e);
 }
