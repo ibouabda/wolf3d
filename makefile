@@ -6,7 +6,7 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2020/02/02 18:06:28 by ibouabda         ###   ########.fr        #
+#    Updated: 2020/02/08 10:12:44 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CC = gcc -Wall -Werror -Wextra
 
-CFLAGS = -g3
+CFLAGS = -fsanitize=address
 
 MLXFLAGS = -framework OpenGL -framework AppKit
 

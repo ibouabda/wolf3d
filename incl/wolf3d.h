@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:45:07 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 16:43:36 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/08 10:08:16 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,7 @@
 
 # include "../libft/incl/libft.h"
 # include "../minilibx_macos/mlx.h"
-# include <fcntl.h>
 # include <math.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 # include <fcntl.h>
 
 typedef struct	s_txt

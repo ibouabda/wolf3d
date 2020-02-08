@@ -6,7 +6,7 @@
 /*   By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 14:47:22 by ibouabda          #+#    #+#             */
-/*   Updated: 2020/02/06 16:57:11 by ibouabda         ###   ########.fr       */
+/*   Updated: 2020/02/08 10:06:06 by ibouabda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,18 @@ void	ft_exit_img(int err, t_list *m, t_env *e)
 	if (e->images.east.ptr_image)
 	{
 		mlx_destroy_image(e->mlx_ptr, e->images.east.ptr_image);
-		printf("east\n");
 	}
 	if (e->images.north.ptr_image)
 	{
 		mlx_destroy_image(e->mlx_ptr, e->images.north.ptr_image);
-		printf("north\n");
 	}
 	if (e->images.south.ptr_image)
 	{
 		mlx_destroy_image(e->mlx_ptr, e->images.south.ptr_image);
-		printf("south\n");
 	}
 	if (e->images.west.ptr_image)
 	{
 		mlx_destroy_image(e->mlx_ptr, e->images.west.ptr_image);
-		printf("west\n");
 	}
 	mlx_destroy_image(e->mlx_ptr, e->esc_img_ptr);
 	mlx_destroy_image(e->mlx_ptr, e->img_ptr);
@@ -52,7 +48,6 @@ void	ft_exit(int err, t_list *m, t_env *e)
 		ft_lstdelstr(m);
 	if (err == 1)
 		ft_putendl("Error");
-	// while(1);
 	exit(err);
 }
 
