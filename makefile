@@ -6,15 +6,15 @@
 #    By: ibouabda <ibouabda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 17:46:29 by idris             #+#    #+#              #
-#    Updated: 2020/02/08 10:12:44 by ibouabda         ###   ########.fr        #
+#    Updated: 2020/02/08 13:35:31 by ibouabda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
 
-CC = gcc -Wall -Werror -Wextra
+CC = gcc
 
-CFLAGS = -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 MLXFLAGS = -framework OpenGL -framework AppKit
 
