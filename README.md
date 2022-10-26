@@ -9,7 +9,7 @@ Wolfenstein 3D est l’ancêtre de jeux tels que Doom (Id Software, 1993), Doom 
 (Id Software, 1994), Duke Nukem 3D (3D Realm, 1996) et Quake (Id Software, 1996),
 qui marquèrent à leur tour le monde du jeu vidéo pour toujours.
 
-Ce projet consiste a representé un monde en 3d grâce a du raycasting et à gérer les collisions.
+Ce projet consiste a representé un monde from Scratch en 3d grâce a du raycasting et à gérer les collisions.
 
 ![couloir](https://github.com/ibouabda/wolf3d/blob/master/pics/couloir.png)
 
